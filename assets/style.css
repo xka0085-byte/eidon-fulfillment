@@ -1,0 +1,54 @@
+/* Eidon Sourcing — clean business theme */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1a2332;--sub:#5a6478;--line:#e4e0d8;--paper:#faf8f4;--card:#fff;--accent:#0d6e63;--accent-soft:#e6f2f0;--warn:#b45309}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","PingFang SC",-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:16.5px}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+header.site{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:800;font-size:19px;color:var(--ink);text-decoration:none}
+.brand span{color:var(--accent)}
+nav a{color:var(--sub);text-decoration:none;margin-left:22px;font-size:15px;font-weight:600}
+nav a:hover,nav a.active{color:var(--accent)}
+.hero{padding:72px 0 56px;text-align:center}
+.hero h1{font-size:38px;line-height:1.25;font-weight:800;max-width:760px;margin:0 auto 18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.sub{font-size:19px;color:var(--sub);max-width:680px;margin:0 auto 30px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:13px 30px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.btn:hover{opacity:.9}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:34px 0}
+.trust div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14.5px;font-weight:600;text-align:center}
+section{padding:44px 0}
+h2{font-size:26px;font-weight:800;margin-bottom:8px}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:6px}
+.lead{color:var(--sub);font-size:17px;margin-bottom:22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p{font-size:14.5px;color:var(--sub)}
+.steps{counter-reset:s}
+.step{position:relative;padding:0 0 26px 56px}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:16.5px;margin-bottom:4px}
+.step p{font-size:14.5px;color:var(--sub)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px;border:1px solid var(--line);margin:16px 0}
+th{background:#f1ede5;text-align:left;padding:11px 14px;border-bottom:2px solid var(--ink)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.ph{background:var(--warn-soft);color:var(--warn);font-weight:700;padding:1px 8px;border-radius:5px;font-size:13.5px;white-space:nowrap}
+.cta-band{background:var(--accent);color:#fff;border-radius:14px;padding:36px;text-align:center;margin:40px 0}
+.cta-band h2{color:#fff}
+.cta-band p{opacity:.92;margin-bottom:18px}
+.cta-band .btn{background:#fff;color:var(--accent)}
+.pay{font-size:14px;color:var(--sub);text-align:center;margin:18px 0 0}
+footer.site{border-top:1px solid var(--line);margin-top:56px;padding:28px 0;color:var(--sub);font-size:13.5px}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer.site a{color:var(--sub)}
+article{max-width:760px}
+article h2{font-size:22px;margin-top:34px}
+article p{margin:14px 0}
+article li{margin:8px 0 8px 22px}
+.meta-line{color:var(--sub);font-size:14px;margin-bottom:26px}
+.note{background:var(--accent-soft);border-radius:10px;padding:14px 18px;font-size:14.5px;margin:18px 0}
+.hl{background:#fdf3e3;border-radius:10px;padding:14px 18px;font-size:14.5px;margin:18px 0}
+@media(max-width:640px){.hero h1{font-size:29px}.hero p.sub{font-size:16.5px}nav a{margin-left:12px;font-size:13.5px}}
