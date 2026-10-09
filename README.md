@@ -12,8 +12,11 @@ Static site for the sourcing & fulfillment service (1688 sourcing, QC, consolida
 - `blog/1688-sourcing-agent-fees.html` — flagship SEO article
 - `assets/style.css`, `robots.txt`, `sitemap.xml`
 
-## Before going "live-live", replace all placeholders
-Search the repo for: `[YOUR_RATE]` `[YOUR-EMAIL@example.com]` — fill real rates and contact info.
+## Contact info (filled 2026-10-09)
+- Email: xka0085@gmail.com
+- WhatsApp: +86 159 8244 0421 (wa.me/8615982440421)
+- Sourcing service fee: US$3.90/order flat (Eidon to confirm)
+- International shipping: YunExpress standard, US-base weight-tier estimates — replace with forwarder rate card when available
 
 ## When the first client pays → buy the .com
 1. Register domain (Namesilo/Cloudflare, ~$10/yr)
