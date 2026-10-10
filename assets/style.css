@@ -19,21 +19,30 @@ nav{display:flex;align-items:center;gap:26px}
 nav a{color:var(--sub);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
 nav a:hover,nav a.active{color:var(--ink)}
 
-/* ---------- hero (deep green block) ---------- */
-.hero{position:relative;overflow:hidden;background:
-  radial-gradient(900px 420px at 85% -20%, rgba(143,212,198,.22), transparent 60%),
-  radial-gradient(700px 380px at 8% 110%, rgba(255,255,255,.07), transparent 60%),
-  linear-gradient(135deg,#082e29 0%,#0b4a41 55%,#0d6e63 100%);
-  color:#fff;padding:96px 0 120px;text-align:center}
-.hero::after{content:"”";position:absolute;right:-40px;top:-90px;font-family:var(--serif);font-size:420px;line-height:1;color:rgba(255,255,255,.05);pointer-events:none}
-.hero .kicker{color:#8fd4c6}
-.hero h1{font-family:var(--serif);font-size:54px;line-height:1.15;font-weight:500;letter-spacing:-.01em;max-width:840px;margin:0 auto 24px}
-.hero h1 em{font-style:italic;color:#8fd4c6}
-.hero p.sub{font-size:19px;color:rgba(255,255,255,.85);max-width:660px;margin:0 auto 42px}
-.hero .btn{background:#fff;color:#0b332e;box-shadow:0 6px 24px rgba(0,0,0,.22)}
-.hero .btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.3)}
+/* ---------- hero (cinematic photo + shade) ---------- */
+.hero{position:relative;min-height:660px;display:flex;align-items:center;overflow:hidden;background:#0c0a06;text-align:center}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg img{width:100%;height:125%;object-fit:cover;object-position:center 30%;will-change:transform}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,.5) 0%,rgba(10,8,4,.16) 36%,rgba(10,8,4,.3) 66%,rgba(246,243,236,.94) 97%,#f6f3ec 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;padding:76px 24px 96px}
+.hero .kicker{color:#ffd9a0}
+.hero h1{font-family:var(--serif);font-size:52px;line-height:1.16;font-weight:500;letter-spacing:-.01em;max-width:840px;margin:0 auto 24px;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.5)}
+.hero h1 em{font-style:italic;color:#ffd9a0}
+.hero p.sub{font-size:19px;color:rgba(255,255,255,.94);max-width:660px;margin:0 auto 40px;text-shadow:0 1px 18px rgba(0,0,0,.4)}
+.hero .btn{background:#fff;color:#0b332e;box-shadow:0 6px 24px rgba(0,0,0,.28)}
+.hero .btn:hover{transform:translateY(-2px)}
 .hero .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);box-shadow:none}
-.hero .btn.ghost:hover{background:rgba(255,255,255,.12)}
+.hero .btn.ghost:hover{background:rgba(255,255,255,.14)}
+
+/* ---------- hero text links (no boxes) ---------- */
+.hero-links{margin-top:40px;display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
+.tlink{color:#fff;text-decoration:none;font-size:15.5px;font-weight:600;letter-spacing:.04em;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.5);transition:color .2s,border-color .2s}
+.tlink:hover{color:#ffd9a0;border-color:#ffd9a0}
+.tlink .arr{display:inline-block;transition:transform .25s}
+.tlink:hover .arr{transform:translateX(5px)}
+
+/* ---------- flight path (legacy svg, hidden) ---------- */
+.flight{display:none}
 
 /* ---------- hero text links (no boxes) ---------- */
 .hero-links{margin-top:40px;display:flex;gap:40px;justify-content:center;flex-wrap:wrap;position:relative;z-index:3}

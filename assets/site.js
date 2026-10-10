@@ -102,6 +102,19 @@
     updatePlane();
   }
 
+  // hero cinematic parallax (GSAP, photo hero on index only)
+  if (window.gsap && window.ScrollTrigger && document.querySelector(".hero-bg img")) {
+    window.gsap.registerPlugin(window.ScrollTrigger);
+    window.gsap.to(".hero-bg img", {
+      yPercent: 16, ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+    });
+    window.gsap.from(".hero-inner > *", {
+      opacity: 0, y: 26, duration: 1.1, ease: "power2.out", stagger: 0.12,
+      scrollTrigger: { trigger: ".hero", start: "top 75%" }
+    });
+  }
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", render);
   else render();
 })();
