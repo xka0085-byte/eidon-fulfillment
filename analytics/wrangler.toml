@@ -1,0 +1,13 @@
+name = "eidon-analytics"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# D1 database (free tier: 5M row reads/day, 100k writes/day — plenty for store analytics)
+[[d1_databases]]
+binding = "DB"
+database_name = "eidon-analytics"
+database_id = "REPLACE_WITH_YOUR_D1_ID"   # from: wrangler d1 create eidon-analytics
+
+# Serve the dashboard HTML from ./public at the worker URL
+[assets]
+directory = "public"

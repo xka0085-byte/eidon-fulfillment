@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eidon Analytics</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{ --bg:#0b1411; --card:#13201b; --line:#1f332b; --txt:#e9f3ee; --mut:#8fb3a6; --acc:#39d98a; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  header{padding:22px 28px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  header h1{font-size:18px;margin:0;font-weight:600;letter-spacing:.02em}
+  header .sub{color:var(--mut);font-size:13px}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px 20px 60px}
+  .controls{display:flex;gap:8px;align-items:center;margin:18px 0 22px}
+  .controls button{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:13px}
+  .controls button.on{background:var(--acc);color:#04140c;border-color:var(--acc);font-weight:600}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .kpi .v{font-size:26px;font-weight:700}
+  .kpi .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+  .kpi .v.acc{color:var(--acc)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:18px}
+  .panel h2{font-size:14px;margin:0 0 12px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);color:var(--txt)}
+  th{color:var(--mut);font-weight:600}
+  td .n{color:var(--acc);font-weight:600}
+  .loading{color:var(--mut);padding:40px;text-align:center}
+  @media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Eidon Analytics</h1>
+  <div class="sub">Real store data · visits · transactions · conversion</div>
+</header>
+<div class="wrap">
+  <div class="controls">
+    <span style="color:var(--mut);font-size:13px">Range:</span>
+    <button data-d="7">7d</button>
+    <button data-d="30" class="on">30d</button>
+    <button data-d="90">90d</button>
+    <span id="upd" style="color:var(--mut);font-size:12px;margin-left:auto"></span>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v" id="k-visits">–</div><div class="l">Visits</div></div>
+    <div class="kpi"><div class="v acc" id="k-purchases">–</div><div class="l">Transactions</div></div>
+    <div class="kpi"><div class="v acc" id="k-rev">–</div><div class="l">Revenue (USD)</div></div>
+    <div class="kpi"><div class="v" id="k-conv">–</div><div class="l">Purchase rate</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Daily visits vs transactions</h2>
+    <canvas id="chart" height="110"></canvas>
+  </div>
+
+  <div class="grid2">
+    <div class="panel"><h2>Top pages</h2><table id="pages"><tr><th>Path</th><th>Visits</th></tr></table></div>
+    <div class="panel"><h2>Top referrers</h2><table id="refs"><tr><th>Source</th><th>Visits</th></tr></table></div>
+  </div>
+</div>
+
+<script>
+let chart;
+const fmt = n => (n==null?0:n).toLocaleString();
+const money = n => "$" + (n==null?0:n).toFixed(2);
+
+async function load(days){
+  document.getElementById("upd").textContent = "loading…";
+  const r = await fetch("/api/stats?days=" + days);
+  const d = await r.json();
+  document.getElementById("k-visits").textContent    = fmt(d.totals.visits);
+  document.getElementById("k-purchases").textContent = fmt(d.totals.purchases);
+  document.getElementById("k-rev").textContent       = money(d.totals.revenue);
+  document.getElementById("k-conv").textContent      = d.conversion.toFixed(2) + "%";
+
+  const labels = d.days.map(x => x.day.slice(5));
+  const visits = d.days.map(x => x.visits || 0);
+  const purch  = d.days.map(x => x.purchases || 0);
+
+  if(chart) chart.destroy();
+  chart = new Chart(document.getElementById("chart"), {
+    type: "line",
+    data: { labels, datasets: [
+      { label:"Visits", data:visits, borderColor:"#39d98a", backgroundColor:"rgba(57,217,138,.12)", fill:true, tension:.3 },
+      { label:"Transactions", data:purch, borderColor:"#ffd166", backgroundColor:"rgba(255,209,102,.12)", fill:true, tension:.3 }
+    ]},
+    options:{ plugins:{legend:{labels:{color:"#cfe3da"}}}, scales:{
+      x:{ ticks:{color:"#8fb3a6"}, grid:{color:"#1f332b"} },
+      y:{ ticks:{color:"#8fb3a6"}, grid:{color:"#1f332b"}, beginAtZero:true }
+    }}
+  });
+
+  const pt = document.getElementById("pages"); pt.innerHTML = "<tr><th>Path</th><th>Visits</th></tr>";
+  (d.topPages||[]).forEach(x => { const tr=pt.insertRow(); tr.innerHTML="<td>"+x.path+"</td><td class='n'>"+fmt(x.c)+"</td>"; });
+  const rt = document.getElementById("refs"); rt.innerHTML = "<tr><th>Source</th><th>Visits</th></tr>";
+  (d.topReferrers||[]).forEach(x => { const tr=rt.insertRow(); tr.innerHTML="<td>"+(x.referrer||"(direct)")+"</td><td class='n'>"+fmt(x.c)+"</td>"; });
+
+  document.getElementById("upd").textContent = "updated " + new Date().toLocaleTimeString();
+}
+document.querySelectorAll(".controls button").forEach(b=>{
+  b.onclick=()=>{ document.querySelectorAll(".controls button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); load(+b.dataset.d); };
+});
+load(30);
+setInterval(()=>{ const on=document.querySelector(".controls button.on"); if(on) load(+on.dataset.d); }, 60000);
+</script>
+</body>
+</html>

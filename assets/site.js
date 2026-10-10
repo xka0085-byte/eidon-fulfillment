@@ -18,7 +18,7 @@
       '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
     var badges = "";
     if (p.badge) badges += '<div class="p-badge">' + esc(p.badge) + "</div>";
-    if (p.stock) badges += '<div class="p-badge alt">' + esc(p.stock) + "</div>";
+    badges += '<div class="p-badge alt">In stock</div>';
     return '<div class="p-card reveal" style="transition-delay:' + delay + 's">' + badges +
       '<a class="p-img' + (i % 2 ? " alt" : "") + '" href="product.html?id=' + esc(p.id) + '">' + imgInner + "</a>" +
       '<div class="p-info"><h3><a href="product.html?id=' + esc(p.id) + '">' + esc(p.name) + "</a></h3>" +
@@ -32,7 +32,7 @@
     }).join("");
     var specs = (p.specs || []).map(function (s) { return "<tr><td>" + esc(s[0]) + "</td><td>" + esc(s[1]) + "</td></tr>"; }).join("");
     var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
-    var stock = p.stock ? '<div class="pd-stock">' + esc(p.stock) + ' <span>· this drop only, no restock</span></div>' : "";
+    var stock = '<div class="pd-stock in">In stock <span>· ships in 10–15 days, tracked</span></div>';
     var note = p.curator_note ? '<div class="cnote"><div class="cnote-t">Curator&rsquo;s note</div><p>' + esc(p.curator_note) + '</p><div class="cnote-s">— Eidon</div></div>' : "";
     return '<div class="pd-head"><a href="shop.html">← Back to shop</a></div>' +
       '<div class="pd-layout"><div class="p-img pd-img">' + imgInner + "</div>" +
@@ -41,6 +41,7 @@
       '<p class="pd-tagline">' + esc(p.tagline) + "</p>" +
       '<p class="p-price pd-price">' + esc(p.price) + "</p>" + stock +
       '<div class="pd-ctas"><a class="btn" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a>' +
+      '<a class="btn" href="checkout.html?id=' + esc(p.id) + '">Pay online</a>' +
       '<a class="btn ghost" href="shipping.html">Shipping &amp; payment</a></div>' +
       '<p class="pd-note">QC photo before shipping · 10–15 day tracked delivery · <a href="guarantee.html">30-Day Keep-It Guarantee</a></p></div></div>' +
       (note ? '<section class="pd-section">' + note + "</section>" : "") +

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Eidon Sourcing</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html">Eidon<span>&nbsp;Sourcing</span></a>
+  <nav><a href="index.html">Shop</a><a href="shop.html">All</a><a href="about.html">About</a></nav>
+</div></header>
+
+<main class="wrap" style="max-width:760px;padding-top:34px;padding-bottom:60px">
+  <h1 class="serif">Secure checkout</h1>
+  <div id="co-summary" class="co-summary">Loading…</div>
+
+  <div class="co-methods" id="co-methods">
+    <div class="co-method">
+      <h3>Pay with PayPal</h3>
+      <p class="co-note">Visa, Mastercard, or PayPal balance. You get QC photos before it ships.</p>
+      <div id="paypal-button"></div>
+    </div>
+    <div class="co-method">
+      <h3>Pay with crypto (USDC / USDT)</h3>
+      <p class="co-note">Stablecoin checkout via Coinbase Commerce — no bank, no borders, settles in minutes.</p>
+      <a id="crypto-button" class="btn" href="#">Pay with crypto</a>
+    </div>
+  </div>
+
+  <p class="co-foot">Every order is covered by the <a href="guarantee.html">30-Day Keep-It Guarantee</a>. Questions? <a href="https://wa.me/8615982440421" target="_blank" rel="noopener">Message me on WhatsApp</a>.</p>
+</main>
+
+<!-- PayPal JS SDK: replace YOUR_PAYPAL_CLIENT_ID with your real client id -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
+<script src="assets/products-data.js"></script>
+<script src="assets/analytics.js"></script>
+<script src="assets/payment.js"></script>
+</body>
+</html>
