@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/shop.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/shipping.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/guarantee.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/faq.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/shop.html</loc><priority>0.9</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/about.html</loc><priority>0.6</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/shipping.html</loc><priority>0.7</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/guarantee.html</loc><priority>0.7</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/faq.html</loc><priority>0.7</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/blog/1688-sourcing-agent-fees.html</loc><priority>0.5</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/product.html?id=bag-charm-trio</loc><priority>0.8</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/product.html?id=chunky-chain-necklace</loc><priority>0.8</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/product.html?id=claw-clip-set</loc><priority>0.8</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/product.html?id=beaded-phone-charm</loc><priority>0.8</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/product.html?id=resin-ring</loc><priority>0.8</priority></url>
+  <url><loc>https://xka0085-byte.github.io/eidon-fulfillment/product.html?id=canvas-tote-bundle</loc><priority>0.8</priority></url>
 </urlset>
