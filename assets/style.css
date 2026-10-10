@@ -94,6 +94,24 @@ footer.site a:hover{color:var(--ink)}
 .p-card{position:relative;background:var(--card);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
 .p-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(20,21,25,.09)}
 .p-badge{position:absolute;top:12px;left:12px;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:2px;z-index:2}
+.p-badge.alt{background:#b45309;left:auto;right:12px}
+.p-free{font-size:11px;font-weight:600;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-left:6px}
+.pd-free{display:block;margin-bottom:10px}
+
+/* ---------- stock & curator note ---------- */
+.pd-stock{font-size:14px;font-weight:700;color:var(--warn);margin-bottom:16px}
+.pd-stock span{font-weight:400;color:var(--sub)}
+.cnote{background:var(--green-soft);border-left:3px solid var(--green);border-radius:2px;padding:22px 26px;max-width:720px}
+.cnote-t{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px}
+.cnote p{font-family:var(--serif);font-size:16.5px;line-height:1.65;font-style:italic}
+.cnote-s{margin-top:10px;font-size:13px;color:var(--sub)}
+
+/* ---------- Eidon difference ---------- */
+.diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border-top:1px solid var(--line)}
+.diff-card{border-bottom:1px solid var(--line);padding:28px 26px 28px 0}
+.diff-card .dnum{font-family:var(--serif);font-size:15px;color:var(--green);letter-spacing:.1em;margin-bottom:10px}
+.diff-card h3{font-family:var(--serif);font-size:19px;font-weight:600;margin-bottom:8px}
+.diff-card p{font-size:14.5px;color:var(--sub)}
 .p-img{height:280px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--serif);font-size:21px;line-height:1.4;color:#8a8272;background:linear-gradient(135deg,#efe9dd,#ddd5c2);text-decoration:none;transition:filter .25s}
 .p-img:hover{filter:brightness(1.04)}
 .p-img.alt{background:linear-gradient(135deg,#e6efe9,#d0ded5)}

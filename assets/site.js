@@ -16,11 +16,13 @@
     var delay = (i % 3) * 0.08;
     var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy">' :
       '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
-    var badge = p.badge ? '<div class="p-badge">' + esc(p.badge) + "</div>" : "";
-    return '<div class="p-card reveal" style="transition-delay:' + delay + 's">' + badge +
+    var badges = "";
+    if (p.badge) badges += '<div class="p-badge">' + esc(p.badge) + "</div>";
+    if (p.stock) badges += '<div class="p-badge alt">' + esc(p.stock) + "</div>";
+    return '<div class="p-card reveal" style="transition-delay:' + delay + 's">' + badges +
       '<a class="p-img' + (i % 2 ? " alt" : "") + '" href="product.html?id=' + esc(p.id) + '">' + imgInner + "</a>" +
       '<div class="p-info"><h3><a href="product.html?id=' + esc(p.id) + '">' + esc(p.name) + "</a></h3>" +
-      '<p class="p-price">' + esc(p.price) + "</p>" +
+      '<p class="p-price">' + esc(p.price) + ' <span class="p-free">free shipping</span></p>' +
       '<a class="p-order" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a></div></div>';
   }
 
@@ -30,14 +32,18 @@
     }).join("");
     var specs = (p.specs || []).map(function (s) { return "<tr><td>" + esc(s[0]) + "</td><td>" + esc(s[1]) + "</td></tr>"; }).join("");
     var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
+    var stock = p.stock ? '<div class="pd-stock">' + esc(p.stock) + ' <span>· this drop only, no restock</span></div>' : "";
+    var note = p.curator_note ? '<div class="cnote"><div class="cnote-t">Curator&rsquo;s note</div><p>' + esc(p.curator_note) + "</p><div class="cnote-s">— Eidon</div></div>" : "";
     return '<div class="pd-head"><a href="shop.html">← Back to shop</a></div>' +
       '<div class="pd-layout"><div class="p-img pd-img">' + imgInner + "</div>" +
-      '<div class="pd-info"><h1 class="serif">' + esc(p.name) + "</h1>" +
+      '<div class="pd-info"><div class="p-badge">' + esc(p.badge || "Free shipping") + '</div><span class="p-free pd-free">free worldwide shipping</span>' +
+      '<h1 class="serif">' + esc(p.name) + "</h1>" +
       '<p class="pd-tagline">' + esc(p.tagline) + "</p>" +
-      '<p class="p-price pd-price">' + esc(p.price) + "</p>" +
+      '<p class="p-price pd-price">' + esc(p.price) + "</p>" + stock +
       '<div class="pd-ctas"><a class="btn" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a>' +
       '<a class="btn ghost" href="shipping.html">Shipping &amp; payment</a></div>' +
       '<p class="pd-note">QC photo before shipping · 10–15 day tracked delivery · <a href="guarantee.html">30-Day Keep-It Guarantee</a></p></div></div>' +
+      (note ? '<section class="pd-section">' + note + "</section>" : "") +
       '<section class="pd-section"><h2 class="serif">Why you&rsquo;ll love it</h2>' + (feats || "") + "</section>" +
       (specs ? '<section class="pd-section"><h2 class="serif">The numbers</h2><table>' + specs + "</table></section>" : "") +
       '<section class="pd-section"><div class="note">Every order ships with QC photos, full tracking, and the <a href="guarantee.html">30-Day Keep-It Guarantee</a>. Questions? <a href="https://wa.me/8615982440421" target="_blank" rel="noopener">Message me on WhatsApp</a> — I answer personally.</div></section>';
