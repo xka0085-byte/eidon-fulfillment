@@ -35,6 +35,23 @@ nav a:hover,nav a.active{color:var(--ink)}
 .hero .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);box-shadow:none}
 .hero .btn.ghost:hover{background:rgba(255,255,255,.12)}
 
+/* ---------- hero text links (no boxes) ---------- */
+.hero-links{margin-top:40px;display:flex;gap:40px;justify-content:center;flex-wrap:wrap;position:relative;z-index:3}
+.tlink{color:#fff;text-decoration:none;font-size:15.5px;font-weight:600;letter-spacing:.04em;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.45);transition:color .2s,border-color .2s}
+.tlink:hover{color:#8fd4c6;border-color:#8fd4c6}
+.tlink .arr{display:inline-block;transition:transform .25s}
+.tlink:hover .arr{transform:translateX(5px)}
+
+/* ---------- paper-plane flight ---------- */
+.flight{position:absolute;inset:0;pointer-events:none;z-index:1}
+.flight svg{width:100%;height:100%}
+.fpath{stroke:rgba(255,255,255,.38);stroke-width:1.4;stroke-dasharray:6 10;stroke-linecap:round;fill:none}
+.fdraw{stroke:#8fd4c6;stroke-width:1.8;stroke-linecap:round;fill:none;opacity:.85}
+.plane-body{fill:rgba(255,255,255,.16);stroke:#fff;stroke-width:1.6;stroke-linejoin:round}
+.plane-fold{fill:rgba(255,255,255,.38);stroke:none}
+.plane-trail{stroke:rgba(255,255,255,.45);stroke-width:1.2;stroke-dasharray:3 6;fill:none}
+.hero .hero-links,.hero h1,.hero p.sub,.hero .kicker{position:relative;z-index:2}
+
 /* ---------- floating trust card ---------- */
 .trust{position:relative;z-index:3;background:#fff;border:none;border-radius:3px;box-shadow:0 16px 44px rgba(8,46,41,.14);display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));max-width:900px;margin:-56px auto 0;padding:8px 6px}
 .trust div{padding:24px 16px;font-size:13.5px;font-weight:600;letter-spacing:.02em;text-align:center;border-left:1px solid var(--line);display:flex;align-items:center;justify-content:center}

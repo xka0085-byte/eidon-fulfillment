@@ -33,7 +33,7 @@
     var specs = (p.specs || []).map(function (s) { return "<tr><td>" + esc(s[0]) + "</td><td>" + esc(s[1]) + "</td></tr>"; }).join("");
     var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
     var stock = p.stock ? '<div class="pd-stock">' + esc(p.stock) + ' <span>· this drop only, no restock</span></div>' : "";
-    var note = p.curator_note ? '<div class="cnote"><div class="cnote-t">Curator&rsquo;s note</div><p>' + esc(p.curator_note) + "</p><div class="cnote-s">— Eidon</div></div>" : "";
+    var note = p.curator_note ? '<div class="cnote"><div class="cnote-t">Curator&rsquo;s note</div><p>' + esc(p.curator_note) + '</p><div class="cnote-s">— Eidon</div></div>' : "";
     return '<div class="pd-head"><a href="shop.html">← Back to shop</a></div>' +
       '<div class="pd-layout"><div class="p-img pd-img">' + imgInner + "</div>" +
       '<div class="pd-info"><div class="p-badge">' + esc(p.badge || "Free shipping") + '</div><span class="p-free pd-free">free worldwide shipping</span>' +
@@ -71,6 +71,35 @@
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  }
+
+  // paper-plane flight linked to page scroll
+  var fp = document.querySelector(".flight .fpath");
+  var fd = document.querySelector(".flight .fdraw");
+  var plane = document.getElementById("paper-plane");
+  if (fp && plane && fp.getTotalLength) {
+    var flen = fp.getTotalLength();
+    if (fd) { fd.style.strokeDasharray = flen; fd.style.strokeDashoffset = flen; }
+    var planeTicking = false;
+    function updatePlane() {
+      planeTicking = false;
+      var doc = document.documentElement.scrollHeight - window.innerHeight;
+      var prog = Math.min(1, Math.max(0, (window.scrollY || 0) / Math.max(doc, 1)));
+      var tp = Math.min(1, prog / 0.38);           // flight completes in first 38% of page scroll
+      var ease = 1 - Math.pow(1 - tp, 3);           // easeOutCubic
+      var pt = fp.getPointAtLength(flen * ease);
+      var pt2 = fp.getPointAtLength(Math.min(flen, flen * ease + 3));
+      var ang = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI;
+      plane.setAttribute("transform", "translate(" + pt.x.toFixed(1) + "," + pt.y.toFixed(1) + ") rotate(" + ang.toFixed(1) + ")");
+      if (fd) fd.style.strokeDashoffset = String(flen * (1 - ease));
+      plane.style.opacity = String(0.3 + 0.7 * ease);
+    }
+    var onScroll = function () {
+      if (!planeTicking) { planeTicking = true; requestAnimationFrame(function () { updatePlane(); planeTicking = false; }); }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    updatePlane();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", render);
