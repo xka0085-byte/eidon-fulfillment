@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://xka0085-byte.github.io/eidon-fulfillment/sitemap.xml
+Sitemap: https://xka0085-byte.github.io/eidon-fulfillment/image-sitemap.xml

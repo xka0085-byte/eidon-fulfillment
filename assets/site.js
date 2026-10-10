@@ -14,6 +14,50 @@
     return "https://wa.me/8615982440421?text=" + encodeURIComponent(msg);
   }
 
+  var SITE = "https://xka0085-byte.github.io/eidon-fulfillment/";
+  var HERO = SITE + "assets/hero-sunset.jpg";
+
+  function setCanonical(url) {
+    var l = document.querySelector('link[rel="canonical"]');
+    if (!l) { l = document.createElement("link"); l.rel = "canonical"; document.head.appendChild(l); }
+    l.setAttribute("href", url);
+  }
+  function upsertLD(idTag, obj) {
+    var s = document.getElementById(idTag);
+    if (!s) { s = document.createElement("script"); s.type = "application/ld+json"; s.id = idTag; document.head.appendChild(s); }
+    s.textContent = JSON.stringify(obj);
+  }
+  function injectProductSEO(p) {
+    var url = SITE + "product.html?id=" + encodeURIComponent(p.id);
+    setCanonical(url);
+    var price = parseFloat(String(p.price).replace(/[^0-9.\-]/g, "")) || 0;
+    upsertLD("ld-product", {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": p.name,
+      "description": p.desc,
+      "image": p.img || HERO,
+      "brand": { "@type": "Brand", "name": "Eidon Sourcing" },
+      "sku": p.id,
+      "offers": {
+        "@type": "Offer",
+        "price": price,
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": url,
+        "priceValidUntil": "2026-12-31"
+      }
+    });
+    upsertLD("ld-breadcrumb", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Shop", "item": SITE + "shop.html" },
+        { "@type": "ListItem", "position": 2, "name": p.name, "item": url }
+      ]
+    });
+  }
+
   function pCard(p, i) {
     var delay = (i % 3) * 0.08;
     var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy">' :
@@ -33,7 +77,7 @@
       return '<div class="frow"><div class="fnum">' + ("0" + (i + 1)).slice(-2) + '</div><div><div class="ft">' + esc(f.t) + '</div><div class="fd">' + esc(f.d) + "</div></div></div>";
     }).join("");
     var specs = (p.specs || []).map(function (s) { return "<tr><td>" + esc(s[0]) + "</td><td>" + esc(s[1]) + "</td></tr>"; }).join("");
-    var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
+    var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
     var stock = '<div class="pd-stock in">In stock <span>· ships in 10–15 days, tracked</span></div>';
     var note = p.curator_note ? '<div class="cnote"><div class="cnote-t">Curator&rsquo;s note</div><p>' + esc(p.curator_note) + '</p><div class="cnote-s">— Eidon</div></div>' : "";
     return '<div class="pd-head"><a href="shop.html">← Back to shop</a></div>' +
@@ -67,6 +111,7 @@
       var p = P.filter(function (x) { return x.id === id; })[0];
       pd.innerHTML = p ? pDetail(p) : '<p>Product not found.</p><p><a class="btn" href="shop.html">Back to shop</a></p>';
       document.title = p ? p.name + " — Eidon Sourcing" : document.title;
+      if (p) injectProductSEO(p);
     }
 
     // scroll reveal (works on both static and injected nodes)
