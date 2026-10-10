@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eidon Admin</title>
+<style>
+  :root{ --bg:#0b1411; --card:#13201b; --line:#1f332b; --txt:#e9f3ee; --mut:#8fb3a6; --acc:#39d98a; --warn:#ffd166; --bad:#ff6b6b; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  header{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  header h1{font-size:16px;margin:0}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .tabs{display:flex;gap:8px;margin:14px 0 18px}
+  .tabs button{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 16px;border-radius:8px;cursor:pointer}
+  .tabs button.on{background:var(--acc);color:#04140c;border-color:var(--acc);font-weight:600}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
+  label{display:block;color:var(--mut);font-size:12px;margin:10px 0 4px;text-transform:uppercase;letter-spacing:.04em}
+  input,textarea,select{width:100%;background:#0e1a15;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:9px 10px;font:inherit}
+  textarea{resize:vertical;min-height:64px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .btns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  button.act{background:var(--acc);color:#04140c;border:0;padding:9px 16px;border-radius:8px;cursor:pointer;font-weight:600}
+  button.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);padding:9px 16px;border-radius:8px;cursor:pointer}
+  button.danger{background:transparent;color:var(--bad);border:1px solid var(--bad);padding:6px 12px;border-radius:8px;cursor:pointer}
+  table{width:100%;border-collapse:collapse}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}
+  th{color:var(--mut);font-weight:600}
+  tr.click{cursor:pointer}
+  tr.click:hover{background:#16271f}
+  .pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600}
+  .pill.paid{background:rgba(57,217,138,.18);color:var(--acc)}
+  .pill.shipped{background:rgba(255,209,102,.18);color:var(--warn)}
+  .pill.delivered{background:rgba(120,170,255,.18);color:#8fb3ff}
+  .pill.refunded,.pill.cancelled{background:rgba(255,107,107,.18);color:var(--bad)}
+  .muted{color:var(--mut)}
+  .login{max-width:360px;margin:80px auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .hidden{display:none}
+  .prod-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+  pre{white-space:pre-wrap;word-break:break-word;background:#0e1a15;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:12px;max-height:240px;overflow:auto}
+</style>
+</head>
+<body>
+
+<div id="login" class="login">
+  <h1>Eidon Admin</h1>
+  <p class="muted">Enter your admin token (set via <code>wrangler secret put ADMIN_TOKEN</code>).</p>
+  <label>Admin token</label>
+  <input id="token" type="password" placeholder="paste token">
+  <div class="btns"><button class="act" onclick="login()">Enter</button></div>
+  <p id="login-err" class="muted" style="color:var(--bad)"></p>
+</div>
+
+<div id="app" class="hidden">
+  <header>
+    <h1>Eidon Admin</h1>
+    <div><button class="ghost" onclick="logout()">Log out</button></div>
+  </header>
+  <div class="wrap">
+    <div class="tabs">
+      <button id="tab-prod" class="on" onclick="show('prod')">Products</button>
+      <button id="tab-ord" onclick="show('ord')">Orders</button>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section id="sec-prod">
+      <div class="panel">
+        <h2 style="margin:0 0 4px">Edit / add product</h2>
+        <p class="muted" style="margin:0 0 6px">Features: one per line as <code>Title :: Description</code>. Specs: one per line as <code>Key :: Value</code>.</p>
+        <div class="row">
+          <div><label>id (unique, no spaces)</label><input id="p-id" placeholder="bag-charm-trio"></div>
+          <div><label>name</label><input id="p-name" placeholder="Bag Charm Trio"></div>
+        </div>
+        <div class="row">
+          <div><label>price (USD)</label><input id="p-price" placeholder="$24.99"></div>
+          <div><label>badge</label><input id="p-badge" placeholder="Free shipping"></div>
+        </div>
+        <label>tagline</label><input id="p-tagline">
+        <label>description</label><textarea id="p-desc"></textarea>
+        <div class="row">
+          <div><label>in stock?</label>
+            <select id="p-stock"><option value="true">Yes — In stock</option><option value="false">No — hidden</option></select>
+          </div>
+          <div><label>image path (optional)</label><input id="p-img" placeholder="assets/products/xxx.jpg"></div>
+        </div>
+        <label>features (Title :: Description per line)</label><textarea id="p-features"></textarea>
+        <label>specs (Key :: Value per line)</label><textarea id="p-specs"></textarea>
+        <label>curator note (optional)</label><textarea id="p-note"></textarea>
+        <div class="btns">
+          <button class="act" onclick="saveProduct()">Save product</button>
+          <button class="ghost" onclick="newProduct()">New (clear)</button>
+        </div>
+        <p id="p-msg" class="muted"></p>
+      </div>
+
+      <div class="panel">
+        <h2 style="margin:0 0 10px">All products</h2>
+        <div id="prod-list"></div>
+      </div>
+    </section>
+
+    <!-- ORDERS -->
+    <section id="sec-ord" class="hidden">
+      <div class="panel">
+        <div class="row">
+          <div><label>Search (id / email / name / product)</label><input id="o-q" oninput="loadOrders()" placeholder="search…"></div>
+          <div><label>Status filter</label>
+            <select id="o-status" onchange="loadOrders()">
+              <option value="">All</option><option>paid</option><option>shipped</option>
+              <option>delivered</option><option>refunded</option><option>cancelled</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <table id="o-table"><tr><th>Order</th><th>Date</th><th>Customer</th><th>Product</th><th>Amount</th><th>Method</th><th>Status</th></tr></table>
+        <p id="o-empty" class="muted">No orders yet.</p>
+      </div>
+      <div class="panel hidden" id="o-detail">
+        <h2 style="margin:0 0 10px">Order detail</h2>
+        <pre id="o-json"></pre>
+        <div class="row" style="margin-top:10px">
+          <div><label>Update status</label>
+            <select id="o-newstatus">
+              <option>paid</option><option>shipped</option><option>delivered</option>
+              <option>refunded</option><option>cancelled</option>
+            </select>
+          </div>
+          <div style="display:flex;align-items:flex-end"><button class="act" onclick="saveOrder()">Save status</button></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+const API = ""; // same origin (served by worker)
+let TOKEN = sessionStorage.getItem("eidon_admin") || "";
+
+function hdr(){ return { "content-type":"application/json", "x-admin-token": TOKEN }; }
+function login(){ TOKEN = document.getElementById("token").value.trim(); if(!TOKEN){ document.getElementById("login-err").textContent="token required"; return; }
+  fetch(API+"/api/products",{headers:hdr()}).then(r=>{ if(r.ok){ sessionStorage.setItem("eidon_admin",TOKEN); enter(); loadProducts(); } else { document.getElementById("login-err").textContent="wrong token"; } }); }
+function logout(){ sessionStorage.removeItem("eidon_admin"); location.reload(); }
+function enter(){ document.getElementById("login").classList.add("hidden"); document.getElementById("app").classList.remove("hidden"); }
+function show(t){ document.getElementById("sec-prod").classList.toggle("hidden", t!=="prod"); document.getElementById("sec-ord").classList.toggle("hidden", t!=="ord");
+  document.getElementById("tab-prod").classList.toggle("on", t==="prod"); document.getElementById("tab-ord").classList.toggle("on", t==="ord");
+  if(t==="ord") loadOrders(); }
+
+// ---------- products ----------
+function parseLines(text, sep="::"){ return text.split("\n").map(s=>s.trim()).filter(Boolean).map(line=>{ const i=line.indexOf(sep); const a=line.slice(0,i).trim(); const b=line.slice(i+sep.length).trim(); return [a,b]; }); }
+function featuresToText(f){ return (f||[]).map(x=>x.t+" :: "+x.d).join("\n"); }
+function specsToText(s){ return (s||[]).map(x=>x[0]+" :: "+x[1]).join("\n"); }
+
+function loadProducts(){
+  fetch(API+"/api/products").then(r=>r.json()).then(list=>{
+    const el=document.getElementById("prod-list"); el.innerHTML="";
+    list.forEach(p=>{
+      const d=document.createElement("div"); d.className="prod-item";
+      d.innerHTML="<div><strong>"+p.name+"</strong> <span class='muted'>"+p.price+" · "+(p.stock===false?"hidden":"in stock")+"</span></div>";
+      const b=document.createElement("div");
+      b.innerHTML="<button class='ghost' onclick='editProduct(\""+p.id+"\")'>Edit</button> <button class='danger' onclick='delProduct(\""+p.id+"\")'>Delete</button>";
+      d.appendChild(b); el.appendChild(d);
+    });
+    if(!list.length) el.innerHTML="<p class='muted'>No products yet.</p>";
+  });
+}
+function newProduct(){ ["p-id","p-name","p-price","p-badge","p-tagline","p-desc","p-img","p-features","p-specs","p-note"].forEach(id=>document.getElementById(id).value=""); document.getElementById("p-stock").value="true"; document.getElementById("p-msg").textContent=""; }
+function editProduct(id){
+  fetch(API+"/api/products").then(r=>r.json()).then(list=>{
+    const p=list.find(x=>x.id===id); if(!p) return;
+    document.getElementById("p-id").value=p.id; document.getElementById("p-name").value=p.name||"";
+    document.getElementById("p-price").value=p.price||""; document.getElementById("p-badge").value=p.badge||"";
+    document.getElementById("p-tagline").value=p.tagline||""; document.getElementById("p-desc").value=p.desc||"";
+    document.getElementById("p-img").value=p.img||""; document.getElementById("p-stock").value=String(p.stock!==false);
+    document.getElementById("p-features").value=featuresToText(p.features); document.getElementById("p-specs").value=specsToText(p.specs);
+    document.getElementById("p-note").value=p.curator_note||""; document.getElementById("p-msg").textContent="Editing "+id;
+  });
+}
+function saveProduct(){
+  const p={ id:document.getElementById("p-id").value.trim(),
+    name:document.getElementById("p-name").value.trim(), price:document.getElementById("p-price").value.trim(),
+    badge:document.getElementById("p-badge").value.trim(), tagline:document.getElementById("p-tagline").value.trim(),
+    desc:document.getElementById("p-desc").value.trim(), img:document.getElementById("p-img").value.trim(),
+    stock: document.getElementById("p-stock").value==="true", curator_note:document.getElementById("p-note").value.trim(),
+    features: parseLines(document.getElementById("p-features").value).map(x=>({t:x[0],d:x[1]})),
+    specs: parseLines(document.getElementById("p-specs").value) };
+  if(!p.id){ document.getElementById("p-msg").textContent="id required"; return; }
+  fetch(API+"/api/products",{method:"POST",headers:hdr(),body:JSON.stringify(p)}).then(r=>r.json()).then(j=>{
+    document.getElementById("p-msg").textContent= j.ok? "Saved ✓" : ("Error: "+(j.error||""));
+    if(j.ok) loadProducts();
+  });
+}
+function delProduct(id){ if(!confirm("Delete "+id+"?")) return; fetch(API+"/api/products?id="+encodeURIComponent(id),{method:"DELETE",headers:hdr()}).then(()=>loadProducts()); }
+
+// ---------- orders ----------
+function loadOrders(){
+  const q=document.getElementById("o-q").value, s=document.getElementById("o-status").value;
+  fetch(API+"/api/orders?q="+encodeURIComponent(q)+"&status="+encodeURIComponent(s),{headers:hdr()}).then(r=>r.json()).then(list=>{
+    const t=document.getElementById("o-table"); t.innerHTML="<tr><th>Order</th><th>Date</th><th>Customer</th><th>Product</th><th>Amount</th><th>Method</th><th>Status</th></tr>";
+    document.getElementById("o-empty").style.display = list.length? "none":"block";
+    list.forEach(o=>{
+      const tr=document.createElement("tr"); tr.className="click";
+      tr.innerHTML="<td>"+o.id+"</td><td>"+new Date(o.ts||0).toLocaleString()+"</td><td>"+(o.name||"")+"<br><span class='muted'>"+(o.email||"")+"</span></td><td>"+(o.product_name||o.product_id||"")+"</td><td>$"+(o.amount||0)+"</td><td>"+(o.method||"")+"</td><td><span class='pill "+(o.status||"")+"'>"+(o.status||"")+"</span></td>";
+      tr.onclick=()=>showOrder(o); t.appendChild(tr);
+    });
+    document.getElementById("o-detail").classList.add("hidden");
+  });
+}
+let curOrder=null;
+function showOrder(o){ curOrder=o; document.getElementById("o-detail").classList.remove("hidden");
+  document.getElementById("o-json").textContent=JSON.stringify(o,null,2);
+  document.getElementById("o-newstatus").value=o.status||"paid"; }
+function saveOrder(){ if(!curOrder) return; curOrder.status=document.getElementById("o-newstatus").value;
+  fetch(API+"/api/orders",{method:"PUT",headers:hdr(),body:JSON.stringify(curOrder)}).then(()=>{ alert("saved"); loadOrders(); }); }
+
+if(TOKEN) fetch(API+"/api/products",{headers:hdr()}).then(r=>{ if(r.ok) enter(); }).catch(()=>{});
+</script>
+</body>
+</html>

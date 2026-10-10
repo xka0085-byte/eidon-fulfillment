@@ -4,6 +4,8 @@
    3. no-op safe: pages without matching containers are untouched */
 (function () {
   "use strict";
+  // backend API base (same worker as dashboard/admin). Set after deploying — see analytics/README.md
+  var API_BASE = "https://eidon-analytics.YOURSUB.workers.dev";
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
 
@@ -116,6 +118,16 @@
     });
   }
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", render);
-  else render();
+  // boot: render immediately from static fallback, then sync live products from backend
+  function boot() {
+    render();
+    fetch(API_BASE + "/api/products")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (arr) {
+        if (Array.isArray(arr) && arr.length) { window.PRODUCTS = arr; render(); }
+      })
+      .catch(function () {});
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
 })();

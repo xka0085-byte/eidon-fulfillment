@@ -16,7 +16,19 @@
   <h1 class="serif">Secure checkout</h1>
   <div id="co-summary" class="co-summary">Loading…</div>
 
-  <div class="co-methods" id="co-methods">
+  <div id="co-form" class="co-methods">
+    <div class="co-method" style="grid-column:1/-1">
+      <h3>Your details</h3>
+      <div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><label>Name</label><input id="co-name" placeholder="Your name"></div>
+        <div><label>Email</label><input id="co-email" type="email" placeholder="you@email.com"></div>
+      </div>
+      <div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
+        <div><label>Country</label><input id="co-country" placeholder="e.g. US / UK / DE"></div>
+        <div><label>Qty</label><input id="co-qty" type="number" min="1" value="1"></div>
+      </div>
+    </div>
+
     <div class="co-method">
       <h3>Pay with PayPal</h3>
       <p class="co-note">Visa, Mastercard, or PayPal balance. You get QC photos before it ships.</p>
