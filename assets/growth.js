@@ -27,10 +27,10 @@
       ".eg-modal p{margin:0 0 14px;font-size:14px;color:#4f564f;line-height:1.55}",
       ".eg-modal .eg-code{display:inline-block;background:#0a3d38;color:#fff;font-weight:700;letter-spacing:.08em;padding:5px 12px;border-radius:8px;margin-bottom:14px}",
       ".eg-modal input{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #d8d3c4;border-radius:10px;font-size:15px;margin-bottom:10px}",
-      ".eg-modal button{width:100%;padding:12px;border:0;border-radius:999px;background:#232723;color:#f6f4ec;font-weight:700;font-size:15px;cursor:pointer}",
-      ".eg-modal button:hover{background:#1C3A2E}",
+      ".eg-modal .eg-submit{display:block;width:100%;padding:12px;border:0;border-radius:999px;background:#232723;color:#f6f4ec;font-weight:700;font-size:15px;cursor:pointer}",
+      ".eg-modal .eg-submit:hover{background:#1C3A2E}",
       ".eg-modal .eg-no{display:block;text-align:center;margin-top:10px;font-size:12.5px;color:#8a8f88;cursor:pointer;text-decoration:underline}",
-      ".eg-x{position:absolute;top:10px;right:14px;border:0;background:none;font-size:22px;line-height:1;color:#9aa09a;cursor:pointer}",
+      ".eg-modal button.eg-x{position:absolute;top:6px;right:10px;width:auto;height:auto;padding:0;border:0;background:none;font-size:24px;line-height:1;color:#9aa09a;cursor:pointer}",
       ".eg-ok{font-size:14.5px;color:#1C3A2E;font-weight:600;line-height:1.6}"
     ].join("");
     document.head.appendChild(s);
@@ -68,7 +68,7 @@
       "<p>Join the list for first look at new drops, restock alerts and sourcing tips. Unsubscribe anytime.</p>" +
       "<div class='eg-code'>" + DISCOUNT + "</div>" +
       "<input type='email' placeholder='you@email.com' aria-label='Email'>" +
-      "<button>Send my code</button>" +
+      "<button class='eg-submit'>Send my code</button>" +
       "<span class='eg-no'>No thanks, I'll pay full price</span>" +
       "</div>";
     document.body.appendChild(ov);
@@ -97,10 +97,11 @@
   function boot() {
     style();
     banner();
-    // trigger popup after 18s, or on exit-intent, whichever first
+    // trigger popup after 18s, or on exit-intent, whichever first (guard: not in the first 6s)
+    var t0 = Date.now();
     var t = setTimeout(popup, 18000);
     document.addEventListener("mouseout", function (e) {
-      if (!seen() && e.clientY <= 0) { clearTimeout(t); popup(); }
+      if (!seen() && e.clientY <= 0 && Date.now() - t0 > 6000) { clearTimeout(t); popup(); }
     }, { once: false });
   }
 
