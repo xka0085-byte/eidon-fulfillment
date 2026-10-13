@@ -31,3 +31,12 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 CREATE INDEX IF NOT EXISTS idx_orders_day    ON orders(day);
 CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status);
+
+-- subscribers (email capture for free acquisition: popup + checkout opt-in)
+CREATE TABLE IF NOT EXISTS subscribers (
+  email  TEXT PRIMARY KEY,
+  source TEXT NOT NULL DEFAULT '',
+  ts     INTEGER NOT NULL,
+  day    TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_subscribers_day ON subscribers(day);

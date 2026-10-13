@@ -68,6 +68,25 @@ export default {
       }
     }
 
+    // ---------------- SUBSCRIBERS (email capture, free-acquisition asset) ----------------
+    if (path === "/api/subscribe") {
+      if (request.method === "POST") {
+        let b = {}; try { b = await request.json(); } catch (_) {}
+        const email = String(b.email || "").trim().toLowerCase().slice(0, 200);
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return json({ error: "invalid email" }, cors(), 400);
+        const src = String(b.source || "").slice(0, 200);
+        const day = new Date().toISOString().slice(0, 10);
+        await env.DB.prepare("INSERT OR IGNORE INTO subscribers (email,source,ts,day) VALUES (?,?,?,?)")
+          .bind(email, src, Date.now(), day).run();
+        return json({ ok: true }, cors());
+      }
+      if (!adminOk(request, env)) return json({ error: "unauthorized" }, cors(), 401);
+      if (request.method === "GET") {
+        const r = await env.DB.prepare("SELECT email,source,ts,day FROM subscribers ORDER BY ts DESC LIMIT 500").all();
+        return json(r.results || [], cors());
+      }
+    }
+
     // ---------------- ANALYTICS ----------------
     if (path === "/api/collect" && request.method === "POST") {
       let b = {}; try { b = await request.json(); } catch (_) {}
