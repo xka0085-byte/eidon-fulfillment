@@ -3,7 +3,7 @@
    Replace the two placeholders below with your real keys / checkout URLs. */
 (function () {
   // same backend as the dashboard/admin — set to your deployed worker URL
-  var API = "https://eidon-analytics.YOURSUB.workers.dev";
+  var API = "https://eidon-analytics.xka0085.workers.dev";
 
   var qs = new URLSearchParams(location.search);
   var id = qs.get("id");

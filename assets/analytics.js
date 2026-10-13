@@ -4,7 +4,7 @@
    from the checkout success handler so transactions + purchase rate show up. */
 (function () {
   // TODO: set to your deployed worker URL (e.g. https://eidon-analytics.xxx.workers.dev)
-  var WORKER = "https://eidon-analytics.YOURSUB.workers.dev";
+  var WORKER = "https://eidon-analytics.xka0085.workers.dev";
 
   function send(type, extra) {
     try {

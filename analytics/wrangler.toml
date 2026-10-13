@@ -6,7 +6,7 @@ compatibility_date = "2024-09-23"
 [[d1_databases]]
 binding = "DB"
 database_name = "eidon-analytics"
-database_id = "REPLACE_WITH_YOUR_D1_ID"   # from: wrangler d1 create eidon-analytics
+database_id = "808e63eb-1c5f-4681-8922-04be4d98bc28"   # from: wrangler d1 create eidon-analytics
 
 # Serve the dashboard HTML from ./public at the worker URL
 [assets]

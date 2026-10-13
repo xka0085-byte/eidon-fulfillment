@@ -4,8 +4,8 @@
    Captures POST to the backend (/api/subscribe) when deployed; degrades gracefully if not.
    No third-party trackers. Self-contained styles so it works on every page. */
 (function () {
-  // same placeholder as analytics.js / site.js — replace YOURSUB after the Worker is deployed
-  var API_BASE = "https://eidon-analytics.YOURSUB.workers.dev";
+  // same backend as the dashboard/admin (deployed Cloudflare Worker)
+  var API_BASE = "https://eidon-analytics.xka0085.workers.dev";
   var DISCOUNT = "WELCOME10";
   var KEY = "eidon_growth_v1";
 

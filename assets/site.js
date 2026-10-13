@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // backend API base (same worker as dashboard/admin). Set after deploying — see analytics/README.md
-  var API_BASE = "https://eidon-analytics.YOURSUB.workers.dev";
+  var API_BASE = "https://eidon-analytics.xka0085.workers.dev";
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
 
