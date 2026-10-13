@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const BASE = "https://xka0085-byte.github.io/eidon-fulfillment";
+const BASE = "https://xka0085-byte.github.io/";
 const BRAND = "Eidon Sourcing";
 
 // load products from the browser-style file

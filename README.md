@@ -2,7 +2,7 @@
 
 Static site for the sourcing & fulfillment service (1688 sourcing, QC, consolidation, worldwide shipping from China).
 
-**Live at:** https://xka0085-byte.github.io/eidon-fulfillment/ (GitHub Pages, free tier)
+**Live at:** https://xka0085-byte.github.io/ (GitHub Pages, free tier)
 
 ## Structure
 - `index.html` — home

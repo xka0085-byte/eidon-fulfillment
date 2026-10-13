@@ -14,7 +14,7 @@
     return "https://wa.me/8615982440421?text=" + encodeURIComponent(msg);
   }
 
-  var SITE = "https://xka0085-byte.github.io/eidon-fulfillment/";
+  var SITE = "https://xka0085-byte.github.io/";
   var HERO = SITE + "assets/hero-sunset.jpg";
 
   function setCanonical(url) {
