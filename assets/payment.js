@@ -8,10 +8,12 @@
   // same backend as the dashboard/admin — set to your deployed worker URL
   var API = "https://eidon-analytics.xka0085.workers.dev";
 
-  // ---- fill these two in (see docs/payment-gateways.md) ----
+  // ---- fill these in (see docs/payment-gateways.md) ----
   // PayPal Client ID is public by design (it is used by the browser SDK). Never put the Secret here.
   var PAYPAL_CLIENT_ID = "BAAaC1HLQ0Su_biXdm2a2YxmwOhUGKGE9kOPC_jwz42HbxieGGk2UlAGJflk625irsrBVZnHStmHO2pQ_A";
   var COMMERCE_URL = "https://commerce.coinbase.com/checkout/YOUR_CHECKOUT_ID"; // Coinbase Commerce hosted checkout
+  // Direct USDT (TRC-20) receiving address — public information, safe to show customers.
+  var USDT_ADDRESS = ""; // e.g. "TXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
   var qs = new URLSearchParams(location.search);
   var id = qs.get("id");
@@ -116,6 +118,21 @@
     cryptoBtn.href = COMMERCE_URL + "?success_url=" +
       encodeURIComponent(location.origin + location.pathname + "?status=success&id=" + id + "&v=" + unit);
   } else {
-    cryptoBtn.outerHTML = "<p class='co-note' style='margin:0'>Crypto checkout is being set up. Message us on WhatsApp and we'll send you a payment link the same day.</p>";
+    cryptoBtn.outerHTML = "<p class='co-note' style='margin:0'>Hosted crypto checkout is being set up — use the direct USDT option below, or message us on WhatsApp and we'll send a payment link the same day.</p>";
+  }
+
+  // ---- Direct USDT (TRC-20): wallet address + one-tap copy ----
+  var usdtBox = document.getElementById("usdt-box");
+  if (usdtBox && USDT_ADDRESS && USDT_ADDRESS.length > 20) {
+    document.getElementById("usdt-addr").textContent = USDT_ADDRESS;
+    usdtBox.hidden = false;
+    var copyBtn = document.getElementById("usdt-copy");
+    copyBtn.addEventListener("click", function () {
+      var done = function () { copyBtn.textContent = "Copied ✓"; setTimeout(function () { copyBtn.textContent = "Copy"; }, 1800); };
+      try {
+        if (navigator.clipboard) navigator.clipboard.writeText(USDT_ADDRESS).then(done, done);
+        else done();
+      } catch (e) { done(); }
+    });
   }
 })();

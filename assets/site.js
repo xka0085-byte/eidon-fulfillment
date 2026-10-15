@@ -99,7 +99,7 @@
     var badges =
       '<div class="pd-badges">' +
       '<span>' + ic('<path d="M20 6L9 17l-5-5"/>') + "QC photo before it ships</span>" +
-      '<span>' + ic('<path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/>') + "30-day keep-it guarantee</span>" +
+      '<span>' + ic('<path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/>') + "QC-First Guarantee</span>" +
       '<span>' + ic('<path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7"/>') + "Free tracked shipping</span>" +
       "</div>";
     // related pieces
@@ -115,7 +115,7 @@
       '<a class="btn soft" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a>' +
       '<a class="btn ghost" href="shipping.html">Shipping &amp; payment</a></div>' +
       badges +
-      '<p class="pd-note">Made to order &middot; tracked worldwide delivery &middot; <a href="guarantee.html">30-Day Keep-It Guarantee</a> &middot; not sure your photo works? <a href="https://wa.me/8615982440421?text=Hi!%20Can%20you%20check%20this%20photo%20before%20I%20order%3F" target="_blank" rel="noopener">get a free photo check</a></p></div></div>' +
+      '<p class="pd-note">Made to order &middot; tracked worldwide delivery &middot; <a href="guarantee.html">QC-First Guarantee</a> &middot; not sure your photo works? <a href="https://wa.me/8615982440421?text=Hi!%20Can%20you%20check%20this%20photo%20before%20I%20order%3F" target="_blank" rel="noopener">get a free photo check</a></p></div></div>' +
       '<section class="pd-section"><h2 class="serif">Why you&rsquo;ll love it</h2>' + (feats || "") + "</section>" +
       (specs ? '<section class="pd-section"><h2 class="serif">The details</h2><table>' + specs + "</table></section>" : "") +
       '<section class="pd-section"><h2 class="serif">How this differs from mass-produced keepsakes</h2>' +
@@ -129,7 +129,7 @@
       '<details><summary>How long does it take?</summary><div class="fa-a">10–15 days door to door, tracked and free. Made to order first, then 7–12 days in transit.</div></details>' +
       '<details><summary>What if it arrives wrong?</summary><div class="fa-a">Photo proof within 7 days = full refund, and you keep the piece. See the <a href="guarantee.html">guarantee</a>.</div></details>' +
       "</div></section>" + related +
-      '<section class="pd-section"><div class="note">Every order is handled personally and QC-checked before it ships — covered by the <a href="guarantee.html">30-Day Keep-It Guarantee</a>. Questions? <a href="https://wa.me/8615982440421" target="_blank" rel="noopener">Message us on WhatsApp</a> — Eidon answers.</div></section>';
+      '<section class="pd-section"><div class="note">Every order is handled personally and QC-checked before it ships — covered by the <a href="guarantee.html">QC-First Guarantee</a>. Questions? <a href="https://wa.me/8615982440421" target="_blank" rel="noopener">Message us on WhatsApp</a> — Eidon answers.</div></section>';
   }
 
   function observeReveals() {

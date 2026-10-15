@@ -5,7 +5,7 @@
    cat ("daily" | "decor" | "custom"), img (photo path), features, specs.
    HONESTY RULE: only state what is true — 316L steel, QC photo before
    shipping, personal handling by Eidon, tracked worldwide delivery,
-   30-day guarantee. NO process claims (no "laser", no "engraved",
+   QC-first guarantee. NO process claims (no "laser", no "engraved",
    no permanence claims). Keep copy about the keepsake, not the craft. */
 window.PRODUCTS = [
   {
