@@ -1,8 +1,8 @@
-/* Pawmark — product catalog.
+/* EveryBeloved — product catalog.
    Add a new product = add one object here. It appears on index (first 3),
    shop.html grid, and gets its own page at product.html?id=<id>
    Fields: id, name, price (free shipping included), tagline, desc, badge,
-   cat ("memorial" | "living"), img (photo path), features, specs.
+   cat ("daily" | "decor" | "custom"), img (photo path), features, specs.
    HONESTY RULE: only state what is true — 316L steel, QC photo before
    shipping, personal handling by Eidon, tracked worldwide delivery,
    30-day guarantee. NO process claims (no "laser", no "engraved",
@@ -15,7 +15,7 @@ window.PRODUCTS = [
     tagline: "Their face, close to yours.",
     desc: "A close-up of them, set into a brushed 316L stainless steel round pendant on a 45cm chain. Send your favorite photo after ordering — we'll confirm it looks right before anything is made. Ships in a gift box.",
     badge: "Most loved",
-    cat: "memorial",
+    cat: "custom",
     stock: true,
     img: "assets/products/photo-pendant.jpg",
     features: [
@@ -39,7 +39,7 @@ window.PRODUCTS = [
     tagline: "The print they actually left.",
     desc: "Their real paw or nose print, reproduced on a 22mm 316L stainless steel pendant. Send a clear photo of the print — a clay or ink impression photographed in daylight is ideal. Ships in a gift box.",
     badge: "The real print",
-    cat: "memorial",
+    cat: "custom",
     stock: true,
     img: "assets/products/paw-pendant.jpg",
     features: [
@@ -63,7 +63,7 @@ window.PRODUCTS = [
     tagline: "A pinch of them, kept close.",
     desc: "A hollow bone-shaped 316L pendant with a screw-top cap. It ships empty — you fill it at home with a pinch of fur or ashes, whenever you're ready. A tiny funnel is included.",
     badge: "Ships empty",
-    cat: "memorial",
+    cat: "custom",
     stock: true,
     img: "assets/products/keepsake-pendant.jpg",
     features: [
@@ -87,7 +87,7 @@ window.PRODUCTS = [
     tagline: "Their name — or their words.",
     desc: "A slim vertical bar with your pet's name and the years you had together. For talking birds, we can add the words only they said. Ships in a gift box.",
     badge: "For every species",
-    cat: "memorial",
+    cat: "custom",
     stock: true,
     img: "assets/products/bar-pendant.jpg",
     features: [
@@ -111,7 +111,7 @@ window.PRODUCTS = [
     tagline: "For the one still here.",
     desc: "The same photo keepsake in a heart shape — an easy gift for the pet parent whose companion is still around. Send your favorite photo after ordering. Ships in a gift box.",
     badge: "Gift",
-    cat: "living",
+    cat: "custom",
     stock: true,
     img: "assets/products/heart-pendant.jpg",
     features: [

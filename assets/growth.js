@@ -1,4 +1,4 @@
-/* Pawmark growth kit — free-acquisition front-end.
+/* EveryBeloved growth kit — free-acquisition front-end.
    1) First-order discount banner (WELCOME10)
    2) Email capture popup (welcome offer + first look at new keepsakes)
    Captures POST to the backend (/api/subscribe) when deployed; degrades gracefully if not.
@@ -7,15 +7,15 @@
   // same backend as the dashboard/admin (deployed Cloudflare Worker)
   var API_BASE = "https://eidon-analytics.xka0085.workers.dev";
   var DISCOUNT = "WELCOME10";
-  var KEY = "pawmark_growth_v1";
+  var KEY = "everybeloved_growth_v1";
 
   function seen() { try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; } }
   function markSeen() { try { localStorage.setItem(KEY, "1"); } catch (e) {} }
 
   function style() {
-    if (document.getElementById("pawmark-growth-style")) return;
+    if (document.getElementById("everybeloved-growth-style")) return;
     var s = document.createElement("style");
-    s.id = "pawmark-growth-style";
+    s.id = "everybeloved-growth-style";
     s.textContent = [
       ".eg-banner{position:relative;z-index:60;background:#3b4f45;color:#f7f4ee;text-align:center;font:600 13.5px/1.4 'Segoe UI',system-ui,sans-serif;padding:9px 14px;letter-spacing:.01em}",
       ".eg-banner b{color:#d9c9a3;letter-spacing:.06em}",
@@ -54,7 +54,7 @@
         body: JSON.stringify({ email: email, source: location.pathname, ts: Date.now() })
       }).then(function () { cb && cb(); }).catch(function () { cb && cb(); });
     } catch (e) { cb && cb(); }
-    if (window.PawmarkTrack) { try { window.PawmarkTrack.event("email_capture", {}); } catch (e) {} }
+    if (window.EveryBelovedTrack) { try { window.EveryBelovedTrack.event("email_capture", {}); } catch (e) {} }
   }
 
   function popup() {

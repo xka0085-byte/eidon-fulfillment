@@ -1,4 +1,4 @@
-/* Pawmark — chat channels.
+/* EveryBeloved — chat channels.
    We own the launcher UI (brand-styled, no close "×"); Tawk.to provides the
    chat backend + mobile app push. Tawk's own bubble is hidden on load.
    Fallback: if Tawk isn't configured or its API isn't ready, the main button
@@ -15,9 +15,9 @@
   var ICON_WA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 1.9 3 4.7 4.1 2.3.9 2.8.8 3.3.7.5-.1 1.6-.6 1.8-1.3.2-.7.2-1.2.2-1.3-.1-.2-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.8L2 22l5.4-1.4c1.3.7 2.9 1.2 4.6 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3-.4-4.3-1.2l-.3-.2-3.2.8.8-3.1-.2-.3c-.8-1.3-1.2-2.8-1.2-4.4 0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.4-8.3 8.4z"/></svg>';
 
   function style() {
-    if (document.getElementById("pawmark-chat-style")) return;
+    if (document.getElementById("everybeloved-chat-style")) return;
     var s = document.createElement("style");
-    s.id = "pawmark-chat-style";
+    s.id = "everybeloved-chat-style";
     s.textContent = [
       /* our own launcher, vertically centred on the right edge */
       ".pw-dock{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:95;display:flex;flex-direction:column;align-items:flex-end;gap:10px}",

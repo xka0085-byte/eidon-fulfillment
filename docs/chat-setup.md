@@ -1,4 +1,4 @@
-# 在线聊天通道设置 — Pawmark
+# 在线聊天通道设置 — EveryBeloved
 
 目标：客户在网站聊天框发消息，**你手机立刻收到推送通知**。
 
@@ -26,7 +26,7 @@
 **为什么还留着 WhatsApp 按钮**：WhatsApp 的推送最可靠，客户点它可以直连你的 WhatsApp，消息必达。Tawk 负责"客户不想跳走"的场景，两个通道互补。
 
 ## 你想改聊天窗口的样子？
-Tawk 后台 **Administration → Chat Widget** 可以改：主题色、头像/Logo（传你的 Pawmark 爪印）、欢迎语、位置偏移、是否显示品牌字样（付费版可去）。启动器（那个球）现在由我们自己控制，不会再出现。
+Tawk 后台 **Administration → Chat Widget** 可以改：主题色、头像/Logo（传你的 EveryBeloved 爪印）、欢迎语、位置偏移、是否显示品牌字样（付费版可去）。启动器（那个球）现在由我们自己控制，不会再出现。
 
 ## 备选方案（Tawk.to 不顺手时）
 

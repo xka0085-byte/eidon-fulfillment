@@ -10,7 +10,7 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const BASE = "https://xka0085-byte.github.io/";
-const BRAND = "Pawmark";
+const BRAND = "EveryBeloved";
 
 // load products from the browser-style file
 const src = fs.readFileSync(path.join(root, "assets/products-data.js"), "utf8");

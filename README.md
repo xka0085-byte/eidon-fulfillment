@@ -1,6 +1,6 @@
-# Pawmark — website
+# EveryBeloved — website
 
-Static storefront for Pawmark: made-to-order pet memorial keepsakes and photo jewelry in 316L stainless steel. Photo / paw print / name / bird-voice pieces, free tracked worldwide shipping, 30-Day Keep-It Guarantee.
+Static storefront for EveryBeloved: made-to-order pet memorial keepsakes and photo jewelry in 316L stainless steel. Photo / paw print / name / bird-voice pieces, free tracked worldwide shipping, 30-Day Keep-It Guarantee.
 
 **Live at:** https://xka0085-byte.github.io/ (GitHub Pages, free tier)
 
@@ -37,7 +37,7 @@ Edit `assets/products-data.js` — add one object and it appears on index (first
 - Run by: Eidon, Chengdu, China
 
 ## When the first orders come → buy the .com
-1. Check `pawmark.com` availability + USPTO clearance first (name chosen 2026-10-14, not yet verified live)
+1. Register `everybeloved.com` (verified unregistered 2026-10-15) + run a USPTO clearance search before scaling
 2. Register domain (Namesilo/Cloudflare, ~$10/yr)
 3. Repo Settings → Pages → Custom domain → enter domain, enable HTTPS
 4. DNS: CNAME record → `xka0085-byte.github.io`

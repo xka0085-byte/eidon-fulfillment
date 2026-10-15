@@ -1,6 +1,6 @@
-/* Pawmark Analytics — store-side tracker.
+/* EveryBeloved Analytics — store-side tracker.
    Drop this on every store page (just before </body>).
-   Sends a 'pageview' on load; call window.PawmarkTrack.event('purchase',{value:34.99})
+   Sends a 'pageview' on load; call window.EveryBelovedTrack.event('purchase',{value:34.99})
    from the checkout success handler so transactions + purchase rate show up. */
 (function () {
   // TODO: set to your deployed worker URL (e.g. https://eidon-analytics.xxx.workers.dev)
@@ -19,7 +19,7 @@
     } catch (e) {}
   }
 
-  window.PawmarkTrack = { event: function (t, e) { send(t, e); } };
+  window.EveryBelovedTrack = { event: function (t, e) { send(t, e); } };
 
   if (document.readyState !== "loading") send("pageview");
   else document.addEventListener("DOMContentLoaded", function () { send("pageview"); });

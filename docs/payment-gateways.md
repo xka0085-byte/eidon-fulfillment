@@ -1,4 +1,4 @@
-# 支付网关方案 — Pawmark（跨境独立站）
+# 支付网关方案 — EveryBeloved（跨境独立站）
 
 ## 你的真实情况（2026-10-15 更新）
 - 人在成都，**有 PayPal 个人账户**，也有 Payoneer
@@ -8,7 +8,7 @@
 ### ✅ PayPal（个人账户可用）— 拿 Client ID 的步骤
 1. 打开 https://developer.paypal.com → 用你的 PayPal 个人账户登录
 2. 顶部 **Apps & Credentials** → 切到 **Live** 标签
-3. **Create App**（名字随意，如 `Pawmark Store`）
+3. **Create App**（名字随意，如 `EveryBeloved Store`）
 4. 复制 **Client ID**（Live 的那一串长字符）
 5. 填进 `site/assets/payment.js` 第 12 行：`var PAYPAL_CLIENT_ID = "你的ClientID";`
 6. 客户结账时就能用 Visa/Mastercard/PayPal 余额付款

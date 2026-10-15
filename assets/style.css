@@ -1,5 +1,5 @@
 /* ============================================================
-   Pawmark — "the mark they left, kept close"
+   EveryBeloved — "the mark they left, kept close"
    Pet memorial & personalized keepsakes. Warm paper + sage.
    Design system v2 (upgraded per redesign audit):
    - Fraunces display serif + system sans body
@@ -384,9 +384,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1500;o
    ============================================================ */
 
 /* brand mark */
-.brandmark{width:30px;height:30px;flex:none;border-radius:9px}
+.brandmark{width:30px;height:30px;flex:none}
+.brandtext{height:22px;width:auto;display:block}
 .brand{font-size:22px}
-@media(max-width:680px){.brandmark{width:26px;height:26px}.brand{font-size:19px}}
+@media(max-width:680px){.brandmark{width:26px;height:26px}.brandtext{height:19px}.brand{font-size:19px}}
 
 /* subtle paw pattern for section backgrounds */
 .paw-pattern{position:relative}
@@ -461,6 +462,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1500;o
 .sf-btn{background:transparent;border:1px solid var(--line);color:var(--sub);font:600 13px/1 var(--sans);letter-spacing:.04em;padding:11px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
 .sf-btn:hover{border-color:var(--accent);color:var(--accent-deep)}
 .sf-btn.on{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+
+/* empty category state */
+.cat-empty{grid-column:1/-1;text-align:center;background:var(--card);border:1px dashed var(--accent-line);border-radius:var(--r-md);padding:48px 30px}
+.cat-empty .ce-k{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--accent-deep);margin-bottom:10px}
+.cat-empty p{color:var(--sub);font-size:15px;max-width:520px;margin:0 auto 20px}
 
 /* PDP extras */
 .pd-badges{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 4px;font-size:12.5px;color:var(--sub)}

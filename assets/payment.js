@@ -1,4 +1,4 @@
-/* Pawmark checkout logic — collects buyer details, creates an order on the backend,
+/* EveryBeloved checkout logic — collects buyer details, creates an order on the backend,
    then fires the analytics purchase event.
    Payment methods: Coinbase Commerce (crypto, ready when COMMERCE_URL is set) and
    PayPal Smart Button (renders only when PAYPAL_CLIENT_ID is set — SDK loads
@@ -76,7 +76,7 @@
     // record order on backend (for the order-query system)
     fetch(API + "/api/orders", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(order) }).catch(function () {});
     // feed the analytics dashboard (transactions + purchase rate)
-    if (window.PawmarkTrack) window.PawmarkTrack.event("purchase", { value: total });
+    if (window.EveryBelovedTrack) window.EveryBelovedTrack.event("purchase", { value: total });
   }
 
   function softNote(el, msg) {

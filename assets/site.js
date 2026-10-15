@@ -1,4 +1,4 @@
-/* Pawmark — site behaviors:
+/* EveryBeloved — site behaviors:
    1. scroll-reveal animations (IntersectionObserver base + GSAP enhancement)
    2. auto-render shop grid + featured grid + product detail page from products-data.js
    3. motion layer: hero parallax + ken burns, staggered entrances, scroll progress,
@@ -11,10 +11,16 @@
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
 
-  var CAT_LABEL = { memorial: "Memorial keepsake", living: "For them still here" };
+  var CAT_LABEL = { daily: "Everyday essentials", decor: "Decor & accessories", custom: "Custom keepsakes" };
+  var CAT_FILTERS = [["all", "All pieces"], ["daily", "Everyday essentials"], ["decor", "Decor & accessories"], ["custom", "Custom keepsakes"]];
+  var CAT_EMPTY = {
+    daily: "The first everyday essentials are being picked right now — collars, tags and gear, chosen with the same care as our keepsakes. Tell us what you're looking for and we'll make sure it's in the first drop.",
+    decor: "Decor & accessories are on the way — charms, tags and small pieces for the life you share. Send us what you'd want and it goes to the top of the list.",
+    custom: "Our custom line is being refreshed — message us and we'll make it for you."
+  };
 
   function orderLink(p) {
-    var msg = "Hi! I'd like to order the " + p.name + " from Pawmark";
+    var msg = "Hi! I'd like to order the " + p.name + " from EveryBeloved";
     return "https://wa.me/8615982440421?text=" + encodeURIComponent(msg);
   }
 
@@ -41,7 +47,7 @@
       "name": p.name,
       "description": p.desc,
       "image": p.img ? SITE + p.img : HERO,
-      "brand": { "@type": "Brand", "name": "Pawmark" },
+      "brand": { "@type": "Brand", "name": "EveryBeloved" },
       "sku": p.id,
       "offers": {
         "@type": "Offer",
@@ -113,7 +119,7 @@
       '<section class="pd-section"><h2 class="serif">Why you&rsquo;ll love it</h2>' + (feats || "") + "</section>" +
       (specs ? '<section class="pd-section"><h2 class="serif">The details</h2><table>' + specs + "</table></section>" : "") +
       '<section class="pd-section"><h2 class="serif">How this differs from mass-produced keepsakes</h2>' +
-      '<div class="cmp"><div class="cmp-h"><span>Pawmark</span><span>Typical marketplace listing</span></div>' +
+      '<div class="cmp"><div class="cmp-h"><span>EveryBeloved</span><span>Typical marketplace listing</span></div>' +
       '<div class="cmp-r"><span>Made to order — yours is the only one</span><span>Mass-produced, pulled from a shelf</span></div>' +
       '<div class="cmp-r"><span>QC-checked and photographed before it ships</span><span>Ships unopened from a warehouse</span></div>' +
       '<div class="cmp-r"><span>316L stainless steel — no flaking plating</span><span>Plated alloys that wear within a year</span></div>' +
@@ -141,11 +147,19 @@
       var filtersBox = document.getElementById("shop-filters");
       function draw(cat) {
         var list = cat === "all" ? P : P.filter(function (x) { return x.cat === cat; });
+        if (list.length === 0) {
+          shop.innerHTML =
+            '<div class="cat-empty"><div class="ce-k">' + esc(CAT_LABEL[cat] || "This category") + '</div>' +
+            '<p>' + esc(CAT_EMPTY[cat] || "Nothing here yet.") + '</p>' +
+            '<a class="btn soft" href="https://wa.me/8615982440421?text=' +
+            encodeURIComponent("Hi! I'm looking for: ") + '" target="_blank" rel="noopener">Tell us what you want</a></div>';
+          return;
+        }
         shop.innerHTML = list.map(pCard).join("");
       }
       if (filtersBox && !filtersBox.dataset.wired) {
         filtersBox.dataset.wired = "1";
-        filtersBox.innerHTML = [["all", "All pieces"], ["memorial", "Memorial"], ["living", "For them still here"]]
+        filtersBox.innerHTML = CAT_FILTERS
           .map(function (c, i) { return '<button type="button" class="sf-btn' + (i === 0 ? " on" : "") + '" data-cat="' + c[0] + '">' + c[1] + "</button>"; })
           .join("");
         filtersBox.onclick = function (e) {
@@ -157,7 +171,16 @@
           observeReveals();
         };
       }
-      draw("all");
+      // deep link: shop.html?cat=daily
+      var want = new URLSearchParams(location.search).get("cat");
+      if (want && filtersBox) {
+        var btn = filtersBox.querySelector('.sf-btn[data-cat="' + want + '"]');
+        if (btn) {
+          filtersBox.querySelectorAll(".sf-btn").forEach(function (x) { x.classList.remove("on"); });
+          btn.classList.add("on");
+          draw(want);
+        } else draw("all");
+      } else draw("all");
     }
 
     var feat = document.getElementById("featured-grid");
@@ -168,7 +191,7 @@
       var id = new URLSearchParams(location.search).get("id");
       var p = P.filter(function (x) { return x.id === id; })[0];
       pd.innerHTML = p ? pDetail(p) : '<p>Product not found.</p><p><a class="btn" href="shop.html">Back to shop</a></p>';
-      document.title = p ? p.name + " — Pawmark" : document.title;
+      document.title = p ? p.name + " — EveryBeloved" : document.title;
       if (p) injectProductSEO(p);
     }
 
