@@ -46,7 +46,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <channel>
     <title>${esc(BRAND)} — Product Feed</title>
     <link>${BASE}/</link>
-    <description>Made-to-order pet memorial keepsakes: photo, paw print, name and bird-voice jewelry in 316L stainless steel. Free tracked shipping worldwide.</description>
+    <description>Made-to-order pet memorial keepsakes: photo, paw print, name and bird-voice jewelry in solid metal. Free tracked shipping worldwide.</description>
 ${items}
   </channel>
 </rss>

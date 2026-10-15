@@ -1,6 +1,6 @@
 # EveryBeloved — website
 
-Static storefront for EveryBeloved: made-to-order pet memorial keepsakes and photo jewelry in 316L stainless steel. Photo / paw print / name / bird-voice pieces, free tracked worldwide shipping, 30-Day Keep-It Guarantee.
+Static storefront for EveryBeloved: made-to-order pet memorial keepsakes and photo jewelry in solid metal. Photo / paw print / name / bird-voice pieces, free tracked worldwide shipping, 30-Day Keep-It Guarantee.
 
 **Live at:** https://xka0085-byte.github.io/ (GitHub Pages, free tier)
 
@@ -21,7 +21,7 @@ Static storefront for EveryBeloved: made-to-order pet memorial keepsakes and pho
 - `docs/`, `tools/` — internal notes (payment gateways, chat setup) and feed generator
 
 ## Product catalog
-Edit `assets/products-data.js` — add one object and it appears on index (first 3), shop grid, and its own product page. **Honesty rule in that file: only claim what is true** (made-to-order, 316L steel, tracked shipping, guarantee). No QC-photo claims, no invented heritage — the whole brand is built on that difference.
+Edit `assets/products-data.js` — add one object and it appears on index (first 3), shop grid, and its own product page. **Honesty rule in that file: only claim what is true** (made-to-order, solid metal, tracked shipping, guarantee). No QC-photo claims, no invented heritage — the whole brand is built on that difference.
 
 ## Placeholders to fill before real traffic
 - Coinbase Commerce checkout URL in `assets/payment.js` (search `YOUR_CHECKOUT_ID`) — main online payment, works from China

@@ -122,7 +122,7 @@
       '<div class="cmp"><div class="cmp-h"><span>EveryBeloved</span><span>Typical marketplace listing</span></div>' +
       '<div class="cmp-r"><span>Made to order — yours is the only one</span><span>Mass-produced, pulled from a shelf</span></div>' +
       '<div class="cmp-r"><span>QC-checked and photographed before it ships</span><span>Ships unopened from a warehouse</span></div>' +
-      '<div class="cmp-r"><span>316L stainless steel — no flaking plating</span><span>Plated alloys that wear within a year</span></div>' +
+      '<div class="cmp-r"><span>Your photo checked by a human first</span><span>Auto-accepted, whatever the quality</span></div>' +
       '<div class="cmp-r"><span>10–15 days, quoted honestly</span><span>"3-day delivery" that never was</span></div></div></section>' +
       '<section class="pd-section"><h2 class="serif">Common questions</h2><div class="faq-mini">' +
       '<details><summary>What photo should I send?</summary><div class="fa-a">A close-up of their face — sharp, well-lit, eyes visible. For prints, a straight-on photo in daylight. If it won\'t work, we tell you before anything is made.</div></details>' +
