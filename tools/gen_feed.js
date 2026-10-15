@@ -10,7 +10,7 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const BASE = "https://xka0085-byte.github.io/";
-const BRAND = "Eidon Sourcing";
+const BRAND = "Pawmark";
 
 // load products from the browser-style file
 const src = fs.readFileSync(path.join(root, "assets/products-data.js"), "utf8");
@@ -36,7 +36,7 @@ const items = products.map(p => {
       <g:brand>${esc(BRAND)}</g:brand>
       <g:condition>new</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
-      <g:google_product_category>187</g:google_product_category>
+      <g:google_product_category>166</g:google_product_category>
       <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0.00 USD</g:price></g:shipping>
     </item>`;
 }).join("\n");
@@ -46,7 +46,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <channel>
     <title>${esc(BRAND)} — Product Feed</title>
     <link>${BASE}/</link>
-    <description>Streetwear accessories sourced from China, shipped worldwide.</description>
+    <description>Made-to-order pet memorial keepsakes: photo, paw print, name and bird-voice jewelry in 316L stainless steel. Free tracked shipping worldwide.</description>
 ${items}
   </channel>
 </rss>

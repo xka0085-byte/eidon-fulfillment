@@ -1,21 +1,25 @@
-/* Eidon Sourcing — site behaviors:
-   1. scroll-reveal animations
+/* Pawmark — site behaviors:
+   1. scroll-reveal animations (IntersectionObserver base + GSAP enhancement)
    2. auto-render shop grid + featured grid + product detail page from products-data.js
-   3. no-op safe: pages without matching containers are untouched */
+   3. motion layer: hero parallax + ken burns, staggered entrances, scroll progress,
+      magnetic buttons (GSAP loaded on demand from assets/vendor, degrades gracefully)
+   Honesty rule baked in: no QC-photo claims, no "hand-inspected by us" copy. */
 (function () {
   "use strict";
-  // backend API base (same worker as dashboard/admin). Set after deploying — see analytics/README.md
+  // backend API base (same worker as dashboard/admin). Internal endpoint name unchanged.
   var API_BASE = "https://eidon-analytics.xka0085.workers.dev";
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
 
+  var CAT_LABEL = { memorial: "Memorial keepsake", living: "For them still here" };
+
   function orderLink(p) {
-    var msg = "Hi! I'd like to order the " + p.name;
+    var msg = "Hi! I'd like to order the " + p.name + " from Pawmark";
     return "https://wa.me/8615982440421?text=" + encodeURIComponent(msg);
   }
 
   var SITE = "https://xka0085-byte.github.io/";
-  var HERO = SITE + "assets/hero-sunset.jpg";
+  var HERO = SITE + "assets/products/photo-pendant.jpg";
 
   function setCanonical(url) {
     var l = document.querySelector('link[rel="canonical"]');
@@ -36,8 +40,8 @@
       "@type": "Product",
       "name": p.name,
       "description": p.desc,
-      "image": p.img || HERO,
-      "brand": { "@type": "Brand", "name": "Eidon Sourcing" },
+      "image": p.img ? SITE + p.img : HERO,
+      "brand": { "@type": "Brand", "name": "Pawmark" },
       "sku": p.id,
       "offers": {
         "@type": "Offer",
@@ -60,14 +64,17 @@
 
   function pCard(p, i) {
     var delay = (i % 3) * 0.08;
-    var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy">' :
+    var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + ' — pet keepsake" loading="lazy" decoding="async">' :
       '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
     var badges = "";
     if (p.badge) badges += '<div class="p-badge">' + esc(p.badge) + "</div>";
-    badges += '<div class="p-badge alt">In stock</div>';
+    badges += '<div class="p-badge alt">Made to order</div>';
     return '<div class="p-card reveal" style="transition-delay:' + delay + 's">' + badges +
-      '<a class="p-img' + (i % 2 ? " alt" : "") + '" href="product.html?id=' + esc(p.id) + '">' + imgInner + "</a>" +
-      '<div class="p-info"><h3><a href="product.html?id=' + esc(p.id) + '">' + esc(p.name) + "</a></h3>" +
+      '<a class="p-img" href="product.html?id=' + esc(p.id) + '">' + imgInner +
+      '<span class="p-peek">View piece &rarr;</span></a>' +
+      '<div class="p-info"><div class="p-cat">' + esc(CAT_LABEL[p.cat] || "Keepsake") + '</div>' +
+      '<h3><a href="product.html?id=' + esc(p.id) + '">' + esc(p.name) + "</a></h3>" +
+      '<p class="p-tag">' + esc(p.tagline) + "</p>" +
       '<p class="p-price">' + esc(p.price) + ' <span class="p-free">free shipping</span></p>' +
       '<a class="p-order" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a></div></div>';
   }
@@ -77,10 +84,9 @@
       return '<div class="frow"><div class="fnum">' + ("0" + (i + 1)).slice(-2) + '</div><div><div class="ft">' + esc(f.t) + '</div><div class="fd">' + esc(f.d) + "</div></div></div>";
     }).join("");
     var specs = (p.specs || []).map(function (s) { return "<tr><td>" + esc(s[0]) + "</td><td>" + esc(s[1]) + "</td></tr>"; }).join("");
-    var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
-    var stock = '<div class="pd-stock in">In stock <span>· ships in 10–15 days, tracked</span></div>';
-    var note = p.curator_note ? '<div class="cnote"><div class="cnote-t">Curator&rsquo;s note</div><p>' + esc(p.curator_note) + '</p><div class="cnote-s">— Eidon</div></div>' : "";
-    return '<div class="pd-head"><a href="shop.html">← Back to shop</a></div>' +
+    var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + ' — pet keepsake" decoding="async">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
+    var stock = '<div class="pd-stock">Made to order <span>· ships in 10–15 days, tracked worldwide</span></div>';
+    return '<div class="pd-head"><a href="shop.html">&larr; Back to shop</a></div>' +
       '<div class="pd-layout"><div class="p-img pd-img">' + imgInner + "</div>" +
       '<div class="pd-info"><div class="p-badge">' + esc(p.badge || "Free shipping") + '</div><span class="p-free pd-free">free worldwide shipping</span>' +
       '<h1 class="serif">' + esc(p.name) + "</h1>" +
@@ -89,11 +95,10 @@
       '<div class="pd-ctas"><a class="btn" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a>' +
       '<a class="btn" href="checkout.html?id=' + esc(p.id) + '">Pay online</a>' +
       '<a class="btn ghost" href="shipping.html">Shipping &amp; payment</a></div>' +
-      '<p class="pd-note">QC photo before shipping · 10–15 day tracked delivery · <a href="guarantee.html">30-Day Keep-It Guarantee</a></p></div></div>' +
-      (note ? '<section class="pd-section">' + note + "</section>" : "") +
+      '<p class="pd-note">Made to order in 2–4 days &middot; tracked worldwide delivery &middot; <a href="guarantee.html">30-Day Keep-It Guarantee</a></p></div></div>' +
       '<section class="pd-section"><h2 class="serif">Why you&rsquo;ll love it</h2>' + (feats || "") + "</section>" +
-      (specs ? '<section class="pd-section"><h2 class="serif">The numbers</h2><table>' + specs + "</table></section>" : "") +
-      '<section class="pd-section"><div class="note">Every order ships with QC photos, full tracking, and the <a href="guarantee.html">30-Day Keep-It Guarantee</a>. Questions? <a href="https://wa.me/8615982440421" target="_blank" rel="noopener">Message me on WhatsApp</a> — I answer personally.</div></section>';
+      (specs ? '<section class="pd-section"><h2 class="serif">The details</h2><table>' + specs + "</table></section>" : "") +
+      '<section class="pd-section"><div class="note">Every order is handled personally and QC-checked before it ships — covered by the <a href="guarantee.html">30-Day Keep-It Guarantee</a>. Questions? <a href="https://wa.me/8615982440421" target="_blank" rel="noopener">Message us on WhatsApp</a> — Eidon answers.</div></section>';
   }
 
   function render() {
@@ -110,7 +115,7 @@
       var id = new URLSearchParams(location.search).get("id");
       var p = P.filter(function (x) { return x.id === id; })[0];
       pd.innerHTML = p ? pDetail(p) : '<p>Product not found.</p><p><a class="btn" href="shop.html">Back to shop</a></p>';
-      document.title = p ? p.name + " — Eidon Sourcing" : document.title;
+      document.title = p ? p.name + " — Pawmark" : document.title;
       if (p) injectProductSEO(p);
     }
 
@@ -121,57 +126,121 @@
     document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
   }
 
-  // paper-plane flight linked to page scroll
-  var fp = document.querySelector(".flight .fpath");
-  var fd = document.querySelector(".flight .fdraw");
-  var plane = document.getElementById("paper-plane");
-  if (fp && plane && fp.getTotalLength) {
-    var flen = fp.getTotalLength();
-    if (fd) { fd.style.strokeDasharray = flen; fd.style.strokeDashoffset = flen; }
-    var planeTicking = false;
-    function updatePlane() {
-      planeTicking = false;
-      var doc = document.documentElement.scrollHeight - window.innerHeight;
-      var prog = Math.min(1, Math.max(0, (window.scrollY || 0) / Math.max(doc, 1)));
-      var tp = Math.min(1, prog / 0.38);           // flight completes in first 38% of page scroll
-      var ease = 1 - Math.pow(1 - tp, 3);           // easeOutCubic
-      var pt = fp.getPointAtLength(flen * ease);
-      var pt2 = fp.getPointAtLength(Math.min(flen, flen * ease + 3));
-      var ang = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI;
-      plane.setAttribute("transform", "translate(" + pt.x.toFixed(1) + "," + pt.y.toFixed(1) + ") rotate(" + ang.toFixed(1) + ")");
-      if (fd) fd.style.strokeDashoffset = String(flen * (1 - ease));
-      plane.style.opacity = String(0.3 + 0.7 * ease);
+  /* ================= motion layer ================= */
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function loadScript(src, then) {
+    var s = document.createElement("script");
+    s.src = src;
+    s.onload = then;
+    s.onerror = function () { then(); };
+    document.head.appendChild(s);
+  }
+
+  function initMotion() {
+    if (reduceMotion || !window.gsap || !window.ScrollTrigger) return;
+    var gsap = window.gsap;
+    gsap.registerPlugin(window.ScrollTrigger);
+
+    // scroll progress bar (thin, sage)
+    var bar = document.createElement("div");
+    bar.id = "pw-progress";
+    document.body.appendChild(bar);
+    gsap.to(bar, {
+      scaleX: 1, ease: "none",
+      scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.3 }
+    });
+
+    // hero: ken burns settle + scroll parallax + copy entrance
+    var heroImg = document.querySelector(".hero-media .frame img");
+    if (heroImg) {
+      gsap.fromTo(heroImg, { scale: 1.1 }, { scale: 1, duration: 2.6, ease: "power2.out" });
+      gsap.to(heroImg, {
+        yPercent: 12, ease: "none",
+        scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+      });
     }
-    var onScroll = function () {
-      if (!planeTicking) { planeTicking = true; requestAnimationFrame(function () { updatePlane(); planeTicking = false; }); }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    updatePlane();
+    gsap.from(".hero-copy > *", { y: 30, opacity: 0, duration: 1, stagger: 0.09, ease: "power3.out", delay: 0.15 });
+    gsap.from(".hero-media .frame", { y: 40, opacity: 0, duration: 1.1, ease: "power3.out", delay: 0.3 });
+    gsap.from(".hero-media .tag", { y: 24, opacity: 0, duration: 0.8, delay: 0.9, ease: "back.out(1.5)" });
+
+    // section-level entrances for elements without .reveal
+    var sel = ".sec-head, .quote, .zz-text, .zz-media, .honest, .species, .blog-grid, .co-summary, .co-methods, article > p, article > h2, article > ul";
+    gsap.utils.toArray(sel).forEach(function (el) {
+      if (el.closest(".reveal")) return; // avoid double animation
+      gsap.fromTo(el, { y: 26, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.8, ease: "power2.out",
+        scrollTrigger: { trigger: el, start: "top 88%" }
+      });
+    });
+
+    // trust strip + cta band
+    gsap.from(".trust .wrap > div", {
+      y: 16, opacity: 0, duration: 0.6, stagger: 0.08, ease: "power2.out",
+      scrollTrigger: { trigger: ".trust", start: "top 92%" }
+    });
+    gsap.utils.toArray(".cta-band").forEach(function (el) {
+      gsap.fromTo(el, { scale: 0.97, opacity: 0 }, {
+        scale: 1, opacity: 1, duration: 0.8, ease: "power2.out",
+        scrollTrigger: { trigger: el, start: "top 92%" }
+      });
+    });
+
+    // product images: gentle parallax inside their frames
+    gsap.utils.toArray(".p-img img, .pillar .ph img").forEach(function (img) {
+      gsap.fromTo(img, { yPercent: -4 }, {
+        yPercent: 4, ease: "none",
+        scrollTrigger: { trigger: img.closest(".p-card, .pillar") || img, start: "top bottom", end: "bottom top", scrub: true }
+      });
+    });
+
+    // magnetic buttons (subtle, fine pointers only)
+    if (window.matchMedia("(pointer: fine)").matches) {
+      document.querySelectorAll(".btn").forEach(function (btn) {
+        btn.addEventListener("mousemove", function (e) {
+          var r = btn.getBoundingClientRect();
+          gsap.to(btn, {
+            x: (e.clientX - r.left - r.width / 2) * 0.14,
+            y: (e.clientY - r.top - r.height / 2) * 0.14,
+            duration: 0.3, ease: "power2.out"
+          });
+        });
+        btn.addEventListener("mouseleave", function () {
+          gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.45)" });
+        });
+      });
+    }
+
+    // refresh after images load (parallax triggers depend on layout)
+    window.addEventListener("load", function () { window.ScrollTrigger.refresh(); });
   }
 
-  // hero cinematic parallax (GSAP, photo hero on index only)
-  if (window.gsap && window.ScrollTrigger && document.querySelector(".hero-bg img")) {
-    window.gsap.registerPlugin(window.ScrollTrigger);
-    window.gsap.to(".hero-bg img", {
-      yPercent: 16, ease: "none",
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
-    });
-    window.gsap.from(".hero-inner > *", {
-      opacity: 0, y: 26, duration: 1.1, ease: "power2.out", stagger: 0.12,
-      scrollTrigger: { trigger: ".hero", start: "top 75%" }
+  function loadMotion() {
+    if (reduceMotion) return;
+    if (window.gsap && window.ScrollTrigger) { initMotion(); return; }
+    loadScript("assets/vendor/gsap.min.js", function () {
+      if (!window.gsap) return;
+      loadScript("assets/vendor/ScrollTrigger.min.js", initMotion);
     });
   }
 
-  // boot: render immediately from static fallback, then sync live products from backend
+  // boot: render immediately from static data.
+  // LIVE_SYNC = pull the product list from the backend worker (admin dashboard edits).
+  // ⚠️ Currently OFF: the D1 products table still holds the pre-rebuild catalog.
+  // After re-syncing D1 (see growth/sync_products_d1.py), flip this to true.
+  var LIVE_SYNC = false;
+
   function boot() {
     render();
+    loadMotion();
+    if (!LIVE_SYNC) return;
     fetch(API_BASE + "/api/products")
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (arr) {
         if (Array.isArray(arr) && arr.length) { window.PRODUCTS = arr; render(); }
       })
       .catch(function () {});
+    loadMotion();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();

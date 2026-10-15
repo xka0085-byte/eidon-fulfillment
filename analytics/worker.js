@@ -8,7 +8,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
-    if (request.method === "OPTIONS") return new Response(null, { headers: cors() });
+    if (request.method === "OPTIONS") return new Response(null, { headers: cors(request) });
 
     // ---------------- PRODUCTS ----------------
     if (path === "/api/products") {
@@ -17,21 +17,21 @@ export default {
         const list = (r.results || [])
           .map(x => { try { return JSON.parse(x.data); } catch (e) { return null; } })
           .filter(Boolean);
-        return json(list, cors());
+        return json(list, cors(request));
       }
-      if (!adminOk(request, env)) return json({ error: "unauthorized" }, cors(), 401);
+      if (!adminOk(request, env)) return json({ error: "unauthorized" }, cors(request), 401);
       if (request.method === "POST" || request.method === "PUT") {
         let b = {}; try { b = await request.json(); } catch (_) {}
-        if (!b || !b.id) return json({ error: "id required" }, cors(), 400);
+        if (!b || !b.id) return json({ error: "id required" }, cors(request), 400);
         await env.DB.prepare("INSERT OR REPLACE INTO products (id,data,updated) VALUES (?,?,?)")
           .bind(b.id, JSON.stringify(b), Date.now()).run();
-        return json({ ok: true, id: b.id }, cors());
+        return json({ ok: true, id: b.id }, cors(request));
       }
       if (request.method === "DELETE") {
         const id = url.searchParams.get("id");
-        if (!id) return json({ error: "id required" }, cors(), 400);
+        if (!id) return json({ error: "id required" }, cors(request), 400);
         await env.DB.prepare("DELETE FROM products WHERE id=?").bind(id).run();
-        return json({ ok: true }, cors());
+        return json({ ok: true }, cors(request));
       }
     }
 
@@ -45,9 +45,9 @@ export default {
         const day = new Date().toISOString().slice(0, 10);
         await env.DB.prepare("INSERT OR REPLACE INTO orders (id,data,ts,day,status) VALUES (?,?,?,?,?)")
           .bind(id, JSON.stringify(b), Date.now(), day, b.status || "paid").run();
-        return json({ ok: true, id }, cors());
+        return json({ ok: true, id }, cors(request));
       }
-      if (!adminOk(request, env)) return json({ error: "unauthorized" }, cors(), 401);
+      if (!adminOk(request, env)) return json({ error: "unauthorized" }, cors(request), 401);
       if (request.method === "GET") {
         const q = (url.searchParams.get("q") || "").toLowerCase();
         const status = url.searchParams.get("status") || "";
@@ -57,14 +57,14 @@ export default {
           .filter(Boolean);
         if (q) list = list.filter(o => (o.id + " " + (o.email || "") + " " + (o.name || "") + " " + (o.product_name || "")).toLowerCase().includes(q));
         if (status) list = list.filter(o => o.status === status);
-        return json(list, cors());
+        return json(list, cors(request));
       }
       if (request.method === "PUT") {
         let b = {}; try { b = await request.json(); } catch (_) {}
-        if (!b || !b.id) return json({ error: "id required" }, cors(), 400);
+        if (!b || !b.id) return json({ error: "id required" }, cors(request), 400);
         await env.DB.prepare("INSERT OR REPLACE INTO orders (id,data,ts,day,status) VALUES (?,?,?,?,?)")
           .bind(b.id, JSON.stringify(b), b.ts || Date.now(), b.day || new Date().toISOString().slice(0, 10), b.status || "paid").run();
-        return json({ ok: true }, cors());
+        return json({ ok: true }, cors(request));
       }
     }
 
@@ -73,17 +73,17 @@ export default {
       if (request.method === "POST") {
         let b = {}; try { b = await request.json(); } catch (_) {}
         const email = String(b.email || "").trim().toLowerCase().slice(0, 200);
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return json({ error: "invalid email" }, cors(), 400);
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return json({ error: "invalid email" }, cors(request), 400);
         const src = String(b.source || "").slice(0, 200);
         const day = new Date().toISOString().slice(0, 10);
         await env.DB.prepare("INSERT OR IGNORE INTO subscribers (email,source,ts,day) VALUES (?,?,?,?)")
           .bind(email, src, Date.now(), day).run();
-        return json({ ok: true }, cors());
+        return json({ ok: true }, cors(request));
       }
-      if (!adminOk(request, env)) return json({ error: "unauthorized" }, cors(), 401);
+      if (!adminOk(request, env)) return json({ error: "unauthorized" }, cors(request), 401);
       if (request.method === "GET") {
         const r = await env.DB.prepare("SELECT email,source,ts,day FROM subscribers ORDER BY ts DESC LIMIT 500").all();
-        return json(r.results || [], cors());
+        return json(r.results || [], cors(request));
       }
     }
 
@@ -97,7 +97,7 @@ export default {
       const day = new Date().toISOString().slice(0, 10);
       await env.DB.prepare("INSERT INTO events (ts,type,path,referrer,value,day) VALUES (?,?,?,?,?,?)")
         .bind(Date.now(), type, page, ref, value, day).run();
-      return json({ ok: true }, cors());
+      return json({ ok: true }, cors(request));
     }
     if (path === "/api/stats") {
       const days = Math.min(365, Math.max(1, parseInt(url.searchParams.get("days") || "30", 10)));
@@ -119,7 +119,7 @@ export default {
          FROM events WHERE day >= ?`).bind(since).all();
       const tot = t.results[0] || { visits: 0, purchases: 0, revenue: 0 };
       const conv = tot.visits ? (tot.purchases / tot.visits) * 100 : 0;
-      return json({ days: daily.results, topPages: topPages.results, topReferrers: topRefs.results, totals: tot, conversion: conv }, cors());
+      return json({ days: daily.results, topPages: topPages.results, topReferrers: topRefs.results, totals: tot, conversion: conv }, cors(request));
     }
 
     // ---------------- STATIC UI (dashboard + admin) ----------------
@@ -135,10 +135,16 @@ function adminOk(req, env) {
 function json(o, h, status) {
   return new Response(JSON.stringify(o), { status: status || 200, headers: { ...h, "content-type": "application/json" } });
 }
-function cors() {
-  return {
-    "Access-Control-Allow-Origin": "*",
+function cors(request) {
+  // echo the request origin (wildcard ACAO fails credentialed requests and some preflights)
+  var origin = (request && request.headers && request.headers.get("Origin")) || "*";
+  var h = {
+    "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
-    "Access-Control-Allow-Headers": "content-type,x-admin-token"
+    "Access-Control-Allow-Headers": "content-type,x-admin-token",
+    "Access-Control-Max-Age": "86400",
+    "Vary": "Origin"
   };
+  if (origin !== "*") h["Access-Control-Allow-Credentials"] = "true";
+  return h;
 }

@@ -1,9 +1,17 @@
-/* Eidon checkout logic — collects buyer details, creates an order on the backend,
-   then fires the analytics purchase event. PayPal Smart Button + Coinbase Commerce.
-   Replace the two placeholders below with your real keys / checkout URLs. */
+/* Pawmark checkout logic — collects buyer details, creates an order on the backend,
+   then fires the analytics purchase event.
+   Payment methods: Coinbase Commerce (crypto, ready when COMMERCE_URL is set) and
+   PayPal Smart Button (renders only when PAYPAL_CLIENT_ID is set — SDK loads
+   dynamically so no console errors while unconfigured).
+   Setup guide: site/docs/payment-gateways.md */
 (function () {
   // same backend as the dashboard/admin — set to your deployed worker URL
   var API = "https://eidon-analytics.xka0085.workers.dev";
+
+  // ---- fill these two in (see docs/payment-gateways.md) ----
+  // PayPal Client ID is public by design (it is used by the browser SDK). Never put the Secret here.
+  var PAYPAL_CLIENT_ID = "BAAaC1HLQ0Su_biXdm2a2YxmwOhUGKGE9kOPC_jwz42HbxieGGk2UlAGJflk625irsrBVZnHStmHO2pQ_A";
+  var COMMERCE_URL = "https://commerce.coinbase.com/checkout/YOUR_CHECKOUT_ID"; // Coinbase Commerce hosted checkout
 
   var qs = new URLSearchParams(location.search);
   var id = qs.get("id");
@@ -20,6 +28,19 @@
   document.title = "Checkout — " + p.name;
   var unit = parseFloat(String(p.price).replace(/[^0-9.]/g, "")) || 0;
 
+  function valid() {
+    var ok = true;
+    [["co-name"], ["co-email"], ["co-country"]].forEach(function (pair) {
+      var el = document.getElementById(pair[0]);
+      if (!el) return;
+      var good = el.value.trim().length > 0 && (el.type !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+      var err = document.getElementById(pair[0].replace("co-", "err-"));
+      if (err) err.classList.toggle("on", !good);
+      if (!good) ok = false;
+    });
+    return ok;
+  }
+
   function done(msg) {
     summary.innerHTML = "<div class='co-done'>" + msg + "</div>";
     if (form) form.style.display = "none";
@@ -29,7 +50,7 @@
   if (qs.get("status") === "success") {
     var v = parseFloat(qs.get("v")) || unit;
     createOrder(p, v, "crypto", "paid");
-    done("✅ Payment received! I'll message you on WhatsApp / email within a few hours to confirm and send QC photos.");
+    done("✅ Payment received! We'll message you on WhatsApp / email within a few hours to confirm your photo and the details of your piece.");
     return;
   }
 
@@ -45,7 +66,7 @@
   function createOrder(prod, total, method, status) {
     var a = amountNow();
     var order = {
-      id: "EID" + Date.now().toString(36).toUpperCase(),
+      id: "PW" + Date.now().toString(36).toUpperCase(),
       product_id: prod.id, product_name: prod.name,
       name: document.getElementById("co-name").value.trim(),
       email: document.getElementById("co-email").value.trim(),
@@ -55,34 +76,46 @@
     // record order on backend (for the order-query system)
     fetch(API + "/api/orders", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(order) }).catch(function () {});
     // feed the analytics dashboard (transactions + purchase rate)
-    if (window.EidonTrack) window.EidonTrack.event("purchase", { value: total });
+    if (window.PawmarkTrack) window.PawmarkTrack.event("purchase", { value: total });
   }
 
-  // ---- PayPal ----
-  if (window.paypal) {
-    paypal.Buttons({
-      createOrder: function (data, actions) {
-        return actions.order.create({ purchase_units: [{ amount: { value: amountNow().total.toFixed(2) } }] });
-      },
-      onApprove: function (data, actions) {
-        return actions.order.capture().then(function (details) {
-          createOrder(p, amountNow().total, "paypal", "paid");
-          done("✅ Payment received from " + details.payer.name.given_name + "! I'll confirm by WhatsApp / email shortly.");
-        });
-      }
-    }).render("#paypal-button");
+  function softNote(el, msg) {
+    if (el) el.innerHTML = "<p class='co-note' style='margin:0'>" + msg + "</p>";
+  }
+
+  // ---- PayPal (SDK loads only when a real client id is configured) ----
+  var ppBox = document.getElementById("paypal-button");
+  var ppReady = PAYPAL_CLIENT_ID && PAYPAL_CLIENT_ID.indexOf("YOUR_") === -1;
+  if (ppReady) {
+    var s = document.createElement("script");
+    s.src = "https://www.paypal.com/sdk/js?client-id=" + encodeURIComponent(PAYPAL_CLIENT_ID) + "&currency=USD";
+    s.onload = function () {
+      if (!window.paypal) { softNote(ppBox, "PayPal couldn't load — please use crypto below or message us on WhatsApp."); return; }
+      paypal.Buttons({
+        createOrder: function (data, actions) {
+          if (!valid()) return;
+          return actions.order.create({ purchase_units: [{ amount: { value: amountNow().total.toFixed(2) } }] });
+        },
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (details) {
+            createOrder(p, amountNow().total, "paypal", "paid");
+            done("✅ Payment received from " + details.payer.name.given_name + "! We'll confirm by WhatsApp / email shortly — send your pet's photo whenever you're ready.");
+          });
+        }
+      }).render("#paypal-button");
+    };
+    s.onerror = function () { softNote(ppBox, "PayPal couldn't load — please use crypto below or message us on WhatsApp."); };
+    document.head.appendChild(s);
   } else {
-    document.getElementById("paypal-button").innerHTML =
-      "<em style='color:#b00'>PayPal not configured — set client-id in checkout.html.</em>";
+    softNote(ppBox, "PayPal checkout is being set up. For now: crypto below, or <a href='https://wa.me/8615982440421' target='_blank' rel='noopener'>message us on WhatsApp</a> and we'll sort out payment together.");
   }
 
   // ---- Crypto (Coinbase Commerce hosted checkout) ----
-  var COMMERCE_URL = "https://commerce.coinbase.com/checkout/YOUR_CHECKOUT_ID";
   var cryptoBtn = document.getElementById("crypto-button");
   if (COMMERCE_URL.indexOf("YOUR_CHECKOUT_ID") === -1) {
     cryptoBtn.href = COMMERCE_URL + "?success_url=" +
       encodeURIComponent(location.origin + location.pathname + "?status=success&id=" + id + "&v=" + unit);
   } else {
-    cryptoBtn.outerHTML = "<em style='color:#b00'>Crypto not configured — paste your Coinbase Commerce checkout URL in assets/payment.js.</em>";
+    cryptoBtn.outerHTML = "<p class='co-note' style='margin:0'>Crypto checkout is being set up. Message us on WhatsApp and we'll send you a payment link the same day.</p>";
   }
 })();

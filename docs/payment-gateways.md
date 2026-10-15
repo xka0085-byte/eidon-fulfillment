@@ -1,40 +1,52 @@
-# 支付网关方案（Eidon Sourcing 跨境独立站）
+# 支付网关方案 — Pawmark（跨境独立站）
 
-## 现状
-店铺现在是 **"DM to order"**（WhatsApp / 邮件下单，人工确认总额后付款）。
-要做「真实交易量 + 购买率」看板，**必须有一个能回传成功事件的结账环节**——
-所以先接支付网关，再看板才能看到 transactions。
+## 你的真实情况（2026-10-15 更新）
+- 人在成都，**有 PayPal 个人账户**，也有 Payoneer
+- 目标客户在美国/全球，客单价 $33–40，走云途直发
+- 站点已内置两个在线支付按钮（PayPal + Coinbase Commerce），都是占位符状态
 
-## 推荐组合（按优先级）
+### ✅ PayPal（个人账户可用）— 拿 Client ID 的步骤
+1. 打开 https://developer.paypal.com → 用你的 PayPal 个人账户登录
+2. 顶部 **Apps & Credentials** → 切到 **Live** 标签
+3. **Create App**（名字随意，如 `Pawmark Store`）
+4. 复制 **Client ID**（Live 的那一串长字符）
+5. 填进 `site/assets/payment.js` 第 12 行：`var PAYPAL_CLIENT_ID = "你的ClientID";`
+6. 客户结账时就能用 Visa/Mastercard/PayPal 余额付款
 
-### ① PayPal —— 主力，全球通用
-- **为什么**：覆盖 200+ 国家，买家用 Visa/Mastercard/余额都能付；个人也能开；买家信任度高。
-- **费用**：约 3.49% + $0.49/笔（跨境略高）。
-- **到账**：PayPal 余额即时，提现到银行卡 1–3 天。
-- **中国大陆账户注意**：PayPal 中国（贝宝）个人/企业账户可以**收款**，但提现到国内银行有额度与手续费限制；很多跨境卖家用 **PayPal 香港账户**或配合万里汇/派安盈收汇。先开中国账户收款跑通，量大了再优化。
-- **集成**：`checkout.html` 已内置 PayPal Smart Button（JS SDK），只需把 `YOUR_PAYPAL_CLIENT_ID` 换成你的。
-- **对账**：用 PayPal Webhook（`PAYMENT.CAPTURE.COMPLETED`）做服务端核验，防止前端伪造。初期限量可先人工核对。
+**个人账户注意**：
+- 个人账户可以创建 developer app、可以接收"商品和服务"付款；但如果 PayPal 提示升级 **Business 账户**（用于开发票、批量退款、去掉收款限额），量起来后再升，前期不阻塞
+- 提现：PayPal 余额 → 提现到国内银行卡（有手续费和汇率差），或经 Payoneer/万里汇收汇
+- 本站代码已做**动态加载**：填了 Client ID 才加载 PayPal SDK，没填就显示"即将开通"，不会报错
 
-### ② Coinbase Commerce（USDC / USDT）—— 差异化杀器，贴合你的 Web3 路线
-- **为什么**：稳定币结算，**没有银行、没有跨境摩擦、几分钟到账、手续费 ~1%**；而且「支持 crypto 支付」本身就是独立站区别于平台的一个记忆点（和你的"比平台自由"定位一致）。
-- **费用**：Commerce 现在对商家 0 手续费（Coinbase 承担了）。
-- **怎么接**：在 Commerce 后台建一个 Checkout，拿到托管结账链接，填进 `assets/payment.js` 的 `COMMERCE_URL`。买家付完跳回 `checkout.html?status=success`，我们自动记一笔 `purchase` 事件。
-- **注意**：稳定币到账后是 USDC，需要出金到法币（走 Coinbase / 交易所 / 场外）。这是你本来就熟悉的世界。
+### ① Coinbase Commerce（USDC/USDT）— 差异化备选，同样国内可用
+- **为什么**：不需要任何公司实体、稳定币结算无跨境摩擦、几分钟到账、费率 ~0–1%
+- **额外价值**：「支持 crypto 支付」本身就是独立站相对平台的一个差异点
+- **怎么接**（10 分钟）：
+  1. 注册 https://commerce.coinbase.com（用 Coinbase 账号）
+  2. 创建一个 Checkout，复制托管结账链接
+  3. 填进 `assets/payment.js` 的 `COMMERCE_URL`
+  4. 买家付款后自动跳回 `checkout.html?status=success`，系统自动记 purchase 事件
+- **出金**：USDC 到账后走交易所/场外换法币，或直接用于 1688 进货（部分供应商收 USDT）
 
-### ③ Stripe —— 体验最好，但大陆居民直接用不了
-- Stripe **不向中国大陆居民开放**直接开户。要做只能：注册香港/美国实体 → 用那边的 Stripe；或走 Stripe 的「跨境」代理（如 Stripe Atlas 注册美国公司）。
-- **建议**：等单量起来了、有了香港账户再上。前期 PayPal + crypto 足够。
+**建议组合**：PayPal（覆盖绝大多数买家）+ Coinbase（差异化 + 无国界），两个都填上。
 
-### 已写在站内的：Payoneer
-- 站内文案已写「PayPal, USDT, Payoneer」。Payoneer 适合**批量/B2B/大单**收款（开 invoice 让买家电汇到你的 Payoneer 账户），不适合小额零售结账。保留作为大额选项即可。
+### ③ Payoneer — 适合 B2B/大单，不适合零售结账
+- 你已有 Payoneer。用法：给买家发 invoice（Request a Payment），买家电汇到你的 Payoneer 账户
+- 适合场景：兽医诊所/宠物殡仪馆的批量团购（B2B 路线），不适合 $35 的零售单
+- 结账页已留「Other ways to pay」说明位
 
-## 落地步骤
-1. 开 PayPal 账户（建议顺手开香港账户或备好万里汇），拿到 Client ID → 填 `checkout.html`。
-2. 开 Coinbase Commerce，建 Checkout → 拿到链接 → 填 `assets/payment.js`。
-3. 把 `assets/analytics.js` 里的 `WORKER` 改成你的看板网址（部署见 `analytics/README.md`）。
-4. 商品页「Shipping & payment」已指向 `shipping.html`，里面加了「在线支付」入口跳到 `checkout.html?id=...`。
-5. 跑通第一单 → 看板出现第一笔 transaction → 购买率开始有数。
+### ④ Stripe — 暂不考虑
+- 不向中国大陆居民直接开放，需要香港/美国实体。等有香港公司再上
+
+### ⑤ 直收 USDT（TRC-20）— 零成本备选
+- 在 WhatsApp 沟通时直接给地址，手动确认。适合已有信任的回头客
+
+## 落地步骤（现在就能做的）
+1. 注册 Coinbase Commerce → 建 Checkout → 链接填进 `assets/payment.js` 的 `COMMERCE_URL`
+2. （可选）注册 PayPal → 拿 Client ID → 填进 `assets/payment.js` 的 `PAYPAL_CLIENT_ID`（同时 checkout.html 不再需要改，SDK 改为动态加载）
+3. 首单跑通后，看板（analytics）会出现第一笔 transaction
 
 ## 风险提醒
-- **不要**只看前端 `onApprove` 就发货——务必用 PayPal Webhook / Commerce 后台确认**实际到账**再发 QC 照片。
-- 稳定币地址务必用**白名单/仅接收**地址，别把私钥放任何前端代码里（现在的设计是托管结账，私钥在 Commerce，安全）。
+- **不要**只看前端成功跳转就发货——务必登录 Coinbase Commerce / PayPal 后台确认**实际到账**再发 QC 照片
+- 任何私钥、API secret 都不要出现在前端代码里（当前设计是托管结账，安全）
+- 稳定币价格波动：报价时按发稿时汇率留 2–3% 缓冲

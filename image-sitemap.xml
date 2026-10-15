@@ -4,51 +4,73 @@
   <url>
     <loc>https://xka0085-byte.github.io/</loc>
     <image:image>
-      <image:loc>https://xka0085-byte.github.io/assets/hero-sunset.jpg</image:loc>
-      <image:title>Passenger plane taking off at sunset — Eidon Sourcing international shipping</image:title>
+      <image:loc>https://xka0085-byte.github.io/assets/products/hero-lifestyle.jpg</image:loc>
+      <image:title>Photo keepsake pendant worn daily — Pawmark</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://xka0085-byte.github.io/shop.html</loc>
     <image:image>
-      <image:loc>https://xka0085-byte.github.io/assets/hero-sunset.jpg</image:loc>
-      <image:title>Eidon Sourcing — accessories sourced from China</image:title>
+      <image:loc>https://xka0085-byte.github.io/assets/products/photo-pendant.jpg</image:loc>
+      <image:title>Photo memory pendant in 316L stainless steel</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://xka0085-byte.github.io/assets/products/paw-pendant.jpg</image:loc>
+      <image:title>Paw print keepsake pendant</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://xka0085-byte.github.io/assets/products/keepsake-pendant.jpg</image:loc>
+      <image:title>Keepsake pendant with fur and ashes chamber</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://xka0085-byte.github.io/assets/products/bar-pendant.jpg</image:loc>
+      <image:title>Voice and name bar pendant</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://xka0085-byte.github.io/assets/products/heart-pendant.jpg</image:loc>
+      <image:title>Heart photo pendant</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://xka0085-byte.github.io/product.html</loc>
+    <loc>https://xka0085-byte.github.io/product.html?id=photo-memory-pendant</loc>
     <image:image>
-      <image:loc>https://xka0085-byte.github.io/assets/hero-sunset.jpg</image:loc>
+      <image:loc>https://xka0085-byte.github.io/assets/products/photo-pendant.jpg</image:loc>
+      <image:title>Photo memory pendant, brushed 316L stainless steel</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://xka0085-byte.github.io/product.html?id=paw-print-pendant</loc>
+    <image:image>
+      <image:loc>https://xka0085-byte.github.io/assets/products/paw-pendant.jpg</image:loc>
+      <image:title>Paw print keepsake pendant, made from your photo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://xka0085-byte.github.io/product.html?id=keepsake-pendant</loc>
+    <image:image>
+      <image:loc>https://xka0085-byte.github.io/assets/products/keepsake-pendant.jpg</image:loc>
+      <image:title>Keepsake pendant with screw-top chamber</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://xka0085-byte.github.io/product.html?id=voice-name-bar</loc>
+    <image:image>
+      <image:loc>https://xka0085-byte.github.io/assets/products/bar-pendant.jpg</image:loc>
+      <image:title>Voice and name bar pendant</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://xka0085-byte.github.io/product.html?id=heart-photo-pendant</loc>
+    <image:image>
+      <image:loc>https://xka0085-byte.github.io/assets/products/heart-pendant.jpg</image:loc>
+      <image:title>Heart photo pendant for pet parents</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://xka0085-byte.github.io/blog/index.html</loc>
     <image:image>
-      <image:loc>https://xka0085-byte.github.io/assets/hero-sunset.jpg</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://xka0085-byte.github.io/blog/1688-sourcing-agent-fees.html</loc>
-    <image:image>
-      <image:loc>https://xka0085-byte.github.io/assets/hero-sunset.jpg</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://xka0085-byte.github.io/blog/1688-vs-aliexpress.html</loc>
-    <image:image>
-      <image:loc>https://xka0085-byte.github.io/assets/hero-sunset.jpg</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://xka0085-byte.github.io/blog/china-sourcing-agent-guide.html</loc>
-    <image:image>
-      <image:loc>https://xka0085-byte.github.io/assets/hero-sunset.jpg</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://xka0085-byte.github.io/blog/bag-charms-trends-2026.html</loc>
-    <image:image>
-      <image:loc>https://xka0085-byte.github.io/assets/hero-sunset.jpg</image:loc>
+      <image:loc>https://xka0085-byte.github.io/assets/products/gift-box.jpg</image:loc>
+      <image:title>Photo pendant in its gift box</image:title>
     </image:image>
   </url>
 </urlset>

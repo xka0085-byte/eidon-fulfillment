@@ -1,92 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
-    <title>Eidon Sourcing — Product Feed</title>
+    <title>Pawmark — Pet Memorial Keepsakes</title>
     <link>https://xka0085-byte.github.io/</link>
-    <description>Streetwear accessories sourced from China, shipped worldwide.</description>
+    <description>Made-to-order pet memorial keepsakes: photo, paw print, name and bird-voice pieces in 316L stainless steel. QC-checked before shipping, free tracked shipping worldwide.</description>
     <item>
-      <g:id>bag-charm-trio</g:id>
-      <g:title>Bag Charm Trio</g:title>
-      <g:description>Three hand-finished charms in mixed finishes — engineered to hang straight, built to survive daily keys-and-chaos. Ships in a gift pouch. Free worldwide shipping included.</g:description>
-      <g:link>https://xka0085-byte.github.io/product.html?id=bag-charm-trio</g:link>
-      <g:image_link>https://xka0085-byte.github.io/assets/products/bag-charm-trio.jpg</g:image_link>
+      <g:id>photo-memory-pendant</g:id>
+      <g:title>Photo Memory Pendant — Pet Photo Necklace</g:title>
+      <g:description>Your pet's photo, set into a 316L stainless steel pendant on a 45cm chain. Made to order and QC-checked before shipping. Free tracked shipping worldwide. Gift box included.</g:description>
+      <g:link>https://xka0085-byte.github.io/product.html?id=photo-memory-pendant</g:link>
+      <g:image_link>https://xka0085-byte.github.io/assets/products/photo-pendant.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>24.99 USD</g:price>
-      <g:brand>Eidon Sourcing</g:brand>
+      <g:price>34.99 USD</g:price>
+      <g:brand>Pawmark</g:brand>
       <g:condition>new</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
-      <g:google_product_category>187</g:google_product_category>
+      <g:google_product_category>166</g:google_product_category>
+      <g:custom_label_0>memorial</g:custom_label_0>
       <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0.00 USD</g:price></g:shipping>
     </item>
     <item>
-      <g:id>chunky-chain-necklace</g:id>
-      <g:title>Chunky Chain Necklace</g:title>
-      <g:description>Thick 316 stainless steel chain with a weight that feels intentional. Does not fade, does not turn your neck green. Free worldwide shipping included.</g:description>
-      <g:link>https://xka0085-byte.github.io/product.html?id=chunky-chain-necklace</g:link>
-      <g:image_link>https://xka0085-byte.github.io/assets/products/chunky-chain-necklace.jpg</g:image_link>
+      <g:id>paw-print-pendant</g:id>
+      <g:title>Paw Print Keepsake Pendant — Real Paw or Nose Print</g:title>
+      <g:description>Your pet's actual paw or nose print, reproduced on a 22mm 316L stainless steel pendant. Any species. Made to order and QC-checked before shipping. Free tracked shipping worldwide.</g:description>
+      <g:link>https://xka0085-byte.github.io/product.html?id=paw-print-pendant</g:link>
+      <g:image_link>https://xka0085-byte.github.io/assets/products/paw-pendant.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>29.99 USD</g:price>
-      <g:brand>Eidon Sourcing</g:brand>
+      <g:price>36.99 USD</g:price>
+      <g:brand>Pawmark</g:brand>
       <g:condition>new</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
-      <g:google_product_category>187</g:google_product_category>
+      <g:google_product_category>166</g:google_product_category>
+      <g:custom_label_0>memorial</g:custom_label_0>
       <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0.00 USD</g:price></g:shipping>
     </item>
     <item>
-      <g:id>claw-clip-set</g:id>
-      <g:title>Claw Clip Set (4 pcs)</g:title>
-      <g:description>Matte black, tortoiseshell, pearl and color-pop — four clips that hold thick hair without slipping, styled as part of the look. Free worldwide shipping included.</g:description>
-      <g:link>https://xka0085-byte.github.io/product.html?id=claw-clip-set</g:link>
-      <g:image_link>https://xka0085-byte.github.io/assets/products/claw-clip-set.jpg</g:image_link>
+      <g:id>keepsake-pendant</g:id>
+      <g:title>Keepsake Pendant — Fur &amp; Ashes Chamber Necklace (Ships Empty)</g:title>
+      <g:description>Hollow 316L stainless steel bone-shaped pendant with screw-top cap for a pinch of fur or ashes. Ships empty with funnel; you fill it at home. Free tracked shipping worldwide.</g:description>
+      <g:link>https://xka0085-byte.github.io/product.html?id=keepsake-pendant</g:link>
+      <g:image_link>https://xka0085-byte.github.io/assets/products/keepsake-pendant.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>19.99 USD</g:price>
-      <g:brand>Eidon Sourcing</g:brand>
+      <g:price>39.99 USD</g:price>
+      <g:brand>Pawmark</g:brand>
       <g:condition>new</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
-      <g:google_product_category>187</g:google_product_category>
+      <g:google_product_category>166</g:google_product_category>
+      <g:custom_label_0>memorial</g:custom_label_0>
       <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0.00 USD</g:price></g:shipping>
     </item>
     <item>
-      <g:id>beaded-phone-charm</g:id>
-      <g:title>Beaded Phone Charm</g:title>
-      <g:description>Beaded phone charm with a secure anti-loss patch — the accessory your phone case was missing. Free worldwide shipping included.</g:description>
-      <g:link>https://xka0085-byte.github.io/product.html?id=beaded-phone-charm</g:link>
-      <g:image_link>https://xka0085-byte.github.io/assets/products/beaded-phone-charm.jpg</g:image_link>
+      <g:id>voice-name-bar</g:id>
+      <g:title>Voice &amp; Name Bar Pendant — Pet Name, Dates or Bird Words</g:title>
+      <g:description>Slim 316L stainless steel bar with your pet's name and dates, or the words a talking bird said. Made to order and QC-checked before shipping. Free tracked shipping worldwide.</g:description>
+      <g:link>https://xka0085-byte.github.io/product.html?id=voice-name-bar</g:link>
+      <g:image_link>https://xka0085-byte.github.io/assets/products/bar-pendant.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>14.99 USD</g:price>
-      <g:brand>Eidon Sourcing</g:brand>
+      <g:price>32.99 USD</g:price>
+      <g:brand>Pawmark</g:brand>
       <g:condition>new</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
-      <g:google_product_category>187</g:google_product_category>
+      <g:google_product_category>166</g:google_product_category>
+      <g:custom_label_0>memorial</g:custom_label_0>
       <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0.00 USD</g:price></g:shipping>
     </item>
     <item>
-      <g:id>resin-ring</g:id>
-      <g:title>Colorful Resin Ring</g:title>
-      <g:description>Resin ring in saturated colorways — light on the hand, loud on the fit. Free worldwide shipping included.</g:description>
-      <g:link>https://xka0085-byte.github.io/product.html?id=resin-ring</g:link>
-      <g:image_link>https://xka0085-byte.github.io/assets/products/resin-ring.jpg</g:image_link>
+      <g:id>heart-photo-pendant</g:id>
+      <g:title>Heart Photo Pendant — Pet Photo Gift</g:title>
+      <g:description>Heart-shaped 316L stainless steel pendant with your pet's photo. A gift for the pet parent whose companion is still here — and just as meaningful as a memorial. Free tracked shipping worldwide.</g:description>
+      <g:link>https://xka0085-byte.github.io/product.html?id=heart-photo-pendant</g:link>
+      <g:image_link>https://xka0085-byte.github.io/assets/products/heart-pendant.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>12.99 USD</g:price>
-      <g:brand>Eidon Sourcing</g:brand>
+      <g:price>32.99 USD</g:price>
+      <g:brand>Pawmark</g:brand>
       <g:condition>new</g:condition>
       <g:identifier_exists>no</g:identifier_exists>
-      <g:google_product_category>187</g:google_product_category>
-      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0.00 USD</g:price></g:shipping>
-    </item>
-    <item>
-      <g:id>canvas-tote-bundle</g:id>
-      <g:title>Canvas Tote + Charm Bundle</g:title>
-      <g:description>The complete carry kit — printed canvas tote, one bag charm and a mini chain, curated to work as one look. Free worldwide shipping included.</g:description>
-      <g:link>https://xka0085-byte.github.io/product.html?id=canvas-tote-bundle</g:link>
-      <g:image_link>https://xka0085-byte.github.io/assets/products/canvas-tote-bundle.jpg</g:image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>52.99 USD</g:price>
-      <g:brand>Eidon Sourcing</g:brand>
-      <g:condition>new</g:condition>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:google_product_category>187</g:google_product_category>
+      <g:google_product_category>166</g:google_product_category>
+      <g:custom_label_0>gift</g:custom_label_0>
       <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0.00 USD</g:price></g:shipping>
     </item>
   </channel>
 </rss>
+<!-- NOTE: google_product_category 166 = "Apparel & Accessories" (parent of Jewelry).
+     Refine to the exact Jewelry subcategory ID in Google's taxonomy when Merchant Center is connected. -->

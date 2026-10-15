@@ -1,140 +1,131 @@
-/* Eidon Sourcing — product catalog. Add a new product = add one object here.
-   It appears automatically on index (first 3), shop.html grid, and gets its
-   own detail page at product.html?id=<id>
+/* Pawmark — product catalog.
+   Add a new product = add one object here. It appears on index (first 3),
+   shop.html grid, and gets its own page at product.html?id=<id>
    Fields: id, name, price (free shipping included), tagline, desc, badge,
-   stock (true = in stock; set false to hide when sold out; no count shown), curator_note
-   (personal note shown on detail page), img (optional photo path), features, specs */
+   cat ("memorial" | "living"), img (photo path), features, specs.
+   HONESTY RULE: only state what is true — 316L steel, QC photo before
+   shipping, personal handling by Eidon, tracked worldwide delivery,
+   30-day guarantee. NO process claims (no "laser", no "engraved",
+   no permanence claims). Keep copy about the keepsake, not the craft. */
 window.PRODUCTS = [
   {
-    id: "bag-charm-trio",
-    name: "Bag Charm Trio",
-    price: "$24.99",
-    tagline: "Three bag charms. One statement bag.",
-    desc: "Three hand-finished charms in mixed finishes — engineered to hang straight, built to survive daily keys-and-chaos. Ships in a gift pouch. Free worldwide shipping included.",
-    badge: "Free shipping",
+    id: "photo-memory-pendant",
+    name: "Photo Memory Pendant",
+    price: "$34.99",
+    tagline: "Their face, close to yours.",
+    desc: "A close-up of them, set into a brushed 316L stainless steel round pendant on a 45cm chain. Send your favorite photo after ordering — we'll confirm it looks right before anything is made. Ships in a gift box.",
+    badge: "Most loved",
+    cat: "memorial",
     stock: true,
-    curator_note: "",
+    img: "assets/products/photo-pendant.jpg",
     features: [
-      {t: "Curated picks", d: "Selected accessories, not random marketplace filler."},
-      {t: "Built to last", d: "Solid hardware, reinforced clasps, 200+ cycle tested."},
-      {t: "Mix & match", d: "Three finishes designed to stack or swap daily."},
-      {t: "Gift-ready", d: "Soft pouch + gift box, ready to give as-is."}
+      {t: "Their photo, front and center", d: "A tight crop of their face works best — the expression you knew best, worn close every day."},
+      {t: "316L stainless steel", d: "Hypoallergenic and water-resistant. No green skin, no flaking plating."},
+      {t: "Checked before it ships", d: "Your piece is QC-checked and photographed before it leaves — you see the photos."},
+      {t: "Gift-ready", d: "Arrives in a small gift box with a care card — ready to give, or to keep for yourself."}
     ],
     specs: [
-      ["Material", "316 stainless steel, acrylic, alloy"],
-      ["Length", "9–11 cm per charm"],
-      ["Weight", "~28 g total"],
-      ["In the box", "3 charms + gift pouch + care card"]
+      ["Material", "316L stainless steel"],
+      ["Pendant", "25mm round, brushed finish"],
+      ["Chain", "45cm + 5cm extender"],
+      ["Photo", "Yours, sent after order — we confirm it before making"],
+      ["Delivery", "10–15 days worldwide, tracked"]
     ]
   },
   {
-    id: "chunky-chain-necklace",
-    name: "Chunky Chain Necklace",
-    price: "$29.99",
-    tagline: "The streetwear power piece. No brand tax.",
-    desc: "Thick 316 stainless steel chain with a weight that feels intentional. Does not fade, does not turn your neck green. Free worldwide shipping included.",
-    badge: "Free shipping",
+    id: "paw-print-pendant",
+    name: "Paw Print Keepsake Pendant",
+    price: "$36.99",
+    tagline: "The print they actually left.",
+    desc: "Their real paw or nose print, reproduced on a 22mm 316L stainless steel pendant. Send a clear photo of the print — a clay or ink impression photographed in daylight is ideal. Ships in a gift box.",
+    badge: "The real print",
+    cat: "memorial",
     stock: true,
-    curator_note: "",
+    img: "assets/products/paw-pendant.jpg",
     features: [
-      {t: "316 stainless steel", d: "Sweat-proof, shower-proof, does not fade or turn skin green."},
-      {t: "Real weight", d: "Feels substantial — not hollow costume jewelry."},
-      {t: "Unisex", d: "One size, 50–55 cm, works across every fit."},
-      {t: "Layers well", d: "Designed to stack with thinner chains or wear solo."}
+      {t: "Their print, not a stock icon", d: "Most shops sell a generic paw stamp. Yours is made from your photo of the print they really left."},
+      {t: "Any paw, any size", d: "Dogs, cats, rabbits, hamsters, guinea pigs, even birds' feet. A clear, well-lit photo is all we need."},
+      {t: "316L stainless steel", d: "Hypoallergenic and water-resistant. No green skin, no flaking plating."},
+      {t: "Checked before it ships", d: "QC-checked and photographed before it leaves — you see the photos."}
     ],
     specs: [
-      ["Material", "316 stainless steel"],
-      ["Length", "50–55 cm"],
-      ["Weight", "~85 g"],
-      ["In the box", "chain + gift pouch + care card"]
+      ["Material", "316L stainless steel"],
+      ["Pendant", "22mm round, brushed finish"],
+      ["Chain", "45cm + 5cm extender"],
+      ["Print", "Your photo of their paw or nose print"],
+      ["Delivery", "10–15 days worldwide, tracked"]
     ]
   },
   {
-    id: "claw-clip-set",
-    name: "Claw Clip Set (4 pcs)",
-    price: "$19.99",
-    tagline: "Four finishes. A week of effortless updos.",
-    desc: "Matte black, tortoiseshell, pearl and color-pop — four clips that hold thick hair without slipping, styled as part of the look. Free worldwide shipping included.",
-    badge: "Free shipping",
+    id: "keepsake-pendant",
+    name: "Keepsake Pendant",
+    price: "$39.99",
+    tagline: "A pinch of them, kept close.",
+    desc: "A hollow bone-shaped 316L pendant with a screw-top cap. It ships empty — you fill it at home with a pinch of fur or ashes, whenever you're ready. A tiny funnel is included.",
+    badge: "Ships empty",
+    cat: "memorial",
     stock: true,
-    curator_note: "",
+    img: "assets/products/keepsake-pendant.jpg",
     features: [
-      {t: "Holds thick hair", d: "Strong spring, tested on thick and curly hair types."},
-      {t: "Four finishes", d: "Matte, tortoiseshell, pearl, color-pop — one per mood."},
-      {t: "Gentle teeth", d: "Rounded teeth grip without snapping strands."},
-      {t: "Travel pouch", d: "Comes with a soft pouch so they don't scratch each other."}
+      {t: "Ships empty — you fill it at home", d: "Nothing cremated ever crosses a border. The chamber arrives sealed and empty; a funnel is included so you fill it yourself, in your own time."},
+      {t: "Screw-top seal", d: "Opens with a twist and closes tight. Holds a small pinch — enough to keep something of them close."},
+      {t: "316L stainless steel", d: "Hypoallergenic and water-resistant. No green skin, no flaking plating."},
+      {t: "Quiet by design", d: "Reads as a simple bone-shaped pendant. Only you know what's inside — that's rather the point."}
     ],
     specs: [
-      ["Material", "Acrylic, steel spring"],
-      ["Size", "8–11 cm per clip"],
-      ["Weight", "~90 g set"],
-      ["In the box", "4 clips + soft pouch"]
+      ["Material", "316L stainless steel"],
+      ["Pendant", "32 × 14mm bone shape, hollow chamber"],
+      ["Chain", "45cm + 5cm extender"],
+      ["Filling", "A pinch of fur or ashes, filled by you at home"],
+      ["Delivery", "10–15 days worldwide, tracked"]
     ]
   },
   {
-    id: "beaded-phone-charm",
-    name: "Beaded Phone Charm",
-    price: "$14.99",
-    tagline: "Beaded phone charm. Secure anti-loss patch.",
-    desc: "Beaded phone charm with a secure anti-loss patch — the accessory your phone case was missing. Free worldwide shipping included.",
-    badge: "Free shipping",
+    id: "voice-name-bar",
+    name: "Voice & Name Bar Pendant",
+    price: "$32.99",
+    tagline: "Their name — or their words.",
+    desc: "A slim vertical bar with your pet's name and the years you had together. For talking birds, we can add the words only they said. Ships in a gift box.",
+    badge: "For every species",
+    cat: "memorial",
     stock: true,
-    curator_note: "",
+    img: "assets/products/bar-pendant.jpg",
     features: [
-      {t: "Beaded", d: "Securely strung with an anti-loss patch."},
-      {t: "Anti-loss patch", d: "Sticker patch threads through any case — holds firm."},
-      {t: "Colorways", d: "Three palettes: earth, pastel, monochrome."},
-      {t: "Feather-light", d: "Adds style without weight — ~15 g with patch."}
+      {t: "Names, dates, short phrases", d: "Their name, the years you had together, or a few words that say it."},
+      {t: "For talking birds", d: "Parrots and mynas say things only they said. Send us the words and we'll put them on the bar — a keepsake no dog or cat shop offers."},
+      {t: "Quiet, everyday design", d: "Reads as a simple slim bar. Meaningful without being overt — easy to wear daily."},
+      {t: "316L stainless steel", d: "Hypoallergenic and water-resistant. No green skin, no flaking plating."}
     ],
     specs: [
-      ["Material", "Acrylic & glass beads, nylon cord"],
-      ["Length", "16–18 cm drop"],
-      ["Weight", "~15 g"],
-      ["In the box", "charm + anti-loss patch + spare knot"]
+      ["Material", "316L stainless steel"],
+      ["Pendant", "38 × 8mm vertical bar"],
+      ["Chain", "45cm + 5cm extender"],
+      ["Text", "Name + dates, a short phrase, or a bird's words"],
+      ["Delivery", "10–15 days worldwide, tracked"]
     ]
   },
   {
-    id: "resin-ring",
-    name: "Colorful Resin Ring",
-    price: "$12.99",
-    tagline: "One pop of color, stacked or solo.",
-    desc: "Resin ring in saturated colorways — light on the hand, loud on the fit. Free worldwide shipping included.",
-    badge: "Free shipping",
+    id: "heart-photo-pendant",
+    name: "Heart Photo Pendant",
+    price: "$32.99",
+    tagline: "For the one still here.",
+    desc: "The same photo keepsake in a heart shape — an easy gift for the pet parent whose companion is still around. Send your favorite photo after ordering. Ships in a gift box.",
+    badge: "Gift",
+    cat: "living",
     stock: true,
-    curator_note: "",
+    img: "assets/products/heart-pendant.jpg",
     features: [
-      {t: "Resin", d: "Polished smooth, saturated color."},
-      {t: "Saturated color", d: "Pigment mixed in, not painted on — won't chip off."},
-      {t: "Feather-light", d: "~3 g. You forget it's on until someone compliments it."},
-      {t: "Stackable", d: "True-to-size bands designed to stack in pairs."}
+      {t: "A gift that lands", d: "For the pet parent whose best friend is still here — the kind of present people don't buy themselves and never forget receiving."},
+      {t: "Their photo, worn close", d: "A tight crop of their face works best. We'll confirm your photo before anything is made."},
+      {t: "316L stainless steel", d: "Hypoallergenic and water-resistant. No green skin, no flaking plating."},
+      {t: "Gift-ready", d: "Arrives in a small gift box with a care card."}
     ],
     specs: [
-      ["Material", "Epoxy resin, hand-polished"],
-      ["Sizes", "US 6 / 7 / 8"],
-      ["Weight", "~3 g"],
-      ["In the box", "ring + micro pouch"]
-    ]
-  },
-  {
-    id: "canvas-tote-bundle",
-    name: "Canvas Tote + Charm Bundle",
-    price: "$52.99",
-    tagline: "The full kit: tote, charm, chain. Save 18%.",
-    desc: "The complete carry kit — printed canvas tote, one bag charm and a mini chain, curated to work as one look. Free worldwide shipping included.",
-    badge: "Best value",
-    stock: true,
-    curator_note: "",
-    features: [
-      {t: "Curated as one look", d: "Colors and finishes chosen to work together, not just stacked."},
-      {t: "Heavy canvas", d: "12 oz washed canvas — structured, not floppy."},
-      {t: "Save 18%", d: "Bundle pricing under the cost of buying pieces separately."},
-      {t: "Gift-ready", d: "Ships boxed — the easiest 'I saw this and thought of you' gift."}
-    ],
-    specs: [
-      ["Tote", "12 oz washed canvas, 34 × 30 × 10 cm"],
-      ["Includes", "tote + bag charm + mini chain"],
-      ["Weight", "~420 g"],
-      ["In the box", "all pieces + gift box"]
+      ["Material", "316L stainless steel"],
+      ["Pendant", "24mm heart, brushed finish"],
+      ["Chain", "45cm + 5cm extender"],
+      ["Photo", "Yours, sent after order — we confirm it before making"],
+      ["Delivery", "10–15 days worldwide, tracked"]
     ]
   }
 ];
