@@ -89,6 +89,16 @@
     var specs = (p.specs || []).map(function (s) { return "<tr><td>" + esc(s[0]) + "</td><td>" + esc(s[1]) + "</td></tr>"; }).join("");
     var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + ' — pet keepsake" decoding="async">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
     var stock = '<div class="pd-stock">Made to order <span>· ships in 10–15 days, tracked worldwide</span></div>';
+    var ic = function (d) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' + d + "</svg>"; };
+    var badges =
+      '<div class="pd-badges">' +
+      '<span>' + ic('<path d="M20 6L9 17l-5-5"/>') + "QC photo before it ships</span>" +
+      '<span>' + ic('<path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/>') + "30-day keep-it guarantee</span>" +
+      '<span>' + ic('<path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7"/>') + "Free tracked shipping</span>" +
+      "</div>";
+    // related pieces
+    var others = (window.PRODUCTS || []).filter(function (x) { return x.id !== p.id; }).slice(0, 3);
+    var related = others.length ? '<section class="pd-section pd-related"><h2 class="serif">You might also like</h2><div class="p-grid">' + others.map(pCard).join("") + "</div></section>" : "";
     return '<div class="pd-head"><a href="shop.html">&larr; Back to shop</a></div>' +
       '<div class="pd-layout"><div class="p-img pd-img">' + imgInner + "</div>" +
       '<div class="pd-info"><div class="p-badge">' + esc(p.badge || "Free shipping") + '</div><span class="p-free pd-free">free worldwide shipping</span>' +
@@ -98,17 +108,57 @@
       '<div class="pd-ctas"><a class="btn" href="checkout.html?id=' + esc(p.id) + '">Buy now — PayPal or card</a>' +
       '<a class="btn soft" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a>' +
       '<a class="btn ghost" href="shipping.html">Shipping &amp; payment</a></div>' +
-      '<p class="pd-note">Made to order in 2–4 days &middot; tracked worldwide delivery &middot; <a href="guarantee.html">30-Day Keep-It Guarantee</a></p></div></div>' +
+      badges +
+      '<p class="pd-note">Made to order &middot; tracked worldwide delivery &middot; <a href="guarantee.html">30-Day Keep-It Guarantee</a> &middot; not sure your photo works? <a href="https://wa.me/8615982440421?text=Hi!%20Can%20you%20check%20this%20photo%20before%20I%20order%3F" target="_blank" rel="noopener">get a free photo check</a></p></div></div>' +
       '<section class="pd-section"><h2 class="serif">Why you&rsquo;ll love it</h2>' + (feats || "") + "</section>" +
       (specs ? '<section class="pd-section"><h2 class="serif">The details</h2><table>' + specs + "</table></section>" : "") +
+      '<section class="pd-section"><h2 class="serif">How this differs from mass-produced keepsakes</h2>' +
+      '<div class="cmp"><div class="cmp-h"><span>Pawmark</span><span>Typical marketplace listing</span></div>' +
+      '<div class="cmp-r"><span>Made to order — yours is the only one</span><span>Mass-produced, pulled from a shelf</span></div>' +
+      '<div class="cmp-r"><span>QC-checked and photographed before it ships</span><span>Ships unopened from a warehouse</span></div>' +
+      '<div class="cmp-r"><span>316L stainless steel — no flaking plating</span><span>Plated alloys that wear within a year</span></div>' +
+      '<div class="cmp-r"><span>10–15 days, quoted honestly</span><span>"3-day delivery" that never was</span></div></div></section>' +
+      '<section class="pd-section"><h2 class="serif">Common questions</h2><div class="faq-mini">' +
+      '<details><summary>What photo should I send?</summary><div class="fa-a">A close-up of their face — sharp, well-lit, eyes visible. For prints, a straight-on photo in daylight. If it won\'t work, we tell you before anything is made.</div></details>' +
+      '<details><summary>How long does it take?</summary><div class="fa-a">10–15 days door to door, tracked and free. Made to order first, then 7–12 days in transit.</div></details>' +
+      '<details><summary>What if it arrives wrong?</summary><div class="fa-a">Photo proof within 7 days = full refund, and you keep the piece. See the <a href="guarantee.html">guarantee</a>.</div></details>' +
+      "</div></section>" + related +
       '<section class="pd-section"><div class="note">Every order is handled personally and QC-checked before it ships — covered by the <a href="guarantee.html">30-Day Keep-It Guarantee</a>. Questions? <a href="https://wa.me/8615982440421" target="_blank" rel="noopener">Message us on WhatsApp</a> — Eidon answers.</div></section>';
+  }
+
+  function observeReveals() {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
   }
 
   function render() {
     var P = window.PRODUCTS || [];
 
     var shop = document.getElementById("shop-grid");
-    if (shop) shop.innerHTML = P.map(pCard).join("");
+    if (shop) {
+      var filtersBox = document.getElementById("shop-filters");
+      function draw(cat) {
+        var list = cat === "all" ? P : P.filter(function (x) { return x.cat === cat; });
+        shop.innerHTML = list.map(pCard).join("");
+      }
+      if (filtersBox && !filtersBox.dataset.wired) {
+        filtersBox.dataset.wired = "1";
+        filtersBox.innerHTML = [["all", "All pieces"], ["memorial", "Memorial"], ["living", "For them still here"]]
+          .map(function (c, i) { return '<button type="button" class="sf-btn' + (i === 0 ? " on" : "") + '" data-cat="' + c[0] + '">' + c[1] + "</button>"; })
+          .join("");
+        filtersBox.onclick = function (e) {
+          var b = e.target.closest(".sf-btn");
+          if (!b) return;
+          filtersBox.querySelectorAll(".sf-btn").forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          draw(b.getAttribute("data-cat"));
+          observeReveals();
+        };
+      }
+      draw("all");
+    }
 
     var feat = document.getElementById("featured-grid");
     if (feat) feat.innerHTML = P.slice(0, 3).map(pCard).join("");
@@ -122,11 +172,7 @@
       if (p) injectProductSEO(p);
     }
 
-    // scroll reveal (works on both static and injected nodes)
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+    observeReveals();
   }
 
   /* ================= motion layer ================= */
