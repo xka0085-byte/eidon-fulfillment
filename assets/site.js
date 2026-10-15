@@ -76,7 +76,10 @@
       '<h3><a href="product.html?id=' + esc(p.id) + '">' + esc(p.name) + "</a></h3>" +
       '<p class="p-tag">' + esc(p.tagline) + "</p>" +
       '<p class="p-price">' + esc(p.price) + ' <span class="p-free">free shipping</span></p>' +
-      '<a class="p-order" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a></div></div>';
+      '<div class="p-actions">' +
+      '<a class="p-order" href="checkout.html?id=' + esc(p.id) + '">Buy now</a>' +
+      '<a class="p-wa" target="_blank" rel="noopener" href="' + orderLink(p) + '" aria-label="Order via WhatsApp">WhatsApp</a>' +
+      "</div></div></div>";
   }
 
   function pDetail(p) {
@@ -92,8 +95,8 @@
       '<h1 class="serif">' + esc(p.name) + "</h1>" +
       '<p class="pd-tagline">' + esc(p.tagline) + "</p>" +
       '<p class="p-price pd-price">' + esc(p.price) + "</p>" + stock +
-      '<div class="pd-ctas"><a class="btn" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a>' +
-      '<a class="btn" href="checkout.html?id=' + esc(p.id) + '">Pay online</a>' +
+      '<div class="pd-ctas"><a class="btn" href="checkout.html?id=' + esc(p.id) + '">Buy now — PayPal or card</a>' +
+      '<a class="btn soft" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a>' +
       '<a class="btn ghost" href="shipping.html">Shipping &amp; payment</a></div>' +
       '<p class="pd-note">Made to order in 2–4 days &middot; tracked worldwide delivery &middot; <a href="guarantee.html">30-Day Keep-It Guarantee</a></p></div></div>' +
       '<section class="pd-section"><h2 class="serif">Why you&rsquo;ll love it</h2>' + (feats || "") + "</section>" +
