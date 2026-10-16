@@ -47,9 +47,10 @@
       <a id="crypto-button" class="btn" href="#">Pay with crypto</a>
       <details class="co-usdt" id="usdt-box" hidden>
         <summary>Or pay directly — USDT (TRC-20)</summary>
-        <p class="co-note" style="margin-top:12px">Send the total to the address below, then paste your transaction hash here. We verify it and confirm by WhatsApp — usually within a few hours.</p>
+        <div class="usdt-amount" id="usdt-amount"></div>
         <div class="usdt-addr"><code id="usdt-addr"></code><button type="button" id="usdt-copy">Copy</button></div>
-        <p class="co-note">Network: <b>TRC-20 (Tron) only</b> — sending on another network can lose the funds.</p>
+        <p class="co-note"><b>Before sending:</b> check that the address starts with <b>TWM</b> and ends with <b>ikd</b>. Network must be <b>TRC-20 (Tron)</b> — other networks can lose the funds.</p>
+        <p class="co-note">Send the exact amount above, then paste your transaction hash here. We verify it on-chain and confirm by WhatsApp — usually within a few hours. Nothing is made until we confirm.</p>
         <div class="usdt-tx">
           <label for="co-txhash">Transaction hash (txID) after sending</label>
           <input id="co-txhash" placeholder="e.g. 3f2a9c...c91b4e" autocomplete="off">

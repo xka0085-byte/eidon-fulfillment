@@ -13,7 +13,7 @@
   var PAYPAL_CLIENT_ID = "BAAaC1HLQ0Su_biXdm2a2YxmwOhUGKGE9kOPC_jwz42HbxieGGk2UlAGJflk625irsrBVZnHStmHO2pQ_A";
   var COMMERCE_URL = "https://commerce.coinbase.com/checkout/YOUR_CHECKOUT_ID"; // Coinbase Commerce hosted checkout
   // Direct USDT (TRC-20) receiving address — public information, safe to show customers.
-  var USDT_ADDRESS = ""; // e.g. "TXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  var USDT_ADDRESS = "TWMEgnhd2LpZqDJ5EGQFoAUeX9n55Zuikd"; // OKX wallet, TRON mainnet (checksum-verified 2026-10-16)
 
   var qs = new URLSearchParams(location.search);
   var id = qs.get("id");
@@ -136,11 +136,22 @@
     cryptoBtn.outerHTML = "<p class='co-note' style='margin:0'>Hosted crypto checkout is being set up — use the direct USDT option below, or message us on WhatsApp and we'll send a payment link the same day.</p>";
   }
 
-  // ---- Direct USDT (TRC-20): wallet address + one-tap copy + tx-hash submission ----
+  // ---- Direct USDT (TRC-20): amount + address + copy + tx-hash submission ----
   var usdtBox = document.getElementById("usdt-box");
   if (usdtBox && USDT_ADDRESS && USDT_ADDRESS.length > 20) {
     document.getElementById("usdt-addr").textContent = USDT_ADDRESS;
     usdtBox.hidden = false;
+
+    // show the exact amount for this order (updates with qty)
+    var amountBox = document.getElementById("usdt-amount");
+    function refreshAmount() {
+      var t = amountNow().total;
+      amountBox.innerHTML = "Send exactly <b>" + t.toFixed(2) + " USDT</b> <span>(= $" + t.toFixed(2) + " USD)</span>";
+    }
+    refreshAmount();
+    var qtyInput = document.getElementById("co-qty");
+    if (qtyInput) qtyInput.addEventListener("input", refreshAmount);
+
     var copyBtn = document.getElementById("usdt-copy");
     copyBtn.addEventListener("click", function () {
       var doneCopy = function () { copyBtn.textContent = "Copied ✓"; setTimeout(function () { copyBtn.textContent = "Copy"; }, 1800); };
