@@ -30,7 +30,12 @@ window.PRODUCTS = [
       ["Chain", "45cm + 5cm extender"],
       ["Photo", "Yours, sent after order — we confirm it before making"],
       ["Delivery", "10–15 days worldwide, tracked"]
-    ]
+    ],
+    faq: [
+      ["What photo works best?", "A close-up where their face fills the frame — sharp, well-lit, eyes visible. Phone photos are perfect. If you're unsure, send us two or three and we'll tell you which one will look best."],
+      ["My best photo is old and a bit blurry — can you still use it?", "Usually yes. Slightly soft or older photos can still work, and we'll tell you honestly before making anything. Send it over for a free check first."],
+      ["Can two pets go on one pendant?", "It's tight on this size — message us with your photos and we'll tell you honestly whether both faces will read clearly."]
+    ],
   },
   {
     id: "paw-print-pendant",
@@ -54,7 +59,12 @@ window.PRODUCTS = [
       ["Chain", "45cm + 5cm extender"],
       ["Print", "Your photo of their paw or nose print"],
       ["Delivery", "10–15 days worldwide, tracked"]
-    ]
+    ],
+    faq: [
+      ["How do I get a good print?", "A straight-on photo of the print in daylight works best — a clay or ink impression from the vet, or a print you took at home. Photograph it flat, with no shadows across it."],
+      ["My pet has already passed. Can you still make this?", "Yes. Most of the prints we receive are photos taken years ago, or the vet's impression. Send what you have — we'll check it free before anything is made."],
+      ["Can you do a nose print instead?", "Yes — a nose print works the same way. A close, in-focus photo in natural light is all we need."]
+    ],
   },
   {
     id: "keepsake-pendant",
@@ -78,7 +88,12 @@ window.PRODUCTS = [
       ["Chain", "45cm + 5cm extender"],
       ["Filling", "A pinch of fur or ashes, filled by you at home"],
       ["Delivery", "10–15 days worldwide, tracked"]
-    ]
+    ],
+    faq: [
+      ["Can I put ashes inside?", "Yes — the chamber is made for it. It ships empty, and you fill it at home in your own time. A small funnel is included."],
+      ["Can I put fur inside instead?", "Yes. A pinch of fur works beautifully — anything that fits through the cap opening and can stay dry."],
+      ["Is it sealed?", "The cap is a screw-top that seats firmly and holds the contents securely for everyday wear. If you plan to swim with it, message us first."]
+    ],
   },
   {
     id: "voice-name-bar",
@@ -102,7 +117,12 @@ window.PRODUCTS = [
       ["Chain", "45cm + 5cm extender"],
       ["Text", "Name + dates, a short phrase, or a bird's words"],
       ["Delivery", "10–15 days worldwide, tracked"]
-    ]
+    ],
+    faq: [
+      ["How do I send my bird's words?", "Message us the words or sounds in plain text (e.g. \"pretty bird, wotcha\") and we'll confirm the layout with you before making it."],
+      ["Can I include dates?", "Yes — names and dates both fit, e.g. \"Kiwi 2009 – 2026\"."],
+      ["Is this only for birds?", "No. The bar works for any pet — the difference is that only birds have words worth setting in steel."]
+    ],
   },
   {
     id: "heart-photo-pendant",
@@ -126,6 +146,11 @@ window.PRODUCTS = [
       ["Chain", "45cm + 5cm extender"],
       ["Photo", "Yours, sent after order — we confirm it before making"],
       ["Delivery", "10–15 days worldwide, tracked"]
-    ]
+    ],
+    faq: [
+      ["Is this only for memorials?", "Not at all — it's also for the companion who's still here. Many customers buy it as a gift for a pet parent, or to wear while their pet is young."],
+      ["What photo works best?", "A close-up of their face, sharp and well-lit. Same rule as all our pieces: if it won't look good, we tell you before making it."],
+      ["Can it hold a print too?", "This one is the photo version. If you want a paw or nose print, the Paw Print Pendant is the one to look at."]
+    ],
   }
 ];

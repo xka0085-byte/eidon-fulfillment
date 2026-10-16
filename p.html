@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3b4f45">
+<meta name="robots" content="noindex, nofollow">
+<title>Forever in Your Heart — EveryBeloved</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .mem{max-width:620px;margin:0 auto;padding:56px 26px 90px;text-align:center;position:relative}
+  .mem::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='%233b4f45'%3E%3Cellipse cx='60' cy='72' rx='13' ry='10'/%3E%3Cellipse cx='43' cy='57' rx='6' ry='7.5' transform='rotate(-18 43 57)'/%3E%3Cellipse cx='77' cy='57' rx='6' ry='7.5' transform='rotate(18 77 57)'/%3E%3Cellipse cx='52' cy='47' rx='5' ry='6.5'/%3E%3Cellipse cx='68' cy='47' rx='5' ry='6.5'/%3E%3C/g%3E%3C/svg%3E");background-size:120px}
+  .mem > *{position:relative}
+  .mem-logo{display:flex;justify-content:center;margin-bottom:34px}
+  .mem-logo img{height:30px;width:auto;opacity:.9}
+  .mem-k{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+  .mem-name{font-family:var(--serif);font-size:clamp(38px,9vw,58px);line-height:1.08;font-weight:600;margin-bottom:12px;color:var(--ink)}
+  .mem-dates{font-size:15px;letter-spacing:.14em;color:var(--sub);font-variant-numeric:tabular-nums;margin-bottom:30px}
+  .mem-rule{width:54px;height:1px;background:var(--accent-line);margin:0 auto 30px}
+  .mem-msg{font-family:var(--serif);font-style:italic;font-size:clamp(19px,4.4vw,23px);line-height:1.65;color:var(--ink);max-width:520px;margin:0 auto 18px}
+  .mem-from{font-size:13.5px;color:var(--sub)}
+  .mem-quiet{margin-top:74px;font-size:13px;color:var(--sub);line-height:1.9}
+  .mem-quiet a{color:var(--accent-deep)}
+  .mem-print{display:inline-block;margin-top:30px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);border-bottom:1px solid var(--accent-line);padding-bottom:3px;cursor:pointer;background:none;border-top:0;border-left:0;border-right:0;font-family:var(--sans)}
+  @media print{.mem-print,.mem-quiet + *{display:none}body{background:#fff}.mem{padding-top:20px}}
+</style>
+</head>
+<body>
+<div class="mem">
+  <div class="mem-logo"><img src="assets/logo-wordmark.png" alt="EveryBeloved"></div>
+  <div class="mem-k">Forever in Your Heart</div>
+  <h1 class="mem-name" id="m-name">&nbsp;</h1>
+  <div class="mem-dates" id="m-dates"></div>
+  <div class="mem-rule"></div>
+  <div class="mem-msg" id="m-msg"></div>
+  <div class="mem-from" id="m-from"></div>
+  <button class="mem-print" type="button" onclick="window.print()">Print this page</button>
+  <div class="mem-quiet" id="m-quiet">
+    This page lives on the tag — nothing is stored on a server.<br>
+    Made with care by <a href="index.html">EveryBeloved</a>.
+  </div>
+</div>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  function clean(v, max) {
+    if (!v) return "";
+    return String(v).slice(0, max).replace(/[<>]/g, "");
+  }
+  var name = clean(q.get("n"), 40) || "A beloved companion";
+  var dates = clean(q.get("d"), 30);
+  var msg = clean(q.get("m"), 200);
+  var from = clean(q.get("f"), 40);
+
+  document.getElementById("m-name").textContent = name;
+  document.getElementById("m-dates").textContent = dates;
+  document.getElementById("m-msg").textContent = msg ? "\u201C" + msg + "\u201D" : "";
+  if (from) {
+    document.getElementById("m-from").textContent = "\u2014 " + from;
+  } else {
+    document.getElementById("m-from").hidden = true;
+  }
+  // sensible <title> for sharing / print
+  document.title = name + " — Forever in Your Heart";
+  if (!dates) document.getElementById("m-dates").hidden = true;
+  if (!msg) document.getElementById("m-quiet").insertAdjacentHTML("afterbegin", "");
+})();
+</script>
+<script src="assets/chat.js"></script>
+</body>
+</html>

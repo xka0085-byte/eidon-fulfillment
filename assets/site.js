@@ -125,9 +125,11 @@
       '<div class="cmp-r"><span>Your photo checked by a human first</span><span>Auto-accepted, whatever the quality</span></div>' +
       '<div class="cmp-r"><span>10–15 days, quoted honestly</span><span>"3-day delivery" that never was</span></div></div></section>' +
       '<section class="pd-section"><h2 class="serif">Common questions</h2><div class="faq-mini">' +
-      '<details><summary>What photo should I send?</summary><div class="fa-a">A close-up of their face — sharp, well-lit, eyes visible. For prints, a straight-on photo in daylight. If it won\'t work, we tell you before anything is made.</div></details>' +
+      (p.faq || []).map(function (q) {
+        return "<details><summary>" + esc(q[0]) + '</summary><div class="fa-a">' + esc(q[1]) + "</div></details>";
+      }).join("") +
       '<details><summary>How long does it take?</summary><div class="fa-a">10–15 days door to door, tracked and free. Made to order first, then 7–12 days in transit.</div></details>' +
-      '<details><summary>What if it arrives wrong?</summary><div class="fa-a">Photo proof within 7 days = full refund, and you keep the piece. See the <a href="guarantee.html">guarantee</a>.</div></details>' +
+      '<details><summary>What if it arrives wrong?</summary><div class="fa-a">You approve photos of your actual piece before it ships — and if something still arrives damaged or wrong, it\'s a full refund or a free remake within 14 days. See the <a href="guarantee.html">QC-First Guarantee</a>.</div></details>' +
       "</div></section>" + related +
       '<section class="pd-section"><div class="note">Every order is handled personally and QC-checked before it ships — covered by the <a href="guarantee.html">QC-First Guarantee</a>. Questions? <a href="https://wa.me/8615982440421" target="_blank" rel="noopener">Message us on WhatsApp</a> — Eidon answers.</div></section>';
   }
