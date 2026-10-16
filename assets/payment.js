@@ -82,13 +82,16 @@
 
   function createOrder(prod, total, method, status) {
     var a = amountNow();
+    var choiceEl = document.getElementById("co-choice");
     var order = {
       id: "PW" + Date.now().toString(36).toUpperCase(),
       product_id: prod.id, product_name: prod.name,
       name: document.getElementById("co-name").value.trim(),
       email: document.getElementById("co-email").value.trim(),
       country: document.getElementById("co-country").value.trim(),
-      qty: a.qty, amount: total, method: method, status: status || "paid"
+      qty: a.qty, amount: total, method: method, status: status || "paid",
+      // colour / size / pet name / wording — whatever the customer told us
+      choice: choiceEl ? choiceEl.value.trim().slice(0, 300) : ""
     };
     // record order on backend (for the order-query system)
     fetch(API + "/api/orders", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(order) }).catch(function () {});
@@ -170,6 +173,7 @@
       if (!valid()) { note.textContent = "Please fill in your details above first."; return; }
       if (hash.length < 20) { note.textContent = "That doesn't look like a transaction hash — copy the full txID after sending."; txInput.focus(); return; }
       var total = amountNow().total;
+      var choiceEl = document.getElementById("co-choice");
       var order = {
         id: "PW" + Date.now().toString(36).toUpperCase(),
         product_id: p.id, product_name: p.name,
@@ -177,7 +181,8 @@
         email: document.getElementById("co-email").value.trim(),
         country: document.getElementById("co-country").value.trim(),
         qty: amountNow().qty, amount: total,
-        method: "usdt-trc20", status: "awaiting-verification", tx_hash: hash
+        method: "usdt-trc20", status: "awaiting-verification", tx_hash: hash,
+        choice: choiceEl ? choiceEl.value.trim().slice(0, 300) : ""
       };
       fetch(API + "/api/orders", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(order) }).catch(function () {});
       if (window.EveryBelovedTrack) { try { window.EveryBelovedTrack.event("order_usdt_submitted", { value: total }); } catch (e) {} }

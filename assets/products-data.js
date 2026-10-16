@@ -152,5 +152,38 @@ window.PRODUCTS = [
       ["What photo works best?", "A close-up of their face, sharp and well-lit. Same rule as all our pieces: if it won't look good, we tell you before making it."],
       ["Can it hold a print too?", "This one is the photo version. If you want a paw or nose print, the Paw Print Pendant is the one to look at."]
     ],
+  },
+  {
+    id: "gemstone-bead-collar",
+    name: "Natural Stone Bead Collar",
+    price: "$34.99",
+    tagline: "The collar they get compliments on.",
+    desc: "A soft leather collar with a detachable strand of polished stone and pearl beads — rose quartz, agate, amber-tone, jade-tone, turquoise and clear quartz, depending on the colourway. Buckle and D-ring, so it works as a real collar for photos, walks and every day. Ships in a gift box.",
+    badge: "New",
+    cat: "decor",
+    stock: true,
+    img: "assets/products/gemstone-collar-hero.jpg",
+    order: 1,
+    features: [
+      {t: "A strand of real stone beads", d: "Rose quartz, agate, amber and turquoise tones, strung on a gold-tone wire and held between two rings — as photographed, no two strands sit exactly alike."},
+      {t: "Detachable, so it works two ways", d: "Unclip the bead strand and it's a clean everyday collar. Clip it on for photos, birthdays and outings."},
+      {t: "Soft padded leather", d: "Smooth grain with a padded inner lining — comfortable on small and medium necks, and it doesn't catch fur."},
+      {t: "Six colourways, three sizes", d: "White, black, pink, cocoa, sky and navy leather — pick the one that matches them. Sizes: S / M / L (see the size chart)."}
+    ],
+    specs: [
+      ["Collar", "Soft grain leather, padded lining, stitched edges"],
+      ["Hardware", "Buckle + D-ring (gold-tone or silver-tone, as photographed)"],
+      ["Bead strand", "Polished stone and pearl-finish beads, detachable"],
+      ["Sizes", "S: neck 20–26cm · M: 26–33cm · L: 33–41cm (measure before ordering)"],
+      ["Best for", "Cats and small–medium dogs · photo days, outings, everyday wear"],
+      ["Please note", "Decorative bead strand — remove it if your pet chews or scratches at collars"],
+      ["Delivery", "10–15 days worldwide, tracked"]
+    ],
+    faq: [
+      ["Which size should I order?", "Measure around the middle of the neck and add two fingers' width. S fits most cats and tiny dogs, M fits small dogs (shih tzu, poodle, corgi), L fits medium dogs. If you're between sizes, size up — we'll message you to confirm before shipping."],
+      ["Are the stones real?", "They're polished stone beads — the rose quartz, agate, amber and turquoise tones you see in the photos. We don't certify each bead's grade or origin, so if a specific stone matters to you, message us and we'll send close-ups of the exact batch before you order."],
+      ["Can my dog wear it all the time?", "The collar itself, yes. The bead strand is a decorative piece — clip it off when they're home alone, swimming, or if they chew or paw at their collar. It's for photos, outings and supervised wear."],
+      ["Can I change the colour later?", "The bead strands use the same clips across colourways, so yes — message us and we can send a different strand on its own."]
+    ]
   }
 ];
