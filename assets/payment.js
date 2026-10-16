@@ -136,18 +136,41 @@
     cryptoBtn.outerHTML = "<p class='co-note' style='margin:0'>Hosted crypto checkout is being set up — use the direct USDT option below, or message us on WhatsApp and we'll send a payment link the same day.</p>";
   }
 
-  // ---- Direct USDT (TRC-20): wallet address + one-tap copy ----
+  // ---- Direct USDT (TRC-20): wallet address + one-tap copy + tx-hash submission ----
   var usdtBox = document.getElementById("usdt-box");
   if (usdtBox && USDT_ADDRESS && USDT_ADDRESS.length > 20) {
     document.getElementById("usdt-addr").textContent = USDT_ADDRESS;
     usdtBox.hidden = false;
     var copyBtn = document.getElementById("usdt-copy");
     copyBtn.addEventListener("click", function () {
-      var done = function () { copyBtn.textContent = "Copied ✓"; setTimeout(function () { copyBtn.textContent = "Copy"; }, 1800); };
+      var doneCopy = function () { copyBtn.textContent = "Copied ✓"; setTimeout(function () { copyBtn.textContent = "Copy"; }, 1800); };
       try {
-        if (navigator.clipboard) navigator.clipboard.writeText(USDT_ADDRESS).then(done, done);
-        else done();
-      } catch (e) { done(); }
+        if (navigator.clipboard) navigator.clipboard.writeText(USDT_ADDRESS).then(doneCopy, doneCopy);
+        else doneCopy();
+      } catch (e) { doneCopy(); }
+    });
+
+    // customer pastes the txID -> order is recorded as awaiting verification
+    var submitTx = document.getElementById("usdt-confirm");
+    var txInput = document.getElementById("co-txhash");
+    var note = document.getElementById("usdt-note");
+    submitTx.addEventListener("click", function () {
+      var hash = (txInput.value || "").trim();
+      if (!valid()) { note.textContent = "Please fill in your details above first."; return; }
+      if (hash.length < 20) { note.textContent = "That doesn't look like a transaction hash — copy the full txID after sending."; txInput.focus(); return; }
+      var total = amountNow().total;
+      var order = {
+        id: "PW" + Date.now().toString(36).toUpperCase(),
+        product_id: p.id, product_name: p.name,
+        name: document.getElementById("co-name").value.trim(),
+        email: document.getElementById("co-email").value.trim(),
+        country: document.getElementById("co-country").value.trim(),
+        qty: amountNow().qty, amount: total,
+        method: "usdt-trc20", status: "awaiting-verification", tx_hash: hash
+      };
+      fetch(API + "/api/orders", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(order) }).catch(function () {});
+      if (window.EveryBelovedTrack) { try { window.EveryBelovedTrack.event("order_usdt_submitted", { value: total }); } catch (e) {} }
+      done("⏳ Got it — order <b>" + order.id + "</b> is recorded. We're checking the transfer on-chain and will confirm by WhatsApp / email, usually within a few hours. Nothing is made until we confirm.");
     });
   }
 })();
