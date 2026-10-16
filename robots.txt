@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /admin.html
+Disallow: /p.html
 
 Sitemap: https://xka0085-byte.github.io/sitemap.xml
 Sitemap: https://xka0085-byte.github.io/image-sitemap.xml

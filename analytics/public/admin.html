@@ -1,132 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eidon Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<title>EveryBeloved Admin</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <style>
-  :root{ --bg:#0b1411; --card:#13201b; --line:#1f332b; --txt:#e9f3ee; --mut:#8fb3a6; --acc:#39d98a; --warn:#ffd166; --bad:#ff6b6b; }
+  :root{ --bg:#14120e; --card:#1e1b15; --line:#332d22; --txt:#f2ede2; --mut:#a89b85; --acc:#7fae8f; --acc2:#5b7466; --warn:#e8c47c; --bad:#e0867a; --ok:#8fc9a4 }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-  header{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  header h1{font-size:16px;margin:0}
-  .wrap{max-width:1100px;margin:0 auto;padding:20px}
-  .tabs{display:flex;gap:8px;margin:14px 0 18px}
-  .tabs button{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 16px;border-radius:8px;cursor:pointer}
-  .tabs button.on{background:var(--acc);color:#04140c;border-color:var(--acc);font-weight:600}
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
-  label{display:block;color:var(--mut);font-size:12px;margin:10px 0 4px;text-transform:uppercase;letter-spacing:.04em}
-  input,textarea,select{width:100%;background:#0e1a15;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:9px 10px;font:inherit}
-  textarea{resize:vertical;min-height:64px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
+  body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+  header{padding:15px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;background:var(--bg);z-index:20}
+  header h1{font-size:15px;margin:0;letter-spacing:.02em}
+  header h1 span{color:var(--acc);font-weight:400}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 20px 80px}
+  .tabs{display:flex;gap:8px;margin:16px 0 18px;flex-wrap:wrap}
+  .tabs button{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:9px 16px;border-radius:8px;cursor:pointer;font-size:13.5px}
+  .tabs button.on{background:var(--acc);color:#12180f;border-color:var(--acc);font-weight:700}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+  .panel h2{font-size:15px;margin:0 0 10px}
+  label{display:block;color:var(--mut);font-size:11.5px;margin:12px 0 5px;text-transform:uppercase;letter-spacing:.06em}
+  input,textarea,select{width:100%;background:#171310;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:9px 11px;font:inherit}
+  input:focus,textarea:focus,select:focus{outline:2px solid rgba(127,174,143,.4);outline-offset:1px}
+  textarea{resize:vertical;min-height:70px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .btns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-  button.act{background:var(--acc);color:#04140c;border:0;padding:9px 16px;border-radius:8px;cursor:pointer;font-weight:600}
-  button.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);padding:9px 16px;border-radius:8px;cursor:pointer}
-  button.danger{background:transparent;color:var(--bad);border:1px solid var(--bad);padding:6px 12px;border-radius:8px;cursor:pointer}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  @media(max-width:640px){.row,.row3{grid-template-columns:1fr}}
+  .btns{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;align-items:center}
+  button.act{background:var(--acc);color:#12180f;border:0;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:13.5px}
+  button.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);padding:10px 16px;border-radius:8px;cursor:pointer;font-size:13.5px}
+  button.danger{background:transparent;color:var(--bad);border:1px solid var(--bad);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12.5px}
+  button:disabled{opacity:.5;cursor:default}
   table{width:100%;border-collapse:collapse}
-  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}
-  th{color:var(--mut);font-weight:600}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}
+  th{color:var(--mut);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
   tr.click{cursor:pointer}
-  tr.click:hover{background:#16271f}
-  .pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600}
-  .pill.paid{background:rgba(57,217,138,.18);color:var(--acc)}
-  .pill.shipped{background:rgba(255,209,102,.18);color:var(--warn)}
-  .pill.delivered{background:rgba(120,170,255,.18);color:#8fb3ff}
-  .pill.refunded,.pill.cancelled{background:rgba(255,107,107,.18);color:var(--bad)}
+  tr.click:hover{background:#241f18}
+  .pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:700;white-space:nowrap}
+  .pill.paid{background:rgba(143,201,164,.18);color:var(--ok)}
+  .pill.awaiting-verification{background:rgba(232,196,124,.2);color:var(--warn)}
+  .pill.shipped{background:rgba(232,196,124,.16);color:var(--warn)}
+  .pill.delivered{background:rgba(143,175,255,.16);color:#9fb6ff}
+  .pill.refunded,.pill.cancelled{background:rgba(224,134,122,.16);color:var(--bad)}
   .muted{color:var(--mut)}
-  .login{max-width:360px;margin:80px auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
-  .hidden{display:none}
-  .prod-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
-  pre{white-space:pre-wrap;word-break:break-word;background:#0e1a15;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:12px;max-height:240px;overflow:auto}
+  .login{max-width:380px;margin:90px auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .hidden{display:none !important}
+  .prod-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .prod-item:last-child{border-bottom:0}
+  .cat-badge{font-size:11px;padding:2px 8px;border-radius:4px;background:rgba(127,174,143,.15);color:var(--acc)}
+  pre{white-space:pre-wrap;word-break:break-word;background:#171310;border:1px solid var(--line);border-radius:8px;padding:12px;font-size:12px;max-height:300px;overflow:auto}
+  .note{background:rgba(127,174,143,.08);border-left:3px solid var(--acc2);padding:12px 16px;border-radius:4px;font-size:13px;margin:14px 0}
+  .warn{background:rgba(232,196,124,.09);border-left:3px solid var(--warn);padding:12px 16px;border-radius:4px;font-size:13px;margin:14px 0}
+  code{background:#171310;padding:1px 6px;border-radius:4px;font-size:12.5px}
+  .tx{background:#171310;border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;word-break:break-all}
 </style>
 </head>
 <body>
 
 <div id="login" class="login">
-  <h1>Eidon Admin</h1>
-  <p class="muted">Enter your admin token (set via <code>wrangler secret put ADMIN_TOKEN</code>).</p>
+  <h1 style="font-size:16px;margin:0 0 6px">EveryBeloved Admin</h1>
+  <p class="muted" style="font-size:13px;margin:0 0 8px">用你的 admin token 登录（就是设 `wrangler secret put ADMIN_TOKEN` 时填的那个）。</p>
   <label>Admin token</label>
-  <input id="token" type="password" placeholder="paste token">
-  <div class="btns"><button class="act" onclick="login()">Enter</button></div>
-  <p id="login-err" class="muted" style="color:var(--bad)"></p>
+  <input id="token" type="password" placeholder="粘贴 token">
+  <div class="btns"><button class="act" onclick="login()">登录</button></div>
+  <p id="login-err" style="color:var(--bad);font-size:13px"></p>
 </div>
 
 <div id="app" class="hidden">
   <header>
-    <h1>Eidon Admin</h1>
-    <div><button class="ghost" onclick="logout()">Log out</button></div>
+    <h1>EveryBeloved <span>Admin</span></h1>
+    <div><button class="ghost" onclick="logout()">退出</button></div>
   </header>
   <div class="wrap">
     <div class="tabs">
-      <button id="tab-prod" class="on" onclick="show('prod')">Products</button>
-      <button id="tab-ord" onclick="show('ord')">Orders</button>
+      <button id="tab-prod" class="on" onclick="show('prod')">商品</button>
+      <button id="tab-ord" onclick="show('ord')">订单</button>
     </div>
 
-    <!-- PRODUCTS -->
+    <!-- ===================== PRODUCTS ===================== -->
     <section id="sec-prod">
       <div class="panel">
-        <h2 style="margin:0 0 4px">Edit / add product</h2>
-        <p class="muted" style="margin:0 0 6px">Features: one per line as <code>Title :: Description</code>. Specs: one per line as <code>Key :: Value</code>.</p>
-        <div class="row">
-          <div><label>id (unique, no spaces)</label><input id="p-id" placeholder="bag-charm-trio"></div>
-          <div><label>name</label><input id="p-name" placeholder="Bag Charm Trio"></div>
-        </div>
-        <div class="row">
-          <div><label>price (USD)</label><input id="p-price" placeholder="$24.99"></div>
-          <div><label>badge</label><input id="p-badge" placeholder="Free shipping"></div>
-        </div>
-        <label>tagline</label><input id="p-tagline">
-        <label>description</label><textarea id="p-desc"></textarea>
-        <div class="row">
-          <div><label>in stock?</label>
-            <select id="p-stock"><option value="true">Yes — In stock</option><option value="false">No — hidden</option></select>
-          </div>
-          <div><label>image path (optional)</label><input id="p-img" placeholder="assets/products/xxx.jpg"></div>
-        </div>
-        <label>features (Title :: Description per line)</label><textarea id="p-features"></textarea>
-        <label>specs (Key :: Value per line)</label><textarea id="p-specs"></textarea>
-        <label>curator note (optional)</label><textarea id="p-note"></textarea>
+        <h2>从网站导入现有商品（第一次必做）</h2>
+        <p class="muted" style="font-size:13px;margin:0">把网站上现在的 5 个商品（含分类、详情、FAQ）写进数据库。已存在的商品会被更新，<b>不会删除你自己加的商品</b>。</p>
         <div class="btns">
-          <button class="act" onclick="saveProduct()">Save product</button>
-          <button class="ghost" onclick="newProduct()">New (clear)</button>
+          <button class="act" id="btn-import" onclick="importCatalog()">导入网站现有商品</button>
+          <span id="import-msg" class="muted"></span>
         </div>
-        <p id="p-msg" class="muted"></p>
       </div>
 
       <div class="panel">
-        <h2 style="margin:0 0 10px">All products</h2>
-        <div id="prod-list"></div>
+        <h2>新增 / 编辑商品</h2>
+        <p class="muted" style="font-size:12.5px;margin:0 0 4px">卖点每行一条 <code>标题 :: 说明</code>；规格每行一条 <code>名称 :: 值</code>；FAQ 每行一条 <code>问题 :: 回答</code>。</p>
+        <div class="row">
+          <div><label>id（英文，唯一，如 leather-paw-tag）</label><input id="p-id" placeholder="leather-paw-tag"></div>
+          <div><label>分类 category</label>
+            <select id="p-cat">
+              <option value="custom">Custom keepsakes 定制服务</option>
+              <option value="decor">Decor &amp; accessories 装饰品</option>
+              <option value="daily">Everyday essentials 宠物日常用品</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div><label>商品名（英文）</label><input id="p-name" placeholder="Hand-Carved Leather Paw Tag"></div>
+          <div><label>售价</label><input id="p-price" placeholder="$89.00"></div>
+        </div>
+        <div class="row">
+          <div><label>角标 badge（可选）</label><input id="p-badge" placeholder="New"></div>
+          <div><label>图片路径（可选）</label><input id="p-img" placeholder="assets/products/xxx.jpg"></div>
+        </div>
+        <label>一句话卖点 tagline</label><input id="p-tagline" placeholder="The print they actually left.">
+        <label>描述 description</label><textarea id="p-desc"></textarea>
+        <div class="row">
+          <div><label>卖点 features</label><textarea id="p-features" style="min-height:110px"></textarea></div>
+          <div><label>规格 specs</label><textarea id="p-specs" style="min-height:110px"></textarea></div>
+        </div>
+        <label>FAQ（这个商品专属的问题）</label><textarea id="p-faq" style="min-height:90px"></textarea>
+        <div class="row">
+          <div><label>是否上架</label>
+            <select id="p-stock"><option value="true">上架销售</option><option value="false">下架隐藏</option></select>
+          </div>
+          <div><label>排序权重（数字越小越靠前，可选）</label><input id="p-order" placeholder="1"></div>
+        </div>
+        <div class="btns">
+          <button class="act" onclick="saveProduct()">保存商品</button>
+          <button class="ghost" onclick="newProduct()">清空重填</button>
+          <span id="p-msg" class="muted"></span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>现有商品</h2>
+        <div id="prod-list"><p class="muted">加载中…</p></div>
       </div>
     </section>
 
-    <!-- ORDERS -->
+    <!-- ===================== ORDERS ===================== -->
     <section id="sec-ord" class="hidden">
       <div class="panel">
         <div class="row">
-          <div><label>Search (id / email / name / product)</label><input id="o-q" oninput="loadOrders()" placeholder="search…"></div>
-          <div><label>Status filter</label>
+          <div><label>搜索（订单号 / 邮箱 / 姓名 / 商品）</label><input id="o-q" oninput="loadOrders()" placeholder="搜索…"></div>
+          <div><label>状态</label>
             <select id="o-status" onchange="loadOrders()">
-              <option value="">All</option><option>paid</option><option>shipped</option>
-              <option>delivered</option><option>refunded</option><option>cancelled</option>
+              <option value="">全部</option>
+              <option value="awaiting-verification">待核对（USDT 已提交哈希）</option>
+              <option value="paid">已付款</option>
+              <option value="shipped">已发货</option>
+              <option value="delivered">已签收</option>
+              <option value="refunded">已退款</option>
+              <option value="cancelled">已取消</option>
             </select>
           </div>
         </div>
+        <div class="note" style="margin-bottom:0">USDT 订单：状态为「待核对」时，复制下面的交易哈希到 <a href="https://tronscan.org" target="_blank" rel="noopener" style="color:var(--acc)">tronscan.org</a> 核对到账，再把状态改成「已付款」。</div>
       </div>
       <div class="panel">
-        <table id="o-table"><tr><th>Order</th><th>Date</th><th>Customer</th><th>Product</th><th>Amount</th><th>Method</th><th>Status</th></tr></table>
-        <p id="o-empty" class="muted">No orders yet.</p>
+        <table id="o-table"><tr><th>订单</th><th>时间</th><th>客户</th><th>商品</th><th>金额</th><th>方式</th><th>状态</th></tr></table>
+        <p id="o-empty" class="muted">还没有订单。</p>
       </div>
       <div class="panel hidden" id="o-detail">
-        <h2 style="margin:0 0 10px">Order detail</h2>
+        <h2>订单详情</h2>
+        <div id="o-tx-wrap" class="hidden" style="margin-bottom:12px">
+          <label>交易哈希（点一下全选复制，去 tronscan 核对）</label>
+          <div class="tx" id="o-tx" onclick="selectText(this)"></div>
+        </div>
         <pre id="o-json"></pre>
-        <div class="row" style="margin-top:10px">
-          <div><label>Update status</label>
+        <div class="row" style="margin-top:12px">
+          <div><label>更新状态</label>
             <select id="o-newstatus">
-              <option>paid</option><option>shipped</option><option>delivered</option>
-              <option>refunded</option><option>cancelled</option>
+              <option>awaiting-verification</option><option>paid</option><option>shipped</option>
+              <option>delivered</option><option>refunded</option><option>cancelled</option>
             </select>
           </div>
-          <div style="display:flex;align-items:flex-end"><button class="act" onclick="saveOrder()">Save status</button></div>
+          <div style="display:flex;align-items:flex-end"><button class="act" onclick="saveOrder()">保存状态</button></div>
         </div>
       </div>
     </section>
@@ -134,86 +180,168 @@
 </div>
 
 <script>
-const API = ""; // same origin (served by worker)
-let TOKEN = sessionStorage.getItem("eidon_admin") || "";
+// Cross-origin: the admin page is hosted on GitHub Pages, the API lives on the worker.
+const API = "https://eidon-analytics.xka0085.workers.dev";
+const SITE = location.origin;              // where the static catalog lives
+let TOKEN = sessionStorage.getItem("eb_admin") || "";
+let CATALOG = [];
 
-function hdr(){ return { "content-type":"application/json", "x-admin-token": TOKEN }; }
-function login(){ TOKEN = document.getElementById("token").value.trim(); if(!TOKEN){ document.getElementById("login-err").textContent="token required"; return; }
-  fetch(API+"/api/products",{headers:hdr()}).then(r=>{ if(r.ok){ sessionStorage.setItem("eidon_admin",TOKEN); enter(); loadProducts(); } else { document.getElementById("login-err").textContent="wrong token"; } }); }
-function logout(){ sessionStorage.removeItem("eidon_admin"); location.reload(); }
-function enter(){ document.getElementById("login").classList.add("hidden"); document.getElementById("app").classList.remove("hidden"); }
-function show(t){ document.getElementById("sec-prod").classList.toggle("hidden", t!=="prod"); document.getElementById("sec-ord").classList.toggle("hidden", t!=="ord");
-  document.getElementById("tab-prod").classList.toggle("on", t==="prod"); document.getElementById("tab-ord").classList.toggle("on", t==="ord");
-  if(t==="ord") loadOrders(); }
+const $ = id => document.getElementById(id);
+const hdr = () => ({ "content-type": "application/json", "x-admin-token": TOKEN });
+
+function login(){
+  TOKEN = $("token").value.trim();
+  if(!TOKEN){ $("login-err").textContent = "请输入 token"; return; }
+  $("login-err").textContent = "验证中…";
+  // NOTE: /api/products GET is public, so it can't validate a token.
+  // /api/orders requires the admin token (401 without it) — that's the real check.
+  fetch(API + "/api/orders?q=&status=", { headers: hdr() }).then(r => {
+    if(r.ok){ sessionStorage.setItem("eb_admin", TOKEN); $("login-err").textContent=""; enter(); loadProducts(); }
+    else if(r.status === 401) $("login-err").textContent = "token 不对";
+    else $("login-err").textContent = "后台返回 " + r.status;
+  }).catch(e => $("login-err").textContent = "连不上后台：" + e.message);
+}
+function logout(){ sessionStorage.removeItem("eb_admin"); location.reload(); }
+function enter(){ $("login").classList.add("hidden"); $("app").classList.remove("hidden"); }
+function show(t){
+  $("sec-prod").classList.toggle("hidden", t!=="prod");
+  $("sec-ord").classList.toggle("hidden", t!=="ord");
+  $("tab-prod").classList.toggle("on", t==="prod");
+  $("tab-ord").classList.toggle("on", t==="ord");
+  if(t==="ord") loadOrders();
+}
+function selectText(el){ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+
+// ---------- helpers ----------
+function parseLines(text, sep){
+  return (text||"").split("\n").map(s=>s.trim()).filter(Boolean).map(line=>{
+    const i = line.indexOf(sep);
+    if(i === -1) return [line, ""];
+    return [line.slice(0,i).trim(), line.slice(i+sep.length).trim()];
+  });
+}
+const featuresToText = f => (f||[]).map(x=>x.t+" :: "+x.d).join("\n");
+const specsToText = s => (s||[]).map(x=>x[0]+" :: "+x[1]).join("\n");
+const faqToText = f => (f||[]).map(x=>x[0]+" :: "+x[1]).join("\n");
+const esc = s => String(s==null?"":s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// ---------- import the live static catalog into D1 ----------
+async function importCatalog(){
+  const btn = $("btn-import"); btn.disabled = true; $("import-msg").textContent = "读取网站目录…";
+  try {
+    const txt = await (await fetch(SITE + "/assets/products-data.js?v=" + Date.now())).text();
+    const win = {};
+    new Function("window", txt)(win);          // our own file, same origin
+    const list = win.PRODUCTS || [];
+    if(!list.length) throw new Error("目录里没有商品");
+    $("import-msg").textContent = "写入数据库 0/" + list.length;
+    let ok = 0;
+    for(const p of list){
+      const r = await fetch(API + "/api/products", { method:"POST", headers: hdr(), body: JSON.stringify(p) });
+      if(r.ok) ok++;
+      $("import-msg").textContent = "写入数据库 " + ok + "/" + list.length;
+    }
+    $("import-msg").textContent = "✅ 完成：导入 " + ok + "/" + list.length + " 个商品";
+    loadProducts();
+  } catch(e){
+    $("import-msg").textContent = "❌ 失败：" + e.message;
+  } finally { btn.disabled = false; }
+}
 
 // ---------- products ----------
-function parseLines(text, sep="::"){ return text.split("\n").map(s=>s.trim()).filter(Boolean).map(line=>{ const i=line.indexOf(sep); const a=line.slice(0,i).trim(); const b=line.slice(i+sep.length).trim(); return [a,b]; }); }
-function featuresToText(f){ return (f||[]).map(x=>x.t+" :: "+x.d).join("\n"); }
-function specsToText(s){ return (s||[]).map(x=>x[0]+" :: "+x[1]).join("\n"); }
-
 function loadProducts(){
-  fetch(API+"/api/products").then(r=>r.json()).then(list=>{
-    const el=document.getElementById("prod-list"); el.innerHTML="";
+  fetch(API + "/api/products").then(r=>r.json()).then(list=>{
+    CATALOG = list || [];
+    const el = $("prod-list"); el.innerHTML = "";
+    if(!list.length){ el.innerHTML = "<p class='muted'>数据库里还没有商品 —— 先点上面的「导入网站现有商品」。</p>"; return; }
+    const CAT = { daily:"宠物日常用品", decor:"装饰品", custom:"定制服务" };
     list.forEach(p=>{
-      const d=document.createElement("div"); d.className="prod-item";
-      d.innerHTML="<div><strong>"+p.name+"</strong> <span class='muted'>"+p.price+" · "+(p.stock===false?"hidden":"in stock")+"</span></div>";
-      const b=document.createElement("div");
-      b.innerHTML="<button class='ghost' onclick='editProduct(\""+p.id+"\")'>Edit</button> <button class='danger' onclick='delProduct(\""+p.id+"\")'>Delete</button>";
+      const d = document.createElement("div"); d.className = "prod-item";
+      d.innerHTML = "<div><strong>"+esc(p.name)+"</strong> <span class='cat-badge'>"+(CAT[p.cat]||p.cat||"未分类")+"</span>" +
+        " <span class='muted'>"+esc(p.price)+" · "+(p.stock===false?"已下架":"在售")+"</span>" +
+        "<br><span class='muted' style='font-size:12px'>"+esc(p.id)+"</span></div>";
+      const b = document.createElement("div");
+      b.innerHTML = "<button class='ghost' onclick='editProduct(\""+esc(p.id)+"\")'>编辑</button> <button class='danger' onclick='delProduct(\""+esc(p.id)+"\")'>删除</button>";
       d.appendChild(b); el.appendChild(d);
     });
-    if(!list.length) el.innerHTML="<p class='muted'>No products yet.</p>";
   });
 }
-function newProduct(){ ["p-id","p-name","p-price","p-badge","p-tagline","p-desc","p-img","p-features","p-specs","p-note"].forEach(id=>document.getElementById(id).value=""); document.getElementById("p-stock").value="true"; document.getElementById("p-msg").textContent=""; }
+function newProduct(){
+  ["p-id","p-name","p-price","p-badge","p-tagline","p-desc","p-img","p-features","p-specs","p-faq","p-order"].forEach(id=>$(id).value="");
+  $("p-cat").value = "custom"; $("p-stock").value = "true"; $("p-msg").textContent = "";
+}
 function editProduct(id){
-  fetch(API+"/api/products").then(r=>r.json()).then(list=>{
-    const p=list.find(x=>x.id===id); if(!p) return;
-    document.getElementById("p-id").value=p.id; document.getElementById("p-name").value=p.name||"";
-    document.getElementById("p-price").value=p.price||""; document.getElementById("p-badge").value=p.badge||"";
-    document.getElementById("p-tagline").value=p.tagline||""; document.getElementById("p-desc").value=p.desc||"";
-    document.getElementById("p-img").value=p.img||""; document.getElementById("p-stock").value=String(p.stock!==false);
-    document.getElementById("p-features").value=featuresToText(p.features); document.getElementById("p-specs").value=specsToText(p.specs);
-    document.getElementById("p-note").value=p.curator_note||""; document.getElementById("p-msg").textContent="Editing "+id;
-  });
+  const p = CATALOG.find(x=>x.id===id); if(!p) return;
+  $("p-id").value = p.id; $("p-name").value = p.name||""; $("p-cat").value = p.cat||"custom";
+  $("p-price").value = p.price||""; $("p-badge").value = p.badge||"";
+  $("p-tagline").value = p.tagline||""; $("p-desc").value = p.desc||"";
+  $("p-img").value = p.img||""; $("p-stock").value = String(p.stock!==false);
+  $("p-features").value = featuresToText(p.features); $("p-specs").value = specsToText(p.specs);
+  $("p-faq").value = faqToText(p.faq); $("p-order").value = p.order||"";
+  $("p-msg").textContent = "正在编辑 " + id;
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 function saveProduct(){
-  const p={ id:document.getElementById("p-id").value.trim(),
-    name:document.getElementById("p-name").value.trim(), price:document.getElementById("p-price").value.trim(),
-    badge:document.getElementById("p-badge").value.trim(), tagline:document.getElementById("p-tagline").value.trim(),
-    desc:document.getElementById("p-desc").value.trim(), img:document.getElementById("p-img").value.trim(),
-    stock: document.getElementById("p-stock").value==="true", curator_note:document.getElementById("p-note").value.trim(),
-    features: parseLines(document.getElementById("p-features").value).map(x=>({t:x[0],d:x[1]})),
-    specs: parseLines(document.getElementById("p-specs").value) };
-  if(!p.id){ document.getElementById("p-msg").textContent="id required"; return; }
-  fetch(API+"/api/products",{method:"POST",headers:hdr(),body:JSON.stringify(p)}).then(r=>r.json()).then(j=>{
-    document.getElementById("p-msg").textContent= j.ok? "Saved ✓" : ("Error: "+(j.error||""));
+  const id = $("p-id").value.trim();
+  if(!id){ $("p-msg").textContent = "id 必填"; return; }
+  if(!/^[a-z0-9-]+$/.test(id)){ $("p-msg").textContent = "id 只能用小写字母、数字和连字符"; return; }
+  const p = {
+    id, name: $("p-name").value.trim(), cat: $("p-cat").value,
+    price: $("p-price").value.trim(), badge: $("p-badge").value.trim(),
+    tagline: $("p-tagline").value.trim(), desc: $("p-desc").value.trim(),
+    img: $("p-img").value.trim(), stock: $("p-stock").value === "true",
+    features: parseLines($("p-features").value,"::").map(x=>({t:x[0], d:x[1]})),
+    specs: parseLines($("p-specs").value,"::"),
+    faq: parseLines($("p-faq").value,"::")
+  };
+  const ord = parseInt($("p-order").value,10); if(!isNaN(ord)) p.order = ord;
+  $("p-msg").textContent = "保存中…";
+  fetch(API + "/api/products", { method:"POST", headers: hdr(), body: JSON.stringify(p) }).then(r=>r.json()).then(j=>{
+    $("p-msg").textContent = j.ok ? "✅ 已保存" : ("❌ " + (j.error||"保存失败"));
     if(j.ok) loadProducts();
-  });
+  }).catch(e => $("p-msg").textContent = "❌ " + e.message);
 }
-function delProduct(id){ if(!confirm("Delete "+id+"?")) return; fetch(API+"/api/products?id="+encodeURIComponent(id),{method:"DELETE",headers:hdr()}).then(()=>loadProducts()); }
+function delProduct(id){
+  if(!confirm("删除 " + id + "？此操作不可撤销。")) return;
+  fetch(API + "/api/products?id=" + encodeURIComponent(id), { method:"DELETE", headers: hdr() }).then(()=>loadProducts());
+}
 
 // ---------- orders ----------
 function loadOrders(){
-  const q=document.getElementById("o-q").value, s=document.getElementById("o-status").value;
-  fetch(API+"/api/orders?q="+encodeURIComponent(q)+"&status="+encodeURIComponent(s),{headers:hdr()}).then(r=>r.json()).then(list=>{
-    const t=document.getElementById("o-table"); t.innerHTML="<tr><th>Order</th><th>Date</th><th>Customer</th><th>Product</th><th>Amount</th><th>Method</th><th>Status</th></tr>";
-    document.getElementById("o-empty").style.display = list.length? "none":"block";
-    list.forEach(o=>{
-      const tr=document.createElement("tr"); tr.className="click";
-      tr.innerHTML="<td>"+o.id+"</td><td>"+new Date(o.ts||0).toLocaleString()+"</td><td>"+(o.name||"")+"<br><span class='muted'>"+(o.email||"")+"</span></td><td>"+(o.product_name||o.product_id||"")+"</td><td>$"+(o.amount||0)+"</td><td>"+(o.method||"")+"</td><td><span class='pill "+(o.status||"")+"'>"+(o.status||"")+"</span></td>";
-      tr.onclick=()=>showOrder(o); t.appendChild(tr);
+  const q = $("o-q").value, s = $("o-status").value;
+  fetch(API + "/api/orders?q=" + encodeURIComponent(q) + "&status=" + encodeURIComponent(s), { headers: hdr() })
+    .then(r=>r.json()).then(list=>{
+      const t = $("o-table");
+      t.innerHTML = "<tr><th>订单</th><th>时间</th><th>客户</th><th>商品</th><th>金额</th><th>方式</th><th>状态</th></tr>";
+      $("o-empty").style.display = (list && list.length) ? "none" : "block";
+      (list||[]).forEach(o=>{
+        const tr = document.createElement("tr"); tr.className = "click";
+        tr.innerHTML = "<td>"+esc(o.id)+"</td><td>"+(o.ts?new Date(o.ts).toLocaleString():"")+"</td>" +
+          "<td>"+esc(o.name||"")+"<br><span class='muted'>"+esc(o.email||"")+"</span></td>" +
+          "<td>"+esc(o.product_name||o.product_id||"")+"</td><td>$"+esc(o.amount||0)+"</td>" +
+          "<td>"+esc(o.method||"")+"</td><td><span class='pill "+(o.status||"")+"'>"+esc(o.status||"")+"</span></td>";
+        tr.onclick = () => showOrder(o); t.appendChild(tr);
+      });
+      $("o-detail").classList.add("hidden");
     });
-    document.getElementById("o-detail").classList.add("hidden");
-  });
 }
-let curOrder=null;
-function showOrder(o){ curOrder=o; document.getElementById("o-detail").classList.remove("hidden");
-  document.getElementById("o-json").textContent=JSON.stringify(o,null,2);
-  document.getElementById("o-newstatus").value=o.status||"paid"; }
-function saveOrder(){ if(!curOrder) return; curOrder.status=document.getElementById("o-newstatus").value;
-  fetch(API+"/api/orders",{method:"PUT",headers:hdr(),body:JSON.stringify(curOrder)}).then(()=>{ alert("saved"); loadOrders(); }); }
+let curOrder = null;
+function showOrder(o){
+  curOrder = o;
+  $("o-detail").classList.remove("hidden");
+  $("o-json").textContent = JSON.stringify(o, null, 2);
+  $("o-newstatus").value = o.status || "paid";
+  if(o.tx_hash){ $("o-tx-wrap").classList.remove("hidden"); $("o-tx").textContent = o.tx_hash; }
+  else $("o-tx-wrap").classList.add("hidden");
+}
+function saveOrder(){
+  if(!curOrder) return;
+  curOrder.status = $("o-newstatus").value;
+  fetch(API + "/api/orders", { method:"PUT", headers: hdr(), body: JSON.stringify(curOrder) })
+    .then(()=>{ loadOrders(); $("o-detail").classList.add("hidden"); });
+}
 
-if(TOKEN) fetch(API+"/api/products",{headers:hdr()}).then(r=>{ if(r.ok) enter(); }).catch(()=>{});
+if(TOKEN) fetch(API + "/api/orders?q=&status=", { headers: hdr() }).then(r=>{ if(r.ok){ enter(); loadProducts(); } else sessionStorage.removeItem("eb_admin"); }).catch(()=>{});
 </script>
 </body>
 </html>
