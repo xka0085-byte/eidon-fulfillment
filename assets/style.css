@@ -257,6 +257,14 @@ tr:hover td{background:var(--paper-2)}
 .co-method h3{font-family:var(--serif);font-size:18px;margin-bottom:10px}
 .co-note{font-size:13.5px;color:var(--sub);margin-bottom:14px}
 .co-foot{color:var(--sub);font-size:13.5px;margin-top:26px}
+/* blessing relay */
+.bless{background:var(--accent-soft);border:1px solid var(--accent-line);border-left:3px solid var(--accent);border-radius:var(--r-md);padding:22px 26px;margin:22px 0}
+.bless .bless-k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:10px}
+.bless .bless-q{font-family:var(--serif);font-size:18.5px;line-height:1.6;font-style:italic;color:var(--ink)}
+.bless .bless-f{margin-top:10px;font-size:13px;color:var(--sub)}
+.bless-read .bless{margin-top:0}
+.bless-more{margin-top:14px;font-size:13.5px;color:var(--sub)}
+.bless-more a{color:var(--accent-deep);font-weight:600}
 /* direct USDT panel */
 .co-usdt{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
 .co-usdt summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--accent-deep);list-style:none}

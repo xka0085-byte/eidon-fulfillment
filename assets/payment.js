@@ -46,6 +46,21 @@
   function done(msg) {
     summary.innerHTML = "<div class='co-done'>" + msg + "</div>";
     if (form) form.style.display = "none";
+    showBlessing();
+  }
+
+  // blessing relay: one approved note from the pool, with honest attribution
+  function showBlessing() {
+    var box = document.getElementById("co-blessing");
+    var pool = window.BLESSINGS || [];
+    if (!box || !pool.length) return;
+    var b = pool[Math.floor(Math.random() * pool.length)];
+    box.innerHTML =
+      '<div class="bless"><div class="bless-k">A note for you</div>' +
+      '<div class="bless-q">&ldquo;' + b.t.replace(/</g, "&lt;") + '&rdquo;</div>' +
+      '<div class="bless-f">— ' + b.f.replace(/</g, "&lt;") + "</div>" +
+      '<div class="bless-more">When you\'re ready, <a href="blessing.html">leave a line for the next person</a>.</div></div>';
+    box.hidden = false;
   }
 
   // ---- success return from Coinbase Commerce (redirect with ?status=success) ----
