@@ -180,7 +180,7 @@
   }
 
   function render() {
-    var P = window.PRODUCTS || [];
+    var P = (window.PRODUCTS || []).filter(function (x) { return !x.hidden; });
 
     var shop = document.getElementById("shop-grid");
     if (shop) {

@@ -966,7 +966,7 @@ window.PRODUCTS = [
     "desc": "A soft silicone collar with a box of 30 letter beads — enough to spell most names, with spares. The beads slide on and off the strap, so the name can change as the family does. Waterproof, wipe-clean, and quiet on the neck.",
     "badge": "Spell their name",
     "cat": "custom",
-    "stock": true,
+    "stock": false,
     "img": "assets/products/letter-collar-hero.jpg",
     "imgs": [
       "assets/products/letter-collar-hero.jpg",
@@ -1071,6 +1071,140 @@ window.PRODUCTS = [
         "cny": 45,
         "usd": "$34.99",
         "img": "assets/products/letter-collar-hero.jpg"
+      }
+    ],
+    "hidden": true
+  },
+  {
+    "id": "fur-keepsake-keychain",
+    "name": "Fur Keepsake Keychain",
+    "price": "$24.99",
+    "priceFrom": "$24.99",
+    "tagline": "A little of their coat, in your pocket.",
+    "desc": "A small leather paw-shaped keyring with a shallow chamber behind the front plate — enough for a pinch of their fur. It ships empty, so you fill it yourself at home, in your own time, with no need to post anything to us. Their name can be added to the front.",
+    "badge": "Fur keepsake",
+    "cat": "custom",
+    "stock": true,
+    "img": "assets/products/fur-keychain-hero.jpg",
+    "imgs": [
+      "assets/products/fur-keychain-hero.jpg",
+      "assets/products/fur-keychain-step.jpg",
+      "assets/products/fur-keychain-names.jpg",
+      "assets/products/fur-keychain-all.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "You fill it, not us",
+        "d": "The plate lifts off so you can tuck a pinch of fur inside and press it back down. Nothing has to be posted to China — and nobody else ever touches it."
+      },
+      {
+        "t": "Small enough to carry daily",
+        "d": "60 × 67mm, 80mm with the ring, and only 9g. It sits flat in a pocket and adds almost nothing to a parcel."
+      },
+      {
+        "t": "Seven colours",
+        "d": "Pink, light brown, red, light purple, ginger, khaki and white. Tell us the colour at checkout and we will match it."
+      },
+      {
+        "t": "Their name on the front",
+        "d": "Add up to about ten characters on the front plate. Leave it blank if you would rather it stayed plain."
+      }
+    ],
+    "specs": [
+      [
+        "Size",
+        "60 × 67mm · 80mm including the ring"
+      ],
+      [
+        "Weight",
+        "9g — light enough to post with a collar at no extra cost"
+      ],
+      [
+        "Material",
+        "Leather with a metal ring"
+      ],
+      [
+        "Colours",
+        "Pink · light brown · red · light purple · ginger · khaki · white"
+      ],
+      [
+        "Included",
+        "1 keyring, empty. You add the fur yourself"
+      ],
+      [
+        "Please note",
+        "A keepsake for people, not a toy. Keep away from pets and children"
+      ]
+    ],
+    "faq": [
+      [
+        "Do I have to send you my pet's fur?",
+        "No — and we would rather you did not. The front plate lifts off so you can add a pinch of fur yourself at home. The keyring ships empty."
+      ],
+      [
+        "How much fur does it hold?",
+        "A pinch. The chamber behind the plate is shallow, which is what keeps the keyring flat. A small tuft from a brush is plenty."
+      ],
+      [
+        "Can I put ashes in it instead?",
+        "It is not sealed for ashes — the plate presses on rather than screwing shut. For ashes, the Keepsake Pendant has a proper screw-top chamber."
+      ],
+      [
+        "Can I add their name?",
+        "Yes, up to about ten characters on the front plate. Leave it blank if you would rather it stayed plain."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Fur Keepsake Keychain",
+        "colour": "Pink",
+        "size": "One size · 60×67mm",
+        "fit": "80mm with ring · 9g",
+        "stones": "Leather + metal ring · fill with fur yourself",
+        "cny": 13,
+        "usd": "$24.99",
+        "img": "assets/products/fur-keychain-pink.jpg"
+      },
+      {
+        "name": "Fur Keepsake Keychain",
+        "colour": "Brown",
+        "size": "One size · 60×67mm",
+        "fit": "80mm with ring · 9g",
+        "stones": "Leather + metal ring · fill with fur yourself",
+        "cny": 13,
+        "usd": "$24.99",
+        "img": "assets/products/fur-keychain-brown.jpg"
+      },
+      {
+        "name": "Fur Keepsake Keychain",
+        "colour": "Red",
+        "size": "One size · 60×67mm",
+        "fit": "80mm with ring · 9g",
+        "stones": "Leather + metal ring · fill with fur yourself",
+        "cny": 13,
+        "usd": "$24.99",
+        "img": "assets/products/fur-keychain-red.jpg"
+      },
+      {
+        "name": "Fur Keepsake Keychain",
+        "colour": "Purple",
+        "size": "One size · 60×67mm",
+        "fit": "80mm with ring · 9g",
+        "stones": "Leather + metal ring · fill with fur yourself",
+        "cny": 13,
+        "usd": "$24.99",
+        "img": "assets/products/fur-keychain-purple.jpg"
+      },
+      {
+        "name": "Fur Keepsake Keychain",
+        "colour": "Yellow",
+        "size": "One size · 60×67mm",
+        "fit": "80mm with ring · 9g",
+        "stones": "Leather + metal ring · fill with fur yourself",
+        "cny": 13,
+        "usd": "$24.99",
+        "img": "assets/products/fur-keychain-yellow.jpg"
       }
     ]
   }
