@@ -438,6 +438,7 @@ window.PRODUCTS = [
       "assets/products/collar-maroon-tiger.jpg",
       "assets/products/collar-cocoa-citrine.jpg",
       "assets/products/collar-pink-moon.jpg",
+      "assets/products/collar-pink-large.jpg",
       "assets/products/collar-sky-aquamarine.jpg",
       "assets/products/gemstone-collar-black.jpg",
       "assets/products/gemstone-collar-beads.jpg",
@@ -553,7 +554,7 @@ window.PRODUCTS = [
         "cny": 31.5,
         "usd": "$27.99",
         "margin": 58,
-        "img": "assets/products/collar-pink-moon.jpg"
+        "img": "assets/products/collar-pink-large.jpg"
       },
       {
         "name": "Large · Obsidian",
