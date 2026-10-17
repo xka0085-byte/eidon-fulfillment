@@ -338,7 +338,7 @@ window.PRODUCTS = [
     "name": "Natural Stone Bead Collar",
     "price": "$34.99",
     "tagline": "One for their neck, one for your wrist.",
-    "desc": "A soft PU-leather collar with a detachable strand of polished stone beads and pearls — tiger's eye, citrine, clear quartz and pearl, depending on the colourway. It's a real collar, not a prop: a D-ring for a leash or an ID tag, and a multi-hole strap that adjusts to the neck. Order the matching bracelet and it becomes a set. Ships in a gift box.",
+    "desc": "A soft PU-leather collar with a detachable strand of 12mm polished stone beads and pearls — tiger's eye, citrine, clear quartz and pearl, depending on the colourway. It's a real collar, not a prop: a titanium-steel D-ring for a leash or an ID tag, and a multi-hole strap that adjusts to the neck. Order the matching bracelet and it becomes a set. Comes in a gift box.",
     "badge": "New · set available",
     "cat": "decor",
     "stock": true,
@@ -355,7 +355,7 @@ window.PRODUCTS = [
       },
       {
         "t": "Soft PU leather, rounded edges",
-        "d": "Cut and rounded so it doesn't rub the neck or catch fur. Light, comfortable, and not fussy about weather."
+        "d": "Cut and rounded so it doesn't rub the neck or catch fur. 12mm beads, lightly spaced so they don't pull hair."
       },
       {
         "t": "Made to be worn as a set",
@@ -369,19 +369,23 @@ window.PRODUCTS = [
       ],
       [
         "Hardware",
-        "Buckle + D-ring for a leash or ID tag — gold-tone or silver-tone"
+        "Titanium-steel buckle + D-ring for a leash or ID tag — gold-tone or silver-tone"
       ],
       [
-        "Bead strand",
-        "Polished stone and pearl beads, hand-strung on strong cord, detachable"
+        "Beads",
+        "12mm polished stone beads with pearl accents, hand-strung on strong cord, detachable"
       ],
       [
-        "Adjustment",
-        "Multi-hole strap — S: neck 20–26cm · M: 26–33cm · L: 33–41cm"
+        "Sizes",
+        "XS / S / M — message us your pet's neck measurement and we'll confirm before shipping"
       ],
       [
         "Matching set",
-        "Owner's bracelet available — stone beads on an adjustable band"
+        "Owner's bracelet in the same stones — adjustable band"
+      ],
+      [
+        "Packaging",
+        "Gift box included (ships at ~100g)"
       ],
       [
         "Best for",
@@ -403,7 +407,7 @@ window.PRODUCTS = [
       ],
       [
         "Which size should I order?",
-        "Measure around the middle of the neck and add two fingers' width. S fits most cats and tiny dogs, M fits small dogs (shih tzu, poodle, corgi), L fits medium dogs. The strap has several holes, so there's a little room either way. Between sizes? Size up — we'll confirm before shipping."
+        "We stock XS, S and M. Message us your pet's neck measurement (around the neck, plus two fingers' width) and we'll confirm the right size before anything ships — we would rather ask than send the wrong one."
       ],
       [
         "Are the stones real?",
