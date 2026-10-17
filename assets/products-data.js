@@ -1235,8 +1235,8 @@ window.PRODUCTS = [
         "d": "Roll it, press the paw, trim the edge, then leave it overnight. No kiln, no baking, nothing to get wrong."
       },
       {
-        "t": "Everything in the box",
-        "d": "Air-drying clay, a shaping pen, a plastic roller, ribbon, sanding paper and a printed card with the steps. You supply the paw."
+        "t": "The full kit, not just a bag of clay",
+        "d": "60g or 80g of air-drying clay plus a shaping pen, a plastic roller, ribbon and sanding paper. The cheaper listings on the market are clay only — no tools, no ribbon."
       },
       {
         "t": "Two tries, not one",
@@ -1250,7 +1250,7 @@ window.PRODUCTS = [
       ],
       [
         "Clay",
-        "50g (cats, small paws) · 60g (most dogs) · 80g (large paws or two pets)"
+        "60g (most dogs, disc ≈7cm) · 80g (large paws or two pets, disc ≈8cm)"
       ],
       [
         "Finished size",
@@ -1291,40 +1291,30 @@ window.PRODUCTS = [
         "Yes. A nose print needs less pressure and a slightly smaller disc, so 50g is usually enough even for a big dog. Clean the nose first — a wet nose smudges the clay."
       ],
       [
-        "Which clay weight should I pick?",
-        "50g for cats and small dogs, 60g for most dogs, 80g if the paws are big or you want to fit two pets on one disc."
+        "Which size should I pick?",
+        "60g covers cats and most dogs — the disc comes out about 7cm. Take 80g if the paws are big or you want two pets on one disc. Both come with the full tool set."
       ]
     ],
     "variants": [
       {
         "name": "Paw Print Clay Kit",
-        "img": "assets/products/clay-kit-contents.jpg",
-        "colour": "50g clay",
-        "size": "One size",
-        "fit": "Cats and small paws · disc ≈6cm",
-        "stones": "Air-drying clay · pen · roller · ribbon · sanding paper",
-        "cny": 3.3,
-        "usd": "$19.99"
+        "colour": "60g kit with tools",
+        "size": "Most dogs",
+        "fit": "Disc ≈7cm · clay + pen + roller + ribbon + sanding paper",
+        "stones": "Air-drying clay 60g · shaping pen · plastic roller · ribbon · sanding paper",
+        "cny": 12.9,
+        "usd": "$19.99",
+        "img": "assets/products/clay-kit-contents.jpg"
       },
       {
         "name": "Paw Print Clay Kit",
-        "img": "assets/products/clay-kit-contents.jpg",
-        "colour": "60g clay",
-        "size": "One size",
-        "fit": "Most dogs · disc ≈7cm",
-        "stones": "Air-drying clay · pen · roller · ribbon · sanding paper",
-        "cny": 3.3,
-        "usd": "$19.99"
-      },
-      {
-        "name": "Paw Print Clay Kit",
-        "img": "assets/products/clay-kit-contents.jpg",
-        "colour": "80g clay",
-        "size": "One size",
-        "fit": "Large paws or two pets · disc ≈8cm",
-        "stones": "Air-drying clay · pen · roller · ribbon · sanding paper",
-        "cny": 3.3,
-        "usd": "$19.99"
+        "colour": "80g kit with tools",
+        "size": "Large paws or two pets",
+        "fit": "Disc ≈8cm · clay + pen + roller + ribbon + sanding paper",
+        "stones": "Air-drying clay 80g · shaping pen · plastic roller · ribbon · sanding paper",
+        "cny": 13.9,
+        "usd": "$19.99",
+        "img": "assets/products/clay-kit-contents.jpg"
       }
     ]
   },
@@ -1361,8 +1351,8 @@ window.PRODUCTS = [
         "d": "White, black or natural wood. All three are free-standing, so they go on a shelf, a desk or a windowsill."
       },
       {
-        "t": "Clay in the colour you pick",
-        "d": "The kit clay comes in blue, white, orange, pink or red — tell us which at checkout and we will match it."
+        "t": "Clay in five colours",
+        "d": "White, blue, pink, soft blue or soft pink — tell us which at checkout and we will match it. All at the same price."
       }
     ],
     "specs": [
@@ -1371,12 +1361,12 @@ window.PRODUCTS = [
         "5-inch double frame · free-standing · glass front"
       ],
       [
-        "Finishes",
-        "White · black · natural wood"
+        "Frame",
+        "White · black · natural wood — all ¥22, same price"
       ],
       [
         "Clay",
-        "Air-drying, in blue / white / orange / pink / red"
+        "Air-drying, in white / blue / pink / soft blue / soft pink"
       ],
       [
         "Drying",
@@ -1414,7 +1404,7 @@ window.PRODUCTS = [
         "name": "Paw Print Frame Kit",
         "size": "5-inch double frame",
         "fit": "Free-standing · glass front",
-        "stones": "Frame + air-drying clay + tool",
+        "stones": "Frame + air-drying clay (5 colours) + tool",
         "cny": 22,
         "usd": "$39.99",
         "colour": "White frame",
@@ -1424,7 +1414,7 @@ window.PRODUCTS = [
         "name": "Paw Print Frame Kit",
         "size": "5-inch double frame",
         "fit": "Free-standing · glass front",
-        "stones": "Frame + air-drying clay + tool",
+        "stones": "Frame + air-drying clay (5 colours) + tool",
         "cny": 22,
         "usd": "$39.99",
         "colour": "Black frame",
@@ -1434,7 +1424,7 @@ window.PRODUCTS = [
         "name": "Paw Print Frame Kit",
         "size": "5-inch double frame",
         "fit": "Free-standing · glass front",
-        "stones": "Frame + air-drying clay + tool",
+        "stones": "Frame + air-drying clay (5 colours) + tool",
         "cny": 22,
         "usd": "$39.99",
         "colour": "Wood frame",
