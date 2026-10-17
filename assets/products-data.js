@@ -1207,5 +1207,332 @@ window.PRODUCTS = [
         "img": "assets/products/fur-keychain-yellow.jpg"
       }
     ]
+  },
+  {
+    "id": "pawprint-clay-kit",
+    "name": "Paw Print Clay Kit",
+    "price": "$19.99",
+    "priceFrom": "$19.99",
+    "tagline": "Their print, made at your kitchen table.",
+    "desc": "A box of air-drying clay, a shaping pen, a roller, ribbon and sanding paper — everything for pressing your pet's paw at home and keeping it. No oven, no posting anything to us: your dog stays home and so does the print. Takes about ten minutes, then it dries overnight.",
+    "badge": "Do it at home",
+    "cat": "custom",
+    "stock": true,
+    "img": "assets/products/clay-kit-hero.jpg",
+    "imgs": [
+      "assets/products/clay-kit-hero.jpg",
+      "assets/products/clay-kit-contents.jpg",
+      "assets/products/clay-kit-keepsake.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "Your dog stays home",
+        "d": "Nothing is posted to us — not the pet, not the print. You press the paw at your own table, in your own time, and keep the result. This is the whole point of the kit."
+      },
+      {
+        "t": "Air-drying — no oven, no firing",
+        "d": "Roll it, press the paw, trim the edge, then leave it overnight. No kiln, no baking, nothing to get wrong."
+      },
+      {
+        "t": "Everything in the box",
+        "d": "Air-drying clay, a shaping pen, a plastic roller, ribbon, sanding paper and a printed card with the steps. You supply the paw."
+      },
+      {
+        "t": "Two tries, not one",
+        "d": "If the first press is smudged, smooth the clay and press again — it only sets once it starts drying. Kids' hands work too."
+      }
+    ],
+    "specs": [
+      [
+        "Included",
+        "Air-drying clay · shaping pen · plastic roller · ribbon · sanding paper · step card"
+      ],
+      [
+        "Clay",
+        "50g (cats, small paws) · 60g (most dogs) · 80g (large paws or two pets)"
+      ],
+      [
+        "Finished size",
+        "A disc roughly 6–8cm across, depending on the clay weight"
+      ],
+      [
+        "Drying",
+        "Air-dry overnight — about 24 hours. No oven, no microwave"
+      ],
+      [
+        "How it works",
+        "1 — roll the clay flat · 2 — press the paw evenly · 3 — trim and add the ribbon hole · 4 — leave to dry, then hang it"
+      ],
+      [
+        "Please note",
+        "Wipe paws first. Air-drying clay sets in the bag once opened, so use it the same day"
+      ],
+      [
+        "Next step (optional)",
+        "Photograph the finished print in daylight and message us — we can reproduce it on an engraved pendant"
+      ]
+    ],
+    "faq": [
+      [
+        "Does my pet have to go anywhere, or do I post the print to you?",
+        "No. Nothing leaves your house. You press the paw at home into the clay, and the clay stays with you. We only ever see a photo, and only if you ask us to make a pendant as well."
+      ],
+      [
+        "What if the first press comes out badly?",
+        "Roll the clay back flat and press again. It only hardens once it starts drying, so you have as many attempts as you need before you leave it overnight."
+      ],
+      [
+        "Will the clay set in the post before it reaches me?",
+        "It ships sealed in a foil pouch, which keeps it soft. Open it the day you plan to use it — once opened, the clay starts to dry."
+      ],
+      [
+        "Can I use it for a nose print instead?",
+        "Yes. A nose print needs less pressure and a slightly smaller disc, so 50g is usually enough even for a big dog. Clean the nose first — a wet nose smudges the clay."
+      ],
+      [
+        "Which clay weight should I pick?",
+        "50g for cats and small dogs, 60g for most dogs, 80g if the paws are big or you want to fit two pets on one disc."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Paw Print Clay Kit",
+        "img": "assets/products/clay-kit-contents.jpg",
+        "colour": "50g clay",
+        "size": "One size",
+        "fit": "Cats and small paws · disc ≈6cm",
+        "stones": "Air-drying clay · pen · roller · ribbon · sanding paper",
+        "cny": 3.3,
+        "usd": "$19.99"
+      },
+      {
+        "name": "Paw Print Clay Kit",
+        "img": "assets/products/clay-kit-contents.jpg",
+        "colour": "60g clay",
+        "size": "One size",
+        "fit": "Most dogs · disc ≈7cm",
+        "stones": "Air-drying clay · pen · roller · ribbon · sanding paper",
+        "cny": 3.3,
+        "usd": "$19.99"
+      },
+      {
+        "name": "Paw Print Clay Kit",
+        "img": "assets/products/clay-kit-contents.jpg",
+        "colour": "80g clay",
+        "size": "One size",
+        "fit": "Large paws or two pets · disc ≈8cm",
+        "stones": "Air-drying clay · pen · roller · ribbon · sanding paper",
+        "cny": 3.3,
+        "usd": "$19.99"
+      }
+    ]
+  },
+  {
+    "id": "pawprint-frame-kit",
+    "name": "Paw Print Frame Kit",
+    "price": "$39.99",
+    "priceFrom": "$39.99",
+    "tagline": "One side their face. One side their print.",
+    "desc": "A 5-inch double frame — your photo on the left, their paw print pressed into clay on the right. The clay is air-drying, so the print is made at home in a few minutes and needs no oven. Free-standing, so it sits on a shelf rather than hanging.",
+    "badge": "Frame + clay",
+    "cat": "decor",
+    "stock": true,
+    "img": "assets/products/frame-kit-white.jpg",
+    "imgs": [
+      "assets/products/frame-kit-white.jpg",
+      "assets/products/frame-kit-black.jpg",
+      "assets/products/frame-kit-wood.jpg",
+      "assets/products/frame-kit-studio.jpg",
+      "assets/products/frame-kit-lifestyle.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "Photo and print together",
+        "d": "The left side takes a 5-inch photo you already have. The right side holds the clay disc with their print — the two things you actually want next to each other."
+      },
+      {
+        "t": "Pressed at home, in minutes",
+        "d": "Soften the clay, press the paw, trim the edge, close the frame. No oven and nothing posted to us."
+      },
+      {
+        "t": "Three frame finishes",
+        "d": "White, black or natural wood. All three are free-standing, so they go on a shelf, a desk or a windowsill."
+      },
+      {
+        "t": "Clay in the colour you pick",
+        "d": "The kit clay comes in blue, white, orange, pink or red — tell us which at checkout and we will match it."
+      }
+    ],
+    "specs": [
+      [
+        "Frame",
+        "5-inch double frame · free-standing · glass front"
+      ],
+      [
+        "Finishes",
+        "White · black · natural wood"
+      ],
+      [
+        "Clay",
+        "Air-drying, in blue / white / orange / pink / red"
+      ],
+      [
+        "Drying",
+        "Air-dry overnight before closing the frame, about 24 hours"
+      ],
+      [
+        "Included",
+        "Frame, clay, shaping tool and step card"
+      ],
+      [
+        "Please note",
+        "A 5-inch photo is not included — use one of your own. Wipe paws before pressing"
+      ]
+    ],
+    "faq": [
+      [
+        "Is the photo included?",
+        "No — the frame takes a standard 5-inch photo, so you use one you already have of them. That is usually the one you would have chosen anyway."
+      ],
+      [
+        "Does the print need to be fired?",
+        "No. The clay is air-drying. Press the print, leave it overnight, then close the frame."
+      ],
+      [
+        "Which finish photographs best?",
+        "White is the safest for a pale print, black makes a white or orange print stand out, and wood suits a warmer room."
+      ],
+      [
+        "Can I fit two pets in one frame?",
+        "One print per frame is the honest answer — two paws on one disc get crowded. Message us if you want a pair."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Paw Print Frame Kit",
+        "size": "5-inch double frame",
+        "fit": "Free-standing · glass front",
+        "stones": "Frame + air-drying clay + tool",
+        "cny": 22,
+        "usd": "$39.99",
+        "colour": "White frame",
+        "img": "assets/products/frame-kit-white.jpg"
+      },
+      {
+        "name": "Paw Print Frame Kit",
+        "size": "5-inch double frame",
+        "fit": "Free-standing · glass front",
+        "stones": "Frame + air-drying clay + tool",
+        "cny": 22,
+        "usd": "$39.99",
+        "colour": "Black frame",
+        "img": "assets/products/frame-kit-black.jpg"
+      },
+      {
+        "name": "Paw Print Frame Kit",
+        "size": "5-inch double frame",
+        "fit": "Free-standing · glass front",
+        "stones": "Frame + air-drying clay + tool",
+        "cny": 22,
+        "usd": "$39.99",
+        "colour": "Wood frame",
+        "img": "assets/products/frame-kit-wood.jpg"
+      }
+    ]
+  },
+  {
+    "id": "garden-memorial-stone",
+    "name": "Garden Memorial Stone",
+    "price": "$44.99",
+    "priceFrom": "$44.99",
+    "tagline": "Somewhere in the garden, with their name on it.",
+    "desc": "A white cast-resin angel sitting beside an oversized paw print — made to stand outdoors, under a tree or by the back door, where you will walk past it. Solid and heavy enough not to blow over.",
+    "badge": "For the garden",
+    "cat": "decor",
+    "stock": true,
+    "img": "assets/products/stone-hero.jpg",
+    "imgs": [
+      "assets/products/stone-hero.jpg",
+      "assets/products/stone-garden-1.jpg",
+      "assets/products/stone-garden-2.jpg",
+      "assets/products/stone-garden-3.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "Made to live outside",
+        "d": "Cast resin, not ceramic — it will not shatter the way a pot does. Heavy enough to stay put in wind."
+      },
+      {
+        "t": "A place to walk past",
+        "d": "An indoor urn stays in a cupboard. This sits under the tree they used to lie under, which is where most people actually want it."
+      },
+      {
+        "t": "Their name can be added",
+        "d": "There is a flat face on the paw for a name and dates. Message us the wording before ordering and we will confirm it fits."
+      },
+      {
+        "t": "One piece, no assembly",
+        "d": "It arrives as one cast piece — angel and paw together. No glueing, no fitting."
+      }
+    ],
+    "specs": [
+      [
+        "Material",
+        "Cast resin, matte white finish"
+      ],
+      [
+        "Size",
+        "Approx. 20cm wide · 450g"
+      ],
+      [
+        "Placement",
+        "Outdoor or indoor · free-standing, no fixing needed"
+      ],
+      [
+        "Personalisation",
+        "Name and dates can be added to the flat paw face — message us first"
+      ],
+      [
+        "Care",
+        "Wipe with a damp cloth. Bring indoors through a hard freeze"
+      ],
+      [
+        "Please note",
+        "Cast resin is strong but a dropped stone can chip — it ships in a padded box"
+      ]
+    ],
+    "faq": [
+      [
+        "Will it survive winter outside?",
+        "Rain and frost are fine, but a hard freeze can crack cast resin. We would bring it into a shed or garage for the coldest weeks — it is honest advice rather than a sales line."
+      ],
+      [
+        "Can you put their name on it?",
+        "Yes — the flat face on the paw takes a name and dates. Message us the wording before you order and we will check the length fits before taking your money."
+      ],
+      [
+        "How big is it?",
+        "About 20cm across and 450g. It is a garden piece rather than a shelf ornament."
+      ],
+      [
+        "Is it heavy to ship?",
+        "It is the heaviest thing we sell, which is why free tracked shipping is slower on this one. We would rather tell you than surprise you."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Garden Memorial Stone",
+        "colour": "White",
+        "size": "One size",
+        "fit": "≈20cm · 450g · free-standing",
+        "stones": "Cast resin, matte white",
+        "cny": 36.46,
+        "usd": "$44.99",
+        "img": "assets/products/stone-hero.jpg"
+      }
+    ]
   }
 ];
