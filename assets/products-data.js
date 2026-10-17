@@ -432,12 +432,12 @@ window.PRODUCTS = [
       "assets/products/collar-set-detail.jpg",
       "assets/products/bracelet-detail.jpg",
       "assets/products/gemstone-collar-hero.jpg",
-      "assets/products/collar-navy-onyx.jpg",
-      "assets/products/collar-cocoa-citrine.jpg",
+      "assets/products/collar-black-pearl.jpg",
+      "assets/products/collar-navy-rose.jpg",
       "assets/products/collar-maroon-tiger.jpg",
+      "assets/products/collar-cocoa-citrine.jpg",
       "assets/products/collar-pink-moon.jpg",
       "assets/products/collar-sky-aquamarine.jpg",
-      "assets/products/collar-sky-aquamarine-2.jpg",
       "assets/products/gemstone-collar-black.jpg",
       "assets/products/gemstone-collar-beads.jpg",
       "assets/products/gemstone-collar-gift.jpg"
@@ -453,7 +453,7 @@ window.PRODUCTS = [
         "cny": 21.6,
         "usd": "$24.99",
         "margin": 59,
-        "img": "assets/products/collar-navy-onyx.jpg"
+        "img": "assets/products/collar-black-pearl.jpg"
       },
       {
         "name": "Black · Tiger's Eye & Shell Pearl",
@@ -464,7 +464,7 @@ window.PRODUCTS = [
         "cny": 34.2,
         "usd": "$29.99",
         "margin": 59,
-        "img": "assets/products/collar-navy-onyx.jpg"
+        "img": "assets/products/collar-black-pearl.jpg"
       },
       {
         "name": "Black · Sunset Gold Mix",
@@ -475,7 +475,7 @@ window.PRODUCTS = [
         "cny": 44.1,
         "usd": "$34.99",
         "margin": 60,
-        "img": "assets/products/collar-navy-onyx.jpg"
+        "img": "assets/products/collar-black-pearl.jpg"
       },
       {
         "name": "Sunset Gold Bracelet (owner)",
@@ -563,7 +563,7 @@ window.PRODUCTS = [
         "cny": 22.5,
         "usd": "$24.99",
         "margin": 59,
-        "img": "assets/products/collar-navy-onyx.jpg"
+        "img": "assets/products/collar-black-pearl.jpg"
       },
       {
         "name": "Large · Aquamarine & Moonstone",
@@ -618,7 +618,7 @@ window.PRODUCTS = [
         "cny": 16.2,
         "usd": "$24.99",
         "margin": 62,
-        "img": "assets/products/collar-navy-onyx.jpg"
+        "img": "assets/products/collar-black-pearl.jpg"
       },
       {
         "name": "Small · Aquamarine & Moonstone",
