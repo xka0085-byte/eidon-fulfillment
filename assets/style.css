@@ -518,6 +518,16 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1500;o
 .pd-badges span{display:flex;align-items:center;gap:6px}
 .pd-badges svg{width:15px;height:15px;color:var(--accent);flex:none}
 .pd-related{margin-top:8px}
+/* variant table (sizes / stones / prices) */
+.pd-sub{color:var(--sub);font-size:13.5px;margin:-4px 0 12px;max-width:640px}
+.vtable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--r-md)}
+.vtable{width:100%;border-collapse:collapse;font-size:13px;min-width:620px;margin:0}
+.vtable th{text-align:left;padding:11px 12px;background:var(--paper-2);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);border-bottom:1px solid var(--line);white-space:nowrap}
+.vtable td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+.vtable tr:last-child td{border-bottom:0}
+.vtable .vt-n{font-size:12px;color:var(--sub)}
+.vtable .vt-s{font-size:12.5px;color:var(--sub);max-width:260px}
+.vtable .vt-p{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
 /* product image gallery */
 .pd-img{display:flex;flex-direction:column;gap:12px}
 .pd-thumbs{display:flex;gap:8px;flex-wrap:wrap}

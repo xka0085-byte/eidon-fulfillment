@@ -81,7 +81,7 @@
       '<div class="p-info"><div class="p-cat">' + esc(CAT_LABEL[p.cat] || "Keepsake") + '</div>' +
       '<h3><a href="product.html?id=' + esc(p.id) + '">' + esc(p.name) + "</a></h3>" +
       '<p class="p-tag">' + esc(p.tagline) + "</p>" +
-      '<p class="p-price">' + esc(p.price) + ' <span class="p-free">free shipping</span></p>' +
+      '<p class="p-price">' + esc(p.priceFrom ? "from " + p.priceFrom : p.price) + ' <span class="p-free">free shipping</span></p>' +
       '<div class="p-actions">' +
       '<a class="p-order" href="checkout.html?id=' + esc(p.id) + '">Buy now</a>' +
       '<a class="p-wa" target="_blank" rel="noopener" href="' + orderLink(p) + '" aria-label="Order via WhatsApp">WhatsApp</a>' +
@@ -93,6 +93,24 @@
       return '<div class="frow"><div class="fnum">' + ("0" + (i + 1)).slice(-2) + '</div><div><div class="ft">' + esc(f.t) + '</div><div class="fd">' + esc(f.d) + "</div></div></div>";
     }).join("");
     var specs = (p.specs || []).map(function (s) { return "<tr><td>" + esc(s[0]) + "</td><td>" + esc(s[1]) + "</td></tr>"; }).join("");
+
+    // size / stone / price table — one row per real SKU
+    var variantsHtml = "";
+    if (p.variants && p.variants.length) {
+      variantsHtml =
+        '<section class="pd-section"><h2 class="serif">Sizes, stones &amp; prices</h2>' +
+        '<p class="pd-sub">Every piece is listed with the exact stones it contains. Lengths are the total length of the collar — tell us your pet\'s neck measurement at checkout and we\'ll confirm before it ships.</p>' +
+        '<div class="vtable-wrap"><table class="vtable"><thead><tr><th>Colour</th><th>Size</th><th>Total length</th><th>Stones</th><th>Price</th></tr></thead><tbody>' +
+        p.variants.map(function (v) {
+          return "<tr><td><b>" + esc(v.colour) + "</b><br><span class=\"vt-n\">" + esc(v.name) + "</span></td>" +
+            "<td><b>" + esc(v.size) + "</b></td>" +
+            "<td>" + esc(v.fit) + "</td>" +
+            "<td class=\"vt-s\">" + esc(v.stones) + "</td>" +
+            "<td class=\"vt-p\">" + esc(v.usd) + "</td></tr>";
+        }).join("") +
+        "</tbody></table></div>" +
+        '<p class="pd-sub" style="margin-top:14px">Not sure which size? Message us the neck measurement — we would rather ask than send the wrong one.</p></section>';
+    }
     var imgs = p.imgs && p.imgs.length ? p.imgs : (p.img ? [p.img] : []);
     var imgInner = imgs.length
       ? '<img id="pd-main-img" src="' + esc(imgs[0]) + '" alt="' + esc(p.name) + ' — pet keepsake" decoding="async">' +
@@ -118,13 +136,14 @@
       '<div class="pd-info"><div class="p-badge">' + esc(p.badge || "Free shipping") + '</div><span class="p-free pd-free">free worldwide shipping</span>' +
       '<h1 class="serif">' + esc(p.name) + "</h1>" +
       '<p class="pd-tagline">' + esc(p.tagline) + "</p>" +
-      '<p class="p-price pd-price">' + esc(p.price) + "</p>" + stock +
+      '<p class="p-price pd-price">' + esc(p.priceFrom ? "from " + p.priceFrom : p.price) + "</p>" + stock +
       '<div class="pd-ctas"><a class="btn" href="checkout.html?id=' + esc(p.id) + '">Buy now — PayPal or card</a>' +
       '<a class="btn soft" target="_blank" rel="noopener" href="' + orderLink(p) + '">Order via WhatsApp</a>' +
       '<a class="btn ghost" href="shipping.html">Shipping &amp; payment</a></div>' +
       badges +
       '<p class="pd-note">Made to order &middot; tracked worldwide delivery &middot; <a href="guarantee.html">QC-First Guarantee</a> &middot; not sure your photo works? <a href="https://wa.me/8615982440421?text=Hi!%20Can%20you%20check%20this%20photo%20before%20I%20order%3F" target="_blank" rel="noopener">get a free photo check</a></p></div></div>' +
       '<section class="pd-section"><h2 class="serif">Why you&rsquo;ll love it</h2>' + (feats || "") + "</section>" +
+      variantsHtml +
       (specs ? '<section class="pd-section"><h2 class="serif">The details</h2><table>' + specs + "</table></section>" : "") +
       '<section class="pd-section"><h2 class="serif">How this differs from mass-produced keepsakes</h2>' +
       '<div class="cmp"><div class="cmp-h"><span>EveryBeloved</span><span>Typical marketplace listing</span></div>' +

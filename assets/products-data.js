@@ -338,7 +338,7 @@ window.PRODUCTS = [
     "name": "Natural Stone Bead Collar",
     "price": "$34.99",
     "tagline": "One for their neck, one for your wrist.",
-    "desc": "A soft PU-leather collar with a detachable strand of 12mm polished stone beads and pearls — tiger's eye, citrine, clear quartz and pearl, depending on the colourway. It's a real collar, not a prop: a titanium-steel D-ring for a leash or an ID tag, and a multi-hole strap that adjusts to the neck. Order the matching bracelet and it becomes a set. Comes in a gift box.",
+    "desc": "A soft PU-leather collar with a detachable strand of 12mm polished stone beads and shell pearls — tiger's eye, citrine, clear quartz and pearl, depending on the colourway. It's a real collar, not a prop: a titanium-steel D-ring for a leash or an ID tag, and a multi-hole strap that adjusts to the neck. Order the matching bracelet and it becomes a set. Comes in a gift box.",
     "badge": "New · set available",
     "cat": "decor",
     "stock": true,
@@ -373,7 +373,7 @@ window.PRODUCTS = [
       ],
       [
         "Beads",
-        "12mm polished stone beads with pearl accents, hand-strung on strong cord, detachable"
+        "12mm polished stone beads with shell-pearl and faceted-glass accents, hand-strung, detachable"
       ],
       [
         "Sizes",
@@ -420,6 +420,10 @@ window.PRODUCTS = [
       [
         "Can my dog wear it all the time?",
         "The collar itself, yes — it has a real buckle, D-ring and adjustable strap. The bead strand is decorative: take it off when they're home alone, swimming, or if they chew or paw at their collar."
+      ],
+      [
+        "Are the stones real? What about the pearls?",
+        "The stones are polished natural-stone beads — clear quartz, tiger's eye, citrine, rose quartz, strawberry quartz, amazonite, prehnite and similar, depending on the colourway. The white beads are shell pearl (a pearl-like bead, not cultured pearl), and some accent beads are faceted glass. We list exactly what's in each piece rather than calling it all 'gemstone'."
       ]
     ],
     "imgs": [
@@ -431,6 +435,89 @@ window.PRODUCTS = [
       "assets/products/gemstone-collar-black.jpg",
       "assets/products/gemstone-collar-onyx.jpg",
       "assets/products/gemstone-collar-pink.jpg"
+    ],
+    "priceFrom": "$27.99",
+    "variants": [
+      {
+        "name": "Black · Tiger's Eye & Shell Pearl",
+        "colour": "Black",
+        "size": "XS",
+        "fit": "≈32cm total, 1.5cm wide",
+        "stones": "Clear quartz · tiger's eye · shell pearl beads",
+        "cny": 21.6,
+        "usd": "$27.99",
+        "stock": true
+      },
+      {
+        "name": "Black · Tiger's Eye & Shell Pearl",
+        "colour": "Black",
+        "size": "S",
+        "fit": "≈37.5cm total, 1.5cm wide",
+        "stones": "Clear quartz · tiger's eye · shell pearl beads",
+        "cny": 34.2,
+        "usd": "$31.99",
+        "stock": true
+      },
+      {
+        "name": "Black · Tiger's Eye & Shell Pearl",
+        "colour": "Black",
+        "size": "M",
+        "fit": "≈43.5cm total, 1.5cm wide",
+        "stones": "Clear quartz · tiger's eye · shell pearl beads",
+        "cny": 44.1,
+        "usd": "$34.99",
+        "stock": true
+      },
+      {
+        "name": "White · Rainbow Crystal",
+        "colour": "White",
+        "size": "XS",
+        "fit": "≈32cm total, 1.5cm wide · 10mm beads",
+        "stones": "Clear quartz · strawberry quartz · citrine · amazonite · rose quartz",
+        "cny": 35.1,
+        "usd": "$31.99",
+        "stock": true
+      },
+      {
+        "name": "White · Rainbow Crystal",
+        "colour": "White",
+        "size": "S",
+        "fit": "≈37.5cm total, 1.5cm wide · 10mm beads",
+        "stones": "Clear quartz · rose quartz · strawberry quartz · citrine · amazonite · prehnite",
+        "cny": 44.1,
+        "usd": "$34.99",
+        "stock": true
+      },
+      {
+        "name": "White · Rainbow Crystal",
+        "colour": "White",
+        "size": "M",
+        "fit": "≈43.5cm total, 1.5cm wide · 10mm beads",
+        "stones": "Clear quartz · rose quartz · strawberry quartz · citrine · amazonite · prehnite · yellow quartz",
+        "cny": 54,
+        "usd": "$36.99",
+        "stock": true
+      },
+      {
+        "name": "Owner's bracelet · Sunset Gold",
+        "colour": "Multi",
+        "size": "One size",
+        "fit": "Adjustable · 10mm beads",
+        "stones": "Tiger's eye · yellow quartz · clear quartz · shell pearl beads",
+        "cny": 46.8,
+        "usd": "$34.99",
+        "stock": true
+      },
+      {
+        "name": "Owner's bracelet · Rainbow",
+        "colour": "Multi",
+        "size": "One size",
+        "fit": "Adjustable · 10mm beads",
+        "stones": "A 14-stone mix — rose quartz, citrine, amazonite, prehnite, strawberry quartz, moonstone and more",
+        "cny": 61.2,
+        "usd": "$39.99",
+        "stock": true
+      }
     ]
   }
 ];
