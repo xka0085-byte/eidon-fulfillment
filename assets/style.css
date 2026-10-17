@@ -528,6 +528,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1500;o
 .vtable .vt-n{font-size:12px;color:var(--sub)}
 .vtable .vt-s{font-size:12.5px;color:var(--sub);max-width:260px}
 .vtable .vt-p{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* bundle callout */
+.vbundle{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:var(--r-md);padding:16px 18px;margin:0 0 16px}
+.vb-k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:8px}
+.vb-main{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.vb-note{font-size:12.5px;color:var(--sub);margin-top:3px}
+.vb-price{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;display:flex;flex-direction:column;align-items:flex-end;line-height:1.1}
+.vb-price span{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);font-weight:600;margin-top:4px}
 /* product image gallery */
 .pd-img{display:flex;flex-direction:column;gap:12px}
 .pd-thumbs{display:flex;gap:8px;flex-wrap:wrap}

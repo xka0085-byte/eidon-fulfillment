@@ -436,87 +436,196 @@ window.PRODUCTS = [
       "assets/products/gemstone-collar-onyx.jpg",
       "assets/products/gemstone-collar-pink.jpg"
     ],
-    "priceFrom": "$27.99",
+    "priceFrom": "$24.99",
     "variants": [
       {
         "name": "Black · Tiger's Eye & Shell Pearl",
         "colour": "Black",
-        "size": "XS",
-        "fit": "≈32cm total, 1.5cm wide",
-        "stones": "Clear quartz · tiger's eye · shell pearl beads",
+        "size": "Regular · XS",
+        "fit": "≈32cm total · 1.5cm wide",
+        "stones": "Clear quartz · tiger's eye · shell pearl",
         "cny": 21.6,
-        "usd": "$27.99",
-        "stock": true
+        "usd": "$24.99",
+        "margin": 59
       },
       {
         "name": "Black · Tiger's Eye & Shell Pearl",
         "colour": "Black",
-        "size": "S",
-        "fit": "≈37.5cm total, 1.5cm wide",
-        "stones": "Clear quartz · tiger's eye · shell pearl beads",
+        "size": "Regular · S",
+        "fit": "≈37.5cm total · 1.5cm wide",
+        "stones": "Clear quartz · tiger's eye · shell pearl",
         "cny": 34.2,
-        "usd": "$31.99",
-        "stock": true
+        "usd": "$29.99",
+        "margin": 59
       },
       {
-        "name": "Black · Tiger's Eye & Shell Pearl",
+        "name": "Black · Sunset Gold Mix",
         "colour": "Black",
-        "size": "M",
-        "fit": "≈43.5cm total, 1.5cm wide",
-        "stones": "Clear quartz · tiger's eye · shell pearl beads",
+        "size": "Regular · M",
+        "fit": "≈43.5cm total · 1.5cm wide",
+        "stones": "Sunset-gold stone mix · shell pearl",
         "cny": 44.1,
         "usd": "$34.99",
-        "stock": true
+        "margin": 60
       },
       {
-        "name": "White · Rainbow Crystal",
-        "colour": "White",
-        "size": "XS",
-        "fit": "≈32cm total, 1.5cm wide · 10mm beads",
-        "stones": "Clear quartz · strawberry quartz · citrine · amazonite · rose quartz",
-        "cny": 35.1,
-        "usd": "$31.99",
-        "stock": true
-      },
-      {
-        "name": "White · Rainbow Crystal",
-        "colour": "White",
-        "size": "S",
-        "fit": "≈37.5cm total, 1.5cm wide · 10mm beads",
-        "stones": "Clear quartz · rose quartz · strawberry quartz · citrine · amazonite · prehnite",
-        "cny": 44.1,
-        "usd": "$34.99",
-        "stock": true
-      },
-      {
-        "name": "White · Rainbow Crystal",
-        "colour": "White",
-        "size": "M",
-        "fit": "≈43.5cm total, 1.5cm wide · 10mm beads",
-        "stones": "Clear quartz · rose quartz · strawberry quartz · citrine · amazonite · prehnite · yellow quartz",
-        "cny": 54,
-        "usd": "$36.99",
-        "stock": true
-      },
-      {
-        "name": "Owner's bracelet · Sunset Gold",
+        "name": "Sunset Gold Bracelet (owner)",
         "colour": "Multi",
-        "size": "One size",
+        "size": "Bracelet · one size",
         "fit": "Adjustable · 10mm beads",
-        "stones": "Tiger's eye · yellow quartz · clear quartz · shell pearl beads",
+        "stones": "Tiger's eye · yellow quartz · clear quartz · shell pearl",
         "cny": 46.8,
         "usd": "$34.99",
-        "stock": true
+        "margin": 59
       },
       {
-        "name": "Owner's bracelet · Rainbow",
+        "name": "White · Rainbow Crystal",
+        "colour": "White",
+        "size": "Regular · XS",
+        "fit": "≈32cm total · 1.5cm wide · 10mm",
+        "stones": "Clear quartz · strawberry quartz · citrine · amazonite · rose quartz",
+        "cny": 35.1,
+        "usd": "$29.99",
+        "margin": 59
+      },
+      {
+        "name": "White · Rainbow Crystal",
+        "colour": "White",
+        "size": "Regular · S",
+        "fit": "≈37.5cm total · 1.5cm wide · 10mm",
+        "stones": "Clear quartz · rose quartz · strawberry · citrine · amazonite · prehnite",
+        "cny": 44.1,
+        "usd": "$34.99",
+        "margin": 60
+      },
+      {
+        "name": "White · Rainbow Crystal",
+        "colour": "White",
+        "size": "Regular · M",
+        "fit": "≈43.5cm total · 1.5cm wide · 10mm",
+        "stones": "Clear quartz · rose quartz · strawberry · citrine · amazonite · prehnite · yellow quartz",
+        "cny": 54,
+        "usd": "$36.99",
+        "margin": 58
+      },
+      {
+        "name": "Rainbow Bracelet (owner)",
         "colour": "Multi",
-        "size": "One size",
+        "size": "Bracelet · one size",
         "fit": "Adjustable · 10mm beads",
-        "stones": "A 14-stone mix — rose quartz, citrine, amazonite, prehnite, strawberry quartz, moonstone and more",
+        "stones": "14-stone mix — rose quartz, citrine, amazonite, prehnite, moonstone and more",
         "cny": 61.2,
         "usd": "$39.99",
-        "stock": true
+        "margin": 58
+      },
+      {
+        "name": "Large · Grapestone & Jade",
+        "colour": "White",
+        "size": "Large · 35–44cm",
+        "fit": "Fits 35–44cm · 10–13mm beads · silver hardware",
+        "stones": "Prehnite · yellow hematoid quartz · Xiuyan jade · clear quartz · shell pearl",
+        "cny": 35.1,
+        "usd": "$29.99",
+        "margin": 59
+      },
+      {
+        "name": "Large · Rose Quartz",
+        "colour": "Pink",
+        "size": "Large · 35–44cm",
+        "fit": "Fits 35–44cm · 10–13mm beads · silver hardware",
+        "stones": "Rose quartz · clear quartz · shell pearl",
+        "cny": 31.5,
+        "usd": "$27.99",
+        "margin": 58
+      },
+      {
+        "name": "Large · Obsidian",
+        "colour": "Black",
+        "size": "Large · 35–44cm",
+        "fit": "Fits 35–44cm · 10–13mm beads · silver hardware",
+        "stones": "Obsidian · clear quartz · shell pearl",
+        "cny": 22.5,
+        "usd": "$24.99",
+        "margin": 59
+      },
+      {
+        "name": "Large · Aquamarine & Moonstone",
+        "colour": "Sky",
+        "size": "Large · 35–44cm",
+        "fit": "Fits 35–44cm · 10–13mm beads · silver hardware",
+        "stones": "Aquamarine · white moonstone · clear quartz",
+        "cny": 52.2,
+        "usd": "$36.99",
+        "margin": 59
+      },
+      {
+        "name": "Large · Tiger's Eye & Citrine",
+        "colour": "Cocoa",
+        "size": "Large · 35–44cm",
+        "fit": "Fits 35–44cm · 10–13mm beads · silver hardware",
+        "stones": "Tiger's eye · yellow tower quartz · clear quartz",
+        "cny": 31.5,
+        "usd": "$27.99",
+        "margin": 58
+      },
+      {
+        "name": "Small · Prehnite",
+        "colour": "White",
+        "size": "Small · XS",
+        "fit": "Small size · 10mm beads",
+        "stones": "Prehnite · clear quartz · yellow hematoid quartz",
+        "cny": 25.2,
+        "usd": "$24.99",
+        "margin": 57
+      },
+      {
+        "name": "Small · Rose Quartz & Amethyst",
+        "colour": "Pink",
+        "size": "Small · XS",
+        "fit": "Small size · 10mm beads",
+        "stones": "Rose quartz · clear quartz · amethyst",
+        "cny": 28.8,
+        "usd": "$26.99",
+        "margin": 58
+      },
+      {
+        "name": "Small · Obsidian",
+        "colour": "Black",
+        "size": "Small · XS",
+        "fit": "Small size · 10mm beads",
+        "stones": "Obsidian · clear quartz",
+        "cny": 16.2,
+        "usd": "$24.99",
+        "margin": 62
+      },
+      {
+        "name": "Small · Aquamarine & Moonstone",
+        "colour": "Sky",
+        "size": "Small · XS",
+        "fit": "Small size · 10mm beads",
+        "stones": "Aquamarine · clear quartz · moonstone",
+        "cny": 37.8,
+        "usd": "$29.99",
+        "margin": 57
+      },
+      {
+        "name": "Small · Tiger's Eye",
+        "colour": "Cocoa",
+        "size": "Small · XS",
+        "fit": "Small size · 10mm beads",
+        "stones": "Tiger's eye · clear quartz · yellow tower quartz",
+        "cny": 20.7,
+        "usd": "$24.99",
+        "margin": 60
+      }
+    ],
+    "bundles": [
+      {
+        "name": "The Set — Black S collar + Sunset Gold bracelet",
+        "cny": 81,
+        "usd": "$49.99",
+        "margin": 57,
+        "note": "Bought separately: $66.98"
       }
     ]
   }

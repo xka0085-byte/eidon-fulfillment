@@ -97,9 +97,18 @@
     // size / stone / price table — one row per real SKU
     var variantsHtml = "";
     if (p.variants && p.variants.length) {
+      var bundleHtml = "";
+      if (p.bundles && p.bundles.length) {
+        var b = p.bundles[0];
+        bundleHtml =
+          '<div class="vbundle"><div class="vb-k">Best value</div>' +
+          '<div class="vb-main"><div><b>' + esc(b.name) + '</b><div class="vb-note">' + esc(b.note) + ' — save on the pair</div></div>' +
+          '<div class="vb-price">' + esc(b.usd) + '<span>set price</span></div></div></div>';
+      }
       variantsHtml =
         '<section class="pd-section"><h2 class="serif">Sizes, stones &amp; prices</h2>' +
         '<p class="pd-sub">Every piece is listed with the exact stones it contains. Lengths are the total length of the collar — tell us your pet\'s neck measurement at checkout and we\'ll confirm before it ships.</p>' +
+        bundleHtml +
         '<div class="vtable-wrap"><table class="vtable"><thead><tr><th>Colour</th><th>Size</th><th>Total length</th><th>Stones</th><th>Price</th></tr></thead><tbody>' +
         p.variants.map(function (v) {
           return "<tr><td><b>" + esc(v.colour) + "</b><br><span class=\"vt-n\">" + esc(v.name) + "</span></td>" +
