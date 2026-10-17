@@ -93,7 +93,15 @@
       return '<div class="frow"><div class="fnum">' + ("0" + (i + 1)).slice(-2) + '</div><div><div class="ft">' + esc(f.t) + '</div><div class="fd">' + esc(f.d) + "</div></div></div>";
     }).join("");
     var specs = (p.specs || []).map(function (s) { return "<tr><td>" + esc(s[0]) + "</td><td>" + esc(s[1]) + "</td></tr>"; }).join("");
-    var imgInner = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + ' — pet keepsake" decoding="async">' : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
+    var imgs = p.imgs && p.imgs.length ? p.imgs : (p.img ? [p.img] : []);
+    var imgInner = imgs.length
+      ? '<img id="pd-main-img" src="' + esc(imgs[0]) + '" alt="' + esc(p.name) + ' — pet keepsake" decoding="async">' +
+        (imgs.length > 1
+          ? '<div class="pd-thumbs">' + imgs.map(function (src, i) {
+              return '<button type="button" class="pd-thumb' + (i === 0 ? " on" : "") + '" data-src="' + esc(src) + '"><img src="' + esc(src) + '" alt="" loading="lazy" decoding="async"></button>';
+            }).join("") + "</div>"
+          : "")
+      : '<span>' + esc(p.name).split(" ").slice(0, 2).join("<br>") + "</span>";
     var stock = '<div class="pd-stock">Made to order <span>· ships in 10–15 days, tracked worldwide</span></div>';
     var ic = function (d) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' + d + "</svg>"; };
     var badges =
@@ -195,6 +203,15 @@
       pd.innerHTML = p ? pDetail(p) : '<p>Product not found.</p><p><a class="btn" href="shop.html">Back to shop</a></p>';
       document.title = p ? p.name + " — EveryBeloved" : document.title;
       if (p) injectProductSEO(p);
+      // image gallery: click a thumb to swap the main image
+      pd.addEventListener("click", function (e) {
+        var t = e.target.closest(".pd-thumb");
+        if (!t) return;
+        var main = document.getElementById("pd-main-img");
+        if (main) main.src = t.getAttribute("data-src");
+        pd.querySelectorAll(".pd-thumb").forEach(function (x) { x.classList.remove("on"); });
+        t.classList.add("on");
+      });
     }
 
     observeReveals();

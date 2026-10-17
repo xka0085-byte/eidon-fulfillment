@@ -339,10 +339,10 @@ window.PRODUCTS = [
     "price": "$34.99",
     "tagline": "One for their neck, one for your wrist.",
     "desc": "A soft PU-leather collar with a detachable strand of polished stone beads and pearls — tiger's eye, citrine, clear quartz and pearl, depending on the colourway. It's a real collar, not a prop: a D-ring for a leash or an ID tag, and a multi-hole strap that adjusts to the neck. Order the matching bracelet and it becomes a set. Ships in a gift box.",
-    "badge": "New",
+    "badge": "New · set available",
     "cat": "decor",
     "stock": true,
-    "img": "assets/products/gemstone-collar-hero.jpg",
+    "img": "assets/products/collar-set-lifestyle.jpg",
     "order": 1,
     "features": [
       {
@@ -417,6 +417,14 @@ window.PRODUCTS = [
         "Can my dog wear it all the time?",
         "The collar itself, yes — it has a real buckle, D-ring and adjustable strap. The bead strand is decorative: take it off when they're home alone, swimming, or if they chew or paw at their collar."
       ]
+    ],
+    "imgs": [
+      "assets/products/collar-set-lifestyle.jpg",
+      "assets/products/collar-set-detail.jpg",
+      "assets/products/bracelet-detail.jpg",
+      "assets/products/gemstone-collar-hero.jpg",
+      "assets/products/gemstone-collar-onyx.jpg",
+      "assets/products/gemstone-collar-pink.jpg"
     ]
   }
 ];

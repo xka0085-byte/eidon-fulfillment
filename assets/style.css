@@ -518,6 +518,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1500;o
 .pd-badges span{display:flex;align-items:center;gap:6px}
 .pd-badges svg{width:15px;height:15px;color:var(--accent);flex:none}
 .pd-related{margin-top:8px}
+/* product image gallery */
+.pd-img{display:flex;flex-direction:column;gap:12px}
+.pd-thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.pd-thumb{width:64px;height:64px;padding:0;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;cursor:pointer;background:var(--paper-2);flex:none;transition:border-color .2s,transform .2s}
+.pd-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pd-thumb:hover{border-color:var(--accent)}
+.pd-thumb.on{border-color:var(--accent-deep);box-shadow:0 0 0 1px var(--accent-deep)}
 .pd-related h2{font-family:var(--serif);font-size:24px;margin-bottom:6px}
 @media(max-width:960px){
   .cat-tiles{grid-template-columns:1fr 1fr}
