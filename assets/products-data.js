@@ -342,7 +342,7 @@ window.PRODUCTS = [
     "badge": "New · set available",
     "cat": "decor",
     "stock": true,
-    "img": "assets/products/collar-set-lifestyle.jpg",
+    "img": "assets/products/collar-set-portrait.jpg",
     "order": 1,
     "features": [
       {
@@ -419,10 +419,12 @@ window.PRODUCTS = [
       ]
     ],
     "imgs": [
+      "assets/products/collar-set-portrait.jpg",
       "assets/products/collar-set-lifestyle.jpg",
       "assets/products/collar-set-detail.jpg",
       "assets/products/bracelet-detail.jpg",
       "assets/products/gemstone-collar-hero.jpg",
+      "assets/products/gemstone-collar-black.jpg",
       "assets/products/gemstone-collar-onyx.jpg",
       "assets/products/gemstone-collar-pink.jpg"
     ]
