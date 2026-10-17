@@ -1524,5 +1524,337 @@ window.PRODUCTS = [
         "img": "assets/products/stone-hero.jpg"
       }
     ]
+  },
+  {
+    "id": "paw-washer-cup",
+    "name": "Paw Washer Cup",
+    "price": "$24.99",
+    "priceFrom": "$24.99",
+    "tagline": "Muddy paws, clean in ten seconds.",
+    "desc": "A silicone cup lined with soft bristles. Add water, put the paw in, twist, and the mud comes off — no bath, no towel, no wet floor. Works for cats too, and the cup comes apart so you can rinse the grit out.",
+    "badge": "Muddy paw fix",
+    "cat": "daily",
+    "stock": true,
+    "img": "assets/products/washer-coral.jpg",
+    "imgs": [
+      "assets/products/washer-coral.jpg",
+      "assets/products/washer-sky.jpg",
+      "assets/products/washer-sage.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "No bath after every walk",
+        "d": "Fill it with a little water, push the paw in and twist. The bristles work the mud out of the pads and between the toes, then you dry the paw with a towel."
+      },
+      {
+        "t": "Soft silicone bristles",
+        "d": "Soft enough not to hurt the pads, stiff enough to shift mud and grit. They come out with the inner cup, so you can rinse it properly."
+      },
+      {
+        "t": "Three colours",
+        "d": "Coral, sky blue and sage. Keep one by the door and one in the car — that is what most people end up doing."
+      },
+      {
+        "t": "Cats tolerate it too",
+        "d": "The cup is quiet and there is no spray, which is why it works on cats where a hose does not."
+      }
+    ],
+    "specs": [
+      [
+        "Material",
+        "Silicone cup with soft inner bristles, removable core"
+      ],
+      [
+        "Size",
+        "One size — takes a medium paw, from small dogs to medium"
+      ],
+      [
+        "Colours",
+        "Coral · sky blue · sage"
+      ],
+      [
+        "How it works",
+        "1 — add 2cm of water · 2 — lower the paw in · 3 — twist gently for a few seconds · 4 — dry the paw"
+      ],
+      [
+        "Weight",
+        "150g — light enough to post with a collar at no extra cost"
+      ],
+      [
+        "Please note",
+        "Use plain water for muddy paws. If you use shampoo, rinse the cup out afterwards"
+      ]
+    ],
+    "faq": [
+      [
+        "Will my dog actually let me do this?",
+        "Most do, because there is no spray and no running water — the cup is quiet and the paw goes in vertically. Introduce it empty first with a treat, then add water."
+      ],
+      [
+        "Does it work on cats?",
+        "Yes — that is one reason people buy it. A cat's paw is smaller, so lower it in a little further."
+      ],
+      [
+        "Can I use shampoo in it?",
+        "You can, but mud rinses out with plain water and shampoo makes the cup slippery. If you do use shampoo, rinse the cup thoroughly afterwards."
+      ],
+      [
+        "Do I need to dry the paw after?",
+        "Yes — one towel press. The cup cleans, it does not dry."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Paw Washer Cup",
+        "size": "One size",
+        "fit": "Takes a medium paw · removable core",
+        "stones": "Silicone cup + soft inner bristles",
+        "cny": 2.85,
+        "usd": "$24.99",
+        "colour": "Coral",
+        "img": "assets/products/washer-coral.jpg"
+      },
+      {
+        "name": "Paw Washer Cup",
+        "size": "One size",
+        "fit": "Takes a medium paw · removable core",
+        "stones": "Silicone cup + soft inner bristles",
+        "cny": 2.85,
+        "usd": "$24.99",
+        "colour": "Sky blue",
+        "img": "assets/products/washer-sky.jpg"
+      },
+      {
+        "name": "Paw Washer Cup",
+        "size": "One size",
+        "fit": "Takes a medium paw · removable core",
+        "stones": "Silicone cup + soft inner bristles",
+        "cny": 2.85,
+        "usd": "$24.99",
+        "colour": "Sage",
+        "img": "assets/products/washer-sage.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bone-bag-holder",
+    "name": "Bone Bag Holder",
+    "price": "$16.99",
+    "priceFrom": "$16.99",
+    "tagline": "A bone on your leash, with the bags inside.",
+    "desc": "A small leather bone with a snap clasp — clips to the leash handle and holds a roll of pickup bags. 16g, so it disappears on the lead. Better looking than the plastic dispensers, and it does not rattle.",
+    "badge": "16g",
+    "cat": "daily",
+    "stock": true,
+    "img": "assets/products/bagholder-white.jpg",
+    "imgs": [
+      "assets/products/bagholder-white.jpg",
+      "assets/products/bagholder-black.jpg",
+      "assets/products/bagholder-pink.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "Clips to the leash, not your pocket",
+        "d": "A snap clasp on the back takes the leash handle, a belt loop or a treat pouch strap. You stop patting your pockets on the way out."
+      },
+      {
+        "t": "Silent, unlike plastic dispensers",
+        "d": "Leather and a soft pouch, so it does not rattle or click while you walk — which is what spooks nervous dogs."
+      },
+      {
+        "t": "Three colours",
+        "d": "White, black and pink. Black hides dirt best; white photographs best."
+      },
+      {
+        "t": "16g — free to add to any order",
+        "d": "At 16g it adds nothing to a parcel, so it ships with a collar at no extra postage. It is the thing we most often add to an order."
+      }
+    ],
+    "specs": [
+      [
+        "Material",
+        "Leather pouch with a metal snap clasp"
+      ],
+      [
+        "Size",
+        "Bone shape, approx. hand-palm size — takes a standard roll"
+      ],
+      [
+        "Colours",
+        "White · black · pink"
+      ],
+      [
+        "Weight",
+        "16g"
+      ],
+      [
+        "Bags included",
+        "No — it takes a standard pickup-bag roll"
+      ],
+      [
+        "Please note",
+        "Check the roll size you use; very wide rolls will not fit comfortably"
+      ]
+    ],
+    "faq": [
+      [
+        "Are bags included?",
+        "No — it takes a standard roll of pickup bags, the kind you already buy. Message us before ordering if you use an unusually wide roll and we will check the fit."
+      ],
+      [
+        "Will it fit on a thick leash handle?",
+        "The clasp opens wide enough for a standard webbing handle. On a very chunky rope lead, clip it to the D-ring instead."
+      ],
+      [
+        "Does it hold a full roll?",
+        "A standard roll, yes. It is a pouch rather than a dispenser, so you pull the bag out through the opening."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Bone Bag Holder",
+        "size": "One size",
+        "fit": "Takes a standard bag roll",
+        "stones": "Leather + metal snap clasp",
+        "cny": 5.5,
+        "usd": "$16.99",
+        "colour": "White",
+        "img": "assets/products/bagholder-white.jpg"
+      },
+      {
+        "name": "Bone Bag Holder",
+        "size": "One size",
+        "fit": "Takes a standard bag roll",
+        "stones": "Leather + metal snap clasp",
+        "cny": 5.5,
+        "usd": "$16.99",
+        "colour": "Black",
+        "img": "assets/products/bagholder-black.jpg"
+      },
+      {
+        "name": "Bone Bag Holder",
+        "size": "One size",
+        "fit": "Takes a standard bag roll",
+        "stones": "Leather + metal snap clasp",
+        "cny": 5.5,
+        "usd": "$16.99",
+        "colour": "Pink",
+        "img": "assets/products/bagholder-pink.jpg"
+      }
+    ]
+  },
+  {
+    "id": "car-safety-belt",
+    "name": "Car Safety Belt",
+    "price": "$19.99",
+    "priceFrom": "$19.99",
+    "tagline": "Clips into the seat belt slot.",
+    "desc": "One end goes into the car's seat belt buckle, the other clips to a harness. Reflective webbing and a bungee section so a sudden stop does not jolt the neck. It stops them climbing into the front — which is the actual reason most people buy it.",
+    "badge": "Reflective",
+    "cat": "daily",
+    "stock": true,
+    "img": "assets/products/carbelt-orange.jpg",
+    "imgs": [
+      "assets/products/carbelt-orange.jpg",
+      "assets/products/carbelt-grey.jpg",
+      "assets/products/carbelt-black.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "Goes into the seat belt slot",
+        "d": "The metal tongue clicks into the car's own belt buckle. No tools, no fitting, works in any car with a standard belt."
+      },
+      {
+        "t": "Bungee, so it gives on braking",
+        "d": "The elastic section absorbs the jolt instead of yanking. This is the difference between a strap and a restraint."
+      },
+      {
+        "t": "Reflective webbing",
+        "d": "Catches headlights when you are loading them at night on a roadside."
+      },
+      {
+        "t": "Attach it to a harness, never a collar",
+        "d": "A collar takes the whole force on the throat. This only makes sense clipped to a harness — we would rather say it plainly than sell you something unsafe."
+      }
+    ],
+    "specs": [
+      [
+        "Fits",
+        "Cars with a standard seat belt buckle"
+      ],
+      [
+        "Attachment",
+        "Seat belt tongue one end, metal clip the other"
+      ],
+      [
+        "Material",
+        "Reflective nylon webbing with an elastic bungee section"
+      ],
+      [
+        "Colours",
+        "Orange · grey · black (more colours available — ask)"
+      ],
+      [
+        "Weight",
+        "100g"
+      ],
+      [
+        "Please note",
+        "Clip to a HARNESS, never a collar. Never leave a dog unattended in a car"
+      ]
+    ],
+    "faq": [
+      [
+        "Will it fit my car?",
+        "It fits any car with a standard seat belt buckle — which covers almost everything on the road. Message us your car model if you are unsure and we will check before you pay."
+      ],
+      [
+        "Collar or harness?",
+        "Harness. Always. On a collar, a sudden stop puts the whole load on the throat, which can injure a dog badly. If you do not have a harness, this is not the product to start with."
+      ],
+      [
+        "Does it stop my dog standing on the seats?",
+        "It limits how far they can move, which is enough to keep them out of the front. It is a restraint for everyday driving, not a crash-tested harness."
+      ],
+      [
+        "Can I use it with the window down?",
+        "Yes, but keep the lead short enough that they cannot get a paw or head outside the window."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Car Safety Belt",
+        "size": "One size",
+        "fit": "Fits a standard seat belt buckle",
+        "stones": "Reflective webbing + elastic bungee",
+        "cny": 2.8,
+        "usd": "$19.99",
+        "colour": "Orange",
+        "img": "assets/products/carbelt-orange.jpg"
+      },
+      {
+        "name": "Car Safety Belt",
+        "size": "One size",
+        "fit": "Fits a standard seat belt buckle",
+        "stones": "Reflective webbing + elastic bungee",
+        "cny": 2.8,
+        "usd": "$19.99",
+        "colour": "Grey",
+        "img": "assets/products/carbelt-grey.jpg"
+      },
+      {
+        "name": "Car Safety Belt",
+        "size": "One size",
+        "fit": "Fits a standard seat belt buckle",
+        "stones": "Reflective webbing + elastic bungee",
+        "cny": 2.8,
+        "usd": "$19.99",
+        "colour": "Black",
+        "img": "assets/products/carbelt-black.jpg"
+      }
+    ]
   }
 ];
