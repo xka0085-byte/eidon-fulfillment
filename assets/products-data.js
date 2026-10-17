@@ -662,7 +662,7 @@ window.PRODUCTS = [
     "priceFrom": "$19.99",
     "tagline": "Their face, on your keys.",
     "desc": "A double-sided embroidered disc of your dog — 7.5cm across, on a swivel clasp that clips to keys, a tote or a bag. Eighteen breed designs, stitched in thread rather than printed, so the detail holds up close. This one is for you, not for them.",
-    "badge": "18 breeds",
+    "badge": "22 breeds",
     "cat": "parent",
     "stock": true,
     "img": "assets/products/keychain-single.jpg",
@@ -682,8 +682,8 @@ window.PRODUCTS = [
         "d": "Big enough to see the face, small enough to disappear in a pocket. The clasp swivels so it never twists your keys."
       },
       {
-        "t": "Eighteen breeds",
-        "d": "Border Collie, Golden Retriever, Husky, Labrador, German Shepherd, Samoyed, Dachshund, Poodle and ten more. If yours is missing, tell us."
+        "t": "Twenty-two breeds",
+        "d": "Boston Terrier, Husky, Pomeranian, Border Collie, Dalmatian, German Shepherd, Westie, Shiba Inu, French Bulldog, Poodle, Golden Retriever, Chihuahua, Beagle, Dachshund, Maltese, Shih Tzu, Shetland, Yorkshire Terrier, Schnauzer, Papillon, Pug and Labrador."
       },
       {
         "t": "For you, not for them",
@@ -723,7 +723,7 @@ window.PRODUCTS = [
       ],
       [
         "My breed is not in the list — can you get it?",
-        "The range covers 18 breeds. Message us with your breed and we will tell you honestly whether it exists or whether the closest one is worth having."
+        "The range covers 22 breeds, and each one has its own photo in the list above. If yours is missing, message us — we will tell you honestly whether it exists rather than take the order and disappoint you."
       ],
       [
         "Is it embroidered or printed?",
@@ -737,23 +737,13 @@ window.PRODUCTS = [
     "variants": [
       {
         "name": "Embroidered Dog Keychain",
-        "colour": "Border Collie",
+        "colour": "Boston Terrier",
         "size": "One size · 7.5cm",
         "fit": "7.5cm disc · 12.5cm with clasp",
         "stones": "Embroidered thread, double-sided",
         "cny": 28.5,
         "usd": "$19.99",
-        "img": "assets/products/keychain-breeds.jpg"
-      },
-      {
-        "name": "Embroidered Dog Keychain",
-        "colour": "Golden Retriever",
-        "size": "One size · 7.5cm",
-        "fit": "7.5cm disc · 12.5cm with clasp",
-        "stones": "Embroidered thread, double-sided",
-        "cny": 28.5,
-        "usd": "$19.99",
-        "img": "assets/products/keychain-breeds.jpg"
+        "img": "assets/products/keychain-boston-terrier.jpg"
       },
       {
         "name": "Embroidered Dog Keychain",
@@ -763,17 +753,37 @@ window.PRODUCTS = [
         "stones": "Embroidered thread, double-sided",
         "cny": 28.5,
         "usd": "$19.99",
-        "img": "assets/products/keychain-breeds.jpg"
+        "img": "assets/products/keychain-husky.jpg"
       },
       {
         "name": "Embroidered Dog Keychain",
-        "colour": "Labrador",
+        "colour": "Pomeranian",
         "size": "One size · 7.5cm",
         "fit": "7.5cm disc · 12.5cm with clasp",
         "stones": "Embroidered thread, double-sided",
         "cny": 28.5,
         "usd": "$19.99",
-        "img": "assets/products/keychain-breeds.jpg"
+        "img": "assets/products/keychain-pomeranian.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Border Collie",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-border-collie.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Dalmatian",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-dalmatian.jpg"
       },
       {
         "name": "Embroidered Dog Keychain",
@@ -783,27 +793,37 @@ window.PRODUCTS = [
         "stones": "Embroidered thread, double-sided",
         "cny": 28.5,
         "usd": "$19.99",
-        "img": "assets/products/keychain-breeds.jpg"
+        "img": "assets/products/keychain-german-shepherd.jpg"
       },
       {
         "name": "Embroidered Dog Keychain",
-        "colour": "Samoyed",
+        "colour": "West Highland White Terrier",
         "size": "One size · 7.5cm",
         "fit": "7.5cm disc · 12.5cm with clasp",
         "stones": "Embroidered thread, double-sided",
         "cny": 28.5,
         "usd": "$19.99",
-        "img": "assets/products/keychain-breeds.jpg"
+        "img": "assets/products/keychain-westie.jpg"
       },
       {
         "name": "Embroidered Dog Keychain",
-        "colour": "Dachshund",
+        "colour": "Shiba Inu",
         "size": "One size · 7.5cm",
         "fit": "7.5cm disc · 12.5cm with clasp",
         "stones": "Embroidered thread, double-sided",
         "cny": 28.5,
         "usd": "$19.99",
-        "img": "assets/products/keychain-breeds.jpg"
+        "img": "assets/products/keychain-shiba-inu.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "French Bulldog",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-french-bulldog.jpg"
       },
       {
         "name": "Embroidered Dog Keychain",
@@ -813,7 +833,244 @@ window.PRODUCTS = [
         "stones": "Embroidered thread, double-sided",
         "cny": 28.5,
         "usd": "$19.99",
-        "img": "assets/products/keychain-breeds.jpg"
+        "img": "assets/products/keychain-poodle.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Golden Retriever",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-golden-retriever.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Chihuahua",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-chihuahua.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Beagle",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-beagle.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Dachshund",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-dachshund.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Maltese",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-maltese.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Shih Tzu",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-shih-tzu.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Shetland Sheepdog",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-shetland.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Yorkshire Terrier",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-yorkie.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Schnauzer",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-schnauzer.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Papillon",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-papillon.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Pug",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-pug.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Labrador",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-labrador.jpg"
+      }
+    ]
+  },
+  {
+    "id": "silicone-letter-collar",
+    "name": "Letter Bead Collar",
+    "price": "$34.99",
+    "priceFrom": "$34.99",
+    "tagline": "Spell their name in letters.",
+    "desc": "A soft silicone collar with a box of 30 letter beads — enough to spell most names, with spares. The beads slide on and off the strap, so the name can change as the family does. Waterproof, wipe-clean, and quiet on the neck.",
+    "badge": "Spell their name",
+    "cat": "custom",
+    "stock": true,
+    "img": "assets/products/letter-collar-hero.jpg",
+    "imgs": [
+      "assets/products/letter-collar-hero.jpg",
+      "assets/products/letter-collar-lifestyle.jpg",
+      "assets/products/letter-collar-worn.jpg",
+      "assets/products/letter-colour-navy.jpg",
+      "assets/products/letter-colour-pink.jpg",
+      "assets/products/letter-colour-yellow.jpg",
+      "assets/products/letter-colour-purple.jpg",
+      "assets/products/letter-colour-sky.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "A–Z plus four symbols",
+        "d": "30 beads in the box: every letter plus a heart, flower, star and paw. Enough for most names with spares left over, and nothing is glued down."
+      },
+      {
+        "t": "Silicone, so it survives everything",
+        "d": "Water, mud, rain and the dishwasher-grade wipe-down. It does not crack like leather and it makes no noise when they shake."
+      },
+      {
+        "t": "Three lengths",
+        "d": "S 37.6cm, M 45.2cm, L 53.9cm — measured end to end, 19mm wide. Cats and small-to-medium dogs."
+      },
+      {
+        "t": "Five colours",
+        "d": "Navy, pale pink, yellow, purple and sky. Tell us the colour at checkout and we will match the bead set to it."
+      }
+    ],
+    "specs": [
+      [
+        "Material",
+        "Silicone strap, 3.5mm thick, 19mm wide"
+      ],
+      [
+        "Sizes",
+        "S 376mm · M 452mm · L 539mm (end to end)"
+      ],
+      [
+        "Included",
+        "1 collar + 30 pieces: A–Z plus heart, flower, star and paw (letters 25mm tall)"
+      ],
+      [
+        "Colours",
+        "Navy · pale pink · yellow · purple · sky"
+      ],
+      [
+        "Care",
+        "Wipe or rinse clean. No cracking, no fading in water"
+      ],
+      [
+        "Please note",
+        "Letter beads are small — not a chew toy. Take the collar off for rough play"
+      ]
+    ],
+    "faq": [
+      [
+        "Can I spell my pet's full name?",
+        "The set includes 30 beads, which covers most names with spares. If the name needs more of one letter than the set contains, message us before ordering and we will check."
+      ],
+      [
+        "Can the letters be changed later?",
+        "Yes — the beads slide on and off the strap, so you can re-spell it whenever you want. Nothing is glued or stitched."
+      ],
+      [
+        "Which size should I order?",
+        "Measure the neck and add two fingers' width. S is 37.6cm end to end, M is 45.2cm and L is 53.9cm. Between sizes? Size up and tell us the measurement at checkout."
+      ],
+      [
+        "Is it safe to leave on all day?",
+        "The collar is comfortable for everyday wear, but the letter beads are small parts — take it off for rough play or if your pet chews at collars."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Letter Bead Collar",
+        "colour": "5 colours",
+        "size": "S · 37.6cm",
+        "fit": "19mm wide · 3.5mm thick",
+        "stones": "Silicone + 30 letter beads",
+        "cny": 45,
+        "usd": "$34.99",
+        "img": "assets/products/letter-collar-hero.jpg"
+      },
+      {
+        "name": "Letter Bead Collar",
+        "colour": "5 colours",
+        "size": "M · 45.2cm",
+        "fit": "19mm wide · 3.5mm thick",
+        "stones": "Silicone + 30 letter beads",
+        "cny": 45,
+        "usd": "$34.99",
+        "img": "assets/products/letter-collar-hero.jpg"
+      },
+      {
+        "name": "Letter Bead Collar",
+        "colour": "5 colours",
+        "size": "L · 53.9cm",
+        "fit": "19mm wide · 3.5mm thick",
+        "stones": "Silicone + 30 letter beads",
+        "cny": 45,
+        "usd": "$34.99",
+        "img": "assets/products/letter-collar-hero.jpg"
       }
     ]
   }
