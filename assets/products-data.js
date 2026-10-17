@@ -432,6 +432,7 @@ window.PRODUCTS = [
       "assets/products/collar-set-detail.jpg",
       "assets/products/bracelet-detail.jpg",
       "assets/products/gemstone-collar-hero.jpg",
+      "assets/products/collar-white-prehnite.jpg",
       "assets/products/collar-black-pearl.jpg",
       "assets/products/collar-navy-rose.jpg",
       "assets/products/collar-maroon-tiger.jpg",
@@ -541,7 +542,7 @@ window.PRODUCTS = [
         "cny": 35.1,
         "usd": "$29.99",
         "margin": 59,
-        "img": "assets/products/gemstone-collar-hero.jpg"
+        "img": "assets/products/collar-white-prehnite.jpg"
       },
       {
         "name": "Large · Rose Quartz",
@@ -596,7 +597,7 @@ window.PRODUCTS = [
         "cny": 25.2,
         "usd": "$24.99",
         "margin": 57,
-        "img": "assets/products/gemstone-collar-hero.jpg"
+        "img": "assets/products/collar-white-prehnite.jpg"
       },
       {
         "name": "Small · Rose Quartz & Amethyst",
