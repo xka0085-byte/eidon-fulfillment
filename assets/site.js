@@ -111,7 +111,8 @@
         bundleHtml +
         '<div class="vtable-wrap"><table class="vtable"><thead><tr><th>Colour</th><th>Size</th><th>Total length</th><th>Stones</th><th>Price</th></tr></thead><tbody>' +
         p.variants.map(function (v) {
-          return "<tr><td><b>" + esc(v.colour) + "</b><br><span class=\"vt-n\">" + esc(v.name) + "</span></td>" +
+          return "<tr><td class=\"vt-c\"><div class=\"vt-thumb\"><img src=\"" + esc(v.img || p.img) + "\" alt=\"\" loading=\"lazy\" decoding=\"async\"></div>" +
+            "<div><b>" + esc(v.colour) + "</b><br><span class=\"vt-n\">" + esc(v.name) + "</span></div></td>" +
             "<td><b>" + esc(v.size) + "</b></td>" +
             "<td>" + esc(v.fit) + "</td>" +
             "<td class=\"vt-s\">" + esc(v.stones) + "</td>" +

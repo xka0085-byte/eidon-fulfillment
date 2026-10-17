@@ -432,9 +432,15 @@ window.PRODUCTS = [
       "assets/products/collar-set-detail.jpg",
       "assets/products/bracelet-detail.jpg",
       "assets/products/gemstone-collar-hero.jpg",
+      "assets/products/collar-navy-onyx.jpg",
+      "assets/products/collar-cocoa-citrine.jpg",
+      "assets/products/collar-maroon-tiger.jpg",
+      "assets/products/collar-pink-moon.jpg",
+      "assets/products/collar-sky-aquamarine.jpg",
+      "assets/products/collar-sky-aquamarine-2.jpg",
       "assets/products/gemstone-collar-black.jpg",
-      "assets/products/gemstone-collar-onyx.jpg",
-      "assets/products/gemstone-collar-pink.jpg"
+      "assets/products/gemstone-collar-beads.jpg",
+      "assets/products/gemstone-collar-gift.jpg"
     ],
     "priceFrom": "$24.99",
     "variants": [
@@ -446,7 +452,8 @@ window.PRODUCTS = [
         "stones": "Clear quartz · tiger's eye · shell pearl",
         "cny": 21.6,
         "usd": "$24.99",
-        "margin": 59
+        "margin": 59,
+        "img": "assets/products/collar-navy-onyx.jpg"
       },
       {
         "name": "Black · Tiger's Eye & Shell Pearl",
@@ -456,7 +463,8 @@ window.PRODUCTS = [
         "stones": "Clear quartz · tiger's eye · shell pearl",
         "cny": 34.2,
         "usd": "$29.99",
-        "margin": 59
+        "margin": 59,
+        "img": "assets/products/collar-navy-onyx.jpg"
       },
       {
         "name": "Black · Sunset Gold Mix",
@@ -466,7 +474,8 @@ window.PRODUCTS = [
         "stones": "Sunset-gold stone mix · shell pearl",
         "cny": 44.1,
         "usd": "$34.99",
-        "margin": 60
+        "margin": 60,
+        "img": "assets/products/collar-navy-onyx.jpg"
       },
       {
         "name": "Sunset Gold Bracelet (owner)",
@@ -476,7 +485,8 @@ window.PRODUCTS = [
         "stones": "Tiger's eye · yellow quartz · clear quartz · shell pearl",
         "cny": 46.8,
         "usd": "$34.99",
-        "margin": 59
+        "margin": 59,
+        "img": "assets/products/bracelet-detail.jpg"
       },
       {
         "name": "White · Rainbow Crystal",
@@ -486,7 +496,8 @@ window.PRODUCTS = [
         "stones": "Clear quartz · strawberry quartz · citrine · amazonite · rose quartz",
         "cny": 35.1,
         "usd": "$29.99",
-        "margin": 59
+        "margin": 59,
+        "img": "assets/products/gemstone-collar-hero.jpg"
       },
       {
         "name": "White · Rainbow Crystal",
@@ -496,7 +507,8 @@ window.PRODUCTS = [
         "stones": "Clear quartz · rose quartz · strawberry · citrine · amazonite · prehnite",
         "cny": 44.1,
         "usd": "$34.99",
-        "margin": 60
+        "margin": 60,
+        "img": "assets/products/gemstone-collar-hero.jpg"
       },
       {
         "name": "White · Rainbow Crystal",
@@ -506,7 +518,8 @@ window.PRODUCTS = [
         "stones": "Clear quartz · rose quartz · strawberry · citrine · amazonite · prehnite · yellow quartz",
         "cny": 54,
         "usd": "$36.99",
-        "margin": 58
+        "margin": 58,
+        "img": "assets/products/gemstone-collar-hero.jpg"
       },
       {
         "name": "Rainbow Bracelet (owner)",
@@ -516,7 +529,8 @@ window.PRODUCTS = [
         "stones": "14-stone mix — rose quartz, citrine, amazonite, prehnite, moonstone and more",
         "cny": 61.2,
         "usd": "$39.99",
-        "margin": 58
+        "margin": 58,
+        "img": "assets/products/bracelet-detail.jpg"
       },
       {
         "name": "Large · Grapestone & Jade",
@@ -526,7 +540,8 @@ window.PRODUCTS = [
         "stones": "Prehnite · yellow hematoid quartz · Xiuyan jade · clear quartz · shell pearl",
         "cny": 35.1,
         "usd": "$29.99",
-        "margin": 59
+        "margin": 59,
+        "img": "assets/products/gemstone-collar-hero.jpg"
       },
       {
         "name": "Large · Rose Quartz",
@@ -536,7 +551,8 @@ window.PRODUCTS = [
         "stones": "Rose quartz · clear quartz · shell pearl",
         "cny": 31.5,
         "usd": "$27.99",
-        "margin": 58
+        "margin": 58,
+        "img": "assets/products/collar-pink-moon.jpg"
       },
       {
         "name": "Large · Obsidian",
@@ -546,7 +562,8 @@ window.PRODUCTS = [
         "stones": "Obsidian · clear quartz · shell pearl",
         "cny": 22.5,
         "usd": "$24.99",
-        "margin": 59
+        "margin": 59,
+        "img": "assets/products/collar-navy-onyx.jpg"
       },
       {
         "name": "Large · Aquamarine & Moonstone",
@@ -556,7 +573,8 @@ window.PRODUCTS = [
         "stones": "Aquamarine · white moonstone · clear quartz",
         "cny": 52.2,
         "usd": "$36.99",
-        "margin": 59
+        "margin": 59,
+        "img": "assets/products/collar-sky-aquamarine.jpg"
       },
       {
         "name": "Large · Tiger's Eye & Citrine",
@@ -566,7 +584,8 @@ window.PRODUCTS = [
         "stones": "Tiger's eye · yellow tower quartz · clear quartz",
         "cny": 31.5,
         "usd": "$27.99",
-        "margin": 58
+        "margin": 58,
+        "img": "assets/products/collar-cocoa-citrine.jpg"
       },
       {
         "name": "Small · Prehnite",
@@ -576,7 +595,8 @@ window.PRODUCTS = [
         "stones": "Prehnite · clear quartz · yellow hematoid quartz",
         "cny": 25.2,
         "usd": "$24.99",
-        "margin": 57
+        "margin": 57,
+        "img": "assets/products/gemstone-collar-hero.jpg"
       },
       {
         "name": "Small · Rose Quartz & Amethyst",
@@ -586,7 +606,8 @@ window.PRODUCTS = [
         "stones": "Rose quartz · clear quartz · amethyst",
         "cny": 28.8,
         "usd": "$26.99",
-        "margin": 58
+        "margin": 58,
+        "img": "assets/products/collar-pink-moon.jpg"
       },
       {
         "name": "Small · Obsidian",
@@ -596,7 +617,8 @@ window.PRODUCTS = [
         "stones": "Obsidian · clear quartz",
         "cny": 16.2,
         "usd": "$24.99",
-        "margin": 62
+        "margin": 62,
+        "img": "assets/products/collar-navy-onyx.jpg"
       },
       {
         "name": "Small · Aquamarine & Moonstone",
@@ -606,7 +628,8 @@ window.PRODUCTS = [
         "stones": "Aquamarine · clear quartz · moonstone",
         "cny": 37.8,
         "usd": "$29.99",
-        "margin": 57
+        "margin": 57,
+        "img": "assets/products/collar-sky-aquamarine.jpg"
       },
       {
         "name": "Small · Tiger's Eye",
@@ -616,7 +639,8 @@ window.PRODUCTS = [
         "stones": "Tiger's eye · clear quartz · yellow tower quartz",
         "cny": 20.7,
         "usd": "$24.99",
-        "margin": 60
+        "margin": 60,
+        "img": "assets/products/collar-cocoa-citrine.jpg"
       }
     ],
     "bundles": [
