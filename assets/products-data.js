@@ -654,5 +654,167 @@ window.PRODUCTS = [
         "note": "Bought separately: $66.98"
       }
     ]
+  },
+  {
+    "id": "embroidered-dog-keychain",
+    "name": "Embroidered Dog Keychain",
+    "price": "$19.99",
+    "priceFrom": "$19.99",
+    "tagline": "Their face, on your keys.",
+    "desc": "A double-sided embroidered disc of your dog — 7.5cm across, on a swivel clasp that clips to keys, a tote or a bag. Eighteen breed designs, stitched in thread rather than printed, so the detail holds up close. This one is for you, not for them.",
+    "badge": "18 breeds",
+    "cat": "parent",
+    "stock": true,
+    "img": "assets/products/keychain-single.jpg",
+    "imgs": [
+      "assets/products/keychain-single.jpg",
+      "assets/products/keychain-embroidery.jpg",
+      "assets/products/keychain-breeds.jpg"
+    ],
+    "order": 1,
+    "features": [
+      {
+        "t": "Embroidered, not printed",
+        "d": "Double-sided stitching — the fur, the eyes and the shading are thread, not ink. It reads as a small portrait up close."
+      },
+      {
+        "t": "7.5cm disc, 12.5cm with the clasp",
+        "d": "Big enough to see the face, small enough to disappear in a pocket. The clasp swivels so it never twists your keys."
+      },
+      {
+        "t": "Eighteen breeds",
+        "d": "Border Collie, Golden Retriever, Husky, Labrador, German Shepherd, Samoyed, Dachshund, Poodle and ten more. If yours is missing, tell us."
+      },
+      {
+        "t": "For you, not for them",
+        "d": "This is a keyring for the person, not a collar charm for the dog. No ring, no leash — it lives on your keys."
+      }
+    ],
+    "specs": [
+      [
+        "Size",
+        "7.5cm disc · 12.5cm total including the clasp"
+      ],
+      [
+        "Material",
+        "Embroidered thread on a padded disc, metal swivel clasp"
+      ],
+      [
+        "Designs",
+        "18 breed portraits, double-sided"
+      ],
+      [
+        "Care",
+        "Wipe with a damp cloth. Do not machine wash or tumble dry"
+      ],
+      [
+        "Weight",
+        "≈40g — light enough to post with a collar at no extra cost"
+      ],
+      [
+        "Please note",
+        "A keyring for people, not a pet collar charm"
+      ]
+    ],
+    "faq": [
+      [
+        "Is this for my dog to wear?",
+        "No — it is a keyring for you. It clips to keys, a tote or a bag. We say this plainly because the listing photos can look like a pet tag."
+      ],
+      [
+        "My breed is not in the list — can you get it?",
+        "The range covers 18 breeds. Message us with your breed and we will tell you honestly whether it exists or whether the closest one is worth having."
+      ],
+      [
+        "Is it embroidered or printed?",
+        "Embroidered — double-sided thread, not a printed disc. Wipe it clean with a damp cloth; do not machine wash or tumble dry."
+      ],
+      [
+        "How big is it?",
+        "7.5cm across the disc, 12.5cm from the top of the clasp to the bottom of the disc."
+      ]
+    ],
+    "variants": [
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Border Collie",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-breeds.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Golden Retriever",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-breeds.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Husky",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-breeds.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Labrador",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-breeds.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "German Shepherd",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-breeds.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Samoyed",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-breeds.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Dachshund",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-breeds.jpg"
+      },
+      {
+        "name": "Embroidered Dog Keychain",
+        "colour": "Poodle",
+        "size": "One size · 7.5cm",
+        "fit": "7.5cm disc · 12.5cm with clasp",
+        "stones": "Embroidered thread, double-sided",
+        "cny": 28.5,
+        "usd": "$19.99",
+        "img": "assets/products/keychain-breeds.jpg"
+      }
+    ]
   }
 ];

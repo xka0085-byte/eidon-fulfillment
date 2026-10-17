@@ -11,12 +11,13 @@
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
 
-  var CAT_LABEL = { daily: "Everyday essentials", decor: "Decor & accessories", custom: "Custom keepsakes" };
-  var CAT_FILTERS = [["all", "All pieces"], ["daily", "Everyday essentials"], ["decor", "Decor & accessories"], ["custom", "Custom keepsakes"]];
+  var CAT_LABEL = { custom: "Custom keepsakes", decor: "Decor & accessories", daily: "Everyday essentials", parent: "For pet parents" };
+  var CAT_FILTERS = [["all", "All pieces"], ["custom", "Custom keepsakes"], ["decor", "Decor & accessories"], ["daily", "Everyday essentials"], ["parent", "For pet parents"]];
   var CAT_EMPTY = {
     daily: "The first everyday essentials are being picked right now — collars, tags and gear, chosen with the same care as our keepsakes. Tell us what you're looking for and we'll make sure it's in the first drop.",
     decor: "Decor & accessories are on the way — charms, tags and small pieces for the life you share. Send us what you'd want and it goes to the top of the list.",
-    custom: "Our custom line is being refreshed — message us and we'll make it for you."
+    custom: "Our custom line is being refreshed — message us and we'll make it for you.",
+    parent: "Pieces for you, not for them — keychains, matching bracelets and small things with their face on them. More on the way; tell us what you'd carry."
   };
 
   function orderLink(p) {
